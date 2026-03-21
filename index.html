@@ -179,7 +179,7 @@ select.inp{
 /* ── PROJECT CARD ────────────────────────────────────────── */
 .proj-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);
   padding:16px 18px;margin-bottom:10px;cursor:pointer;position:relative;overflow:hidden}
-.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--proj-color,var(--accent))}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent)}
 .proj-card:active{opacity:.7}
 .proj-card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;line-height:1.3}
 .proj-card-desc{font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.4;
@@ -337,8 +337,8 @@ select.inp{
 .fchip:active{opacity:.7}
 
 /* ── HERO ────────────────────────────────────────────────── */
-.hero{background:-webkit-linear-gradient(135deg,var(--s1) 0%,#0d1a14 100%);
-  background:linear-gradient(135deg,var(--s1) 0%,#0d1a14 100%);
+.hero{background:-webkit-linear-gradient(135deg,var(--s1) 0%,var(--s2) 100%);
+  background:linear-gradient(135deg,var(--s1) 0%,var(--s2) 100%);
   border:1px solid var(--border);border-radius:var(--r);padding:22px 18px;margin-bottom:18px;
   position:relative;overflow:hidden}
 .hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
@@ -789,20 +789,19 @@ function respCardHTML(r){
   var ans=Object.values(r.answers||{}).filter(function(a){return a!==null&&a!==undefined&&String(a).trim()}).length;
   var total=r.qIds?r.qIds.length:(proj.questions?proj.questions.length:0);
   var pct=total?Math.round(ans/total*100):0;
-  var clr=proj.color||COLORS[0];
   var dateStr=new Date(r.date).toLocaleDateString('tr-TR',{day:'numeric',month:'short'});
   var init=(r.profile&&r.profile.note?r.profile.note:'?').charAt(0).toUpperCase();
   var note=esc(r.profile&&r.profile.note?r.profile.note:'İsimsiz');
   var nat=esc(r.profile&&r.profile.nationality?r.profile.nationality:'');
   return '<div class="resp-card" onclick="openRespDetail(\''+safeId(r.id)+'\')">'
     +'<div class="resp-card-top">'
-    +'<div class="resp-avatar" style="background:'+clr+'">'+init+'</div>'
+    +'<div class="resp-avatar" style="background:var(--accent)">'+init+'</div>'
     +'<div style="flex:1;min-width:0">'
     +'<div class="resp-name">'+note+(r.profile&&r.profile.age?' · '+esc(r.profile.age)+' yaş':'')+'</div>'
     +'<div class="resp-meta">'+esc(proj.emoji||'📋')+' '+esc(proj.name)+' · '+dateStr+(nat?' · '+nat:'')+'</div>'
     +'</div></div>'
     +'<div class="resp-prog-label"><span>'+ans+'/'+total+' cevap</span><span>'+pct+'%</span></div>'
-    +'<div class="prog-track"><div class="prog-fill" style="width:'+pct+'%;background:'+clr+'"></div></div>'
+    +'<div class="prog-track"><div class="prog-fill" style="width:'+pct+'%"></div></div>'
     +'</div>';
 }
 
@@ -817,9 +816,8 @@ function renderProjects(){
     :db.projects.map(function(p){
       var rc=db.responses.filter(function(r){return r.projectId===p.id}).length;
       var qc=p.questions?p.questions.length:0;
-      var clr=p.color||COLORS[0];
       var pid=safeId(p.id);
-      return '<div class="proj-card" style="--proj-color:'+clr+'" onclick="openProject(\''+pid+'\')">'
+      return '<div class="proj-card" onclick="openProject(\''+pid+'\')">'
         +'<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px">'
         +'<div class="proj-card-title">'+esc(p.emoji||'📋')+' '+esc(p.name)+'</div>'
         +'<div style="display:flex;gap:6px;flex-shrink:0">'
@@ -845,7 +843,7 @@ function renderProjectDetail(el){
   if(!proj){el.innerHTML='';return;}
   var rc=db.responses.filter(function(r){return r.projectId===proj.id}).length;
   var qc=proj.questions?proj.questions.length:0;
-  var clr=proj.color||COLORS[0];
+  var clr='var(--accent)';
   var pid=safeId(proj.id);
 
   var qSection='';
@@ -903,7 +901,7 @@ function renderProjectDetail(el){
 }
 
 function qbItemHTML(q,proj,cat){
-  var clr=cat&&cat.color?cat.color:(proj.color||COLORS[0]);
+  var clr=cat&&cat.color?cat.color:'var(--accent)';
   var qid=safeId(q.id);
   return '<div class="qb-item">'
     +'<div class="qb-body"><div class="qb-q">'+esc(q.text)+'</div>'
@@ -1168,7 +1166,7 @@ function showSurveyScreen(){
 function renderSurveyStep(){
   var el=document.getElementById('sc-survey');
   var proj=db.projects.find(function(p){return p.id===surveyState.projectId});
-  var clr=proj?(proj.color||COLORS[0]):COLORS[0];
+  var clr='var(--accent)';
   var totalSteps=surveyState.qIds.length+2;
 
   if(surveyState.step==='profile'){
@@ -1381,7 +1379,7 @@ function renderRespDetail(id,editing){
   var proj=db.projects.find(function(p){return p.id===resp.projectId});
   if(!proj) return;
   var el=document.getElementById('sc-detail');
-  var clr=proj.color||COLORS[0];
+  var clr='var(--accent)';
   var prof=resp.profile||{};
   var dateStr=new Date(resp.date).toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'});
   var qIds=resp.qIds||proj.questions.map(function(q){return q.id});
