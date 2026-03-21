@@ -13,29 +13,44 @@
 <style>
 /* ── RESET & ROOT ─────────────────────────────────────────── */
 :root {
-  --bg:#080809; --s1:#111113; --s2:#18181b; --s3:#222226;
-  --border:#2a2a2f; --border2:#343439;
-  --text:#ededee; --text2:#8a8a92; --text3:#4a4a52;
   --accent:#6ee7b7; --accent-dim:rgba(110,231,183,0.12);
   --accent2:#fbbf24; --accent2-dim:rgba(251,191,36,0.12);
   --blue:#60a5fa; --blue-dim:rgba(96,165,250,0.12);
   --pink:#f472b6; --pink-dim:rgba(244,114,182,0.12);
   --red:#f87171; --red-dim:rgba(248,113,113,0.12);
   --r:14px; --r-sm:9px;
-  /* Safe area — fallback to 0 for non-notch devices */
   --sat:env(safe-area-inset-top,0px);
   --sab:env(safe-area-inset-bottom,0px);
   --sal:env(safe-area-inset-left,0px);
   --sar:env(safe-area-inset-right,0px);
-  /* App height — dvh with vh fallback */
-  --app-h: 100vh;
+  --app-h:100vh;
+  /* dark defaults */
+  --bg:#080809; --s1:#111113; --s2:#18181b; --s3:#222226;
+  --border:#2a2a2f; --border2:#343439;
+  --text:#ededee; --text2:#8a8a92; --text3:#4a4a52;
 }
+/* LIGHT MODE */
+body.light{
+  --bg:#f4f4f5; --s1:#ffffff; --s2:#ececee; --s3:#e0e0e4;
+  --border:#d4d4d8; --border2:#c0c0c8;
+  --text:#18181b; --text2:#71717a; --text3:#a1a1aa;
+}
+/* ACCENT THEMES */
+body.ac-green  {--accent:#6ee7b7;--accent-dim:rgba(110,231,183,0.14)}
+body.ac-amber  {--accent:#fbbf24;--accent-dim:rgba(251,191,36,0.14)}
+body.ac-blue   {--accent:#60a5fa;--accent-dim:rgba(96,165,250,0.14)}
+body.ac-pink   {--accent:#f472b6;--accent-dim:rgba(244,114,182,0.14)}
+body.ac-violet {--accent:#a78bfa;--accent-dim:rgba(167,139,250,0.14)}
+body.ac-orange {--accent:#fb923c;--accent-dim:rgba(251,146,60,0.14)}
+body.ac-red    {--accent:#f87171;--accent-dim:rgba(248,113,113,0.14)}
+body.ac-teal   {--accent:#2dd4bf;--accent-dim:rgba(45,212,191,0.14)}
+
 *{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
 html{height:100%;height:-webkit-fill-available;background:var(--bg)}
 body{height:100%;height:-webkit-fill-available;background:var(--bg);color:var(--text);
   font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
-  overflow:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-/* Use dvh where supported, fall back to fill-available / vh */
+  overflow:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;
+  -webkit-transition:background .25s,color .25s;transition:background .25s,color .25s}
 @supports (height:100dvh){:root{--app-h:100dvh}}
 
 /* ── APP SHELL ───────────────────────────────────────────── */
@@ -401,12 +416,14 @@ select.inp{
   <div class="screen" id="sc-projects"></div>
   <div class="screen" id="sc-survey"></div>
   <div class="screen" id="sc-detail"></div>
+  <div class="screen" id="sc-settings"></div>
 
   <nav class="nav" id="main-nav">
     <div class="nv on" id="nv-home" onclick="go('home')"><span class="ni">🏠</span><span class="nl">Ana Sayfa</span></div>
     <div class="nv" id="nv-history" onclick="go('history')"><span class="ni">📋</span><span class="nl">Cevaplar</span></div>
     <div class="nv" id="nv-stats" onclick="go('stats')"><span class="ni">📊</span><span class="nl">İstatistik</span></div>
     <div class="nv" id="nv-projects" onclick="go('projects')"><span class="ni">📁</span><span class="nl">Projeler</span></div>
+    <div class="nv" id="nv-settings" onclick="go('settings')"><span class="ni">⚙️</span><span class="nl">Ayarlar</span></div>
   </nav>
 
   <!-- MODALS -->
@@ -524,6 +541,22 @@ select.inp{
     </div>
   </div>
 
+  <!-- IMPORT OLD DATA MODAL -->
+  <div class="modal-ov" id="m-import" onclick="cm('import')">
+    <div class="modal-sh" onclick="event.stopPropagation()">
+      <div class="modal-handle"></div>
+      <div class="modal-title">📥 Eski Veriyi Aktar</div>
+      <div class="modal-sub">Felsefi Anket uygulamasından indirdiğin JSON dosyasını seç. Veriler otomatik dönüştürülür.</div>
+      <div style="background:var(--accent-dim);border:1px solid var(--accent);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:16px;font-size:13px;line-height:1.6;color:var(--accent)">
+        ⚠️ Mevcut veriler silinmez — eski veriler yeni projeye eklenir.
+      </div>
+      <input type="file" id="old-import-input" accept=".json" style="display:none" onchange="processOldImport(event)">
+      <button class="btn btn-p" onclick="document.getElementById('old-import-input').click()">📂 JSON Dosyası Seç</button>
+      <div id="import-status" style="margin-top:12px;font-size:13px;color:var(--text2);line-height:1.6"></div>
+      <button class="btn btn-g" style="margin-top:10px" onclick="cm('import')">Kapat</button>
+    </div>
+  </div>
+
   <div class="toast" id="toast"></div>
 </div>
 
@@ -595,6 +628,100 @@ let editProjColor=COLORS[0];
 let editCatColor=COLORS[0];
 
 // ================================================================
+// THEME SYSTEM
+// ================================================================
+var ACCENT_THEMES=[
+  {id:'ac-green',  label:'Yeşil',  color:'#6ee7b7'},
+  {id:'ac-amber',  label:'Amber',  color:'#fbbf24'},
+  {id:'ac-blue',   label:'Mavi',   color:'#60a5fa'},
+  {id:'ac-pink',   label:'Pembe',  color:'#f472b6'},
+  {id:'ac-violet', label:'Mor',    color:'#a78bfa'},
+  {id:'ac-orange', label:'Turuncu',color:'#fb923c'},
+  {id:'ac-red',    label:'Kırmızı',color:'#f87171'},
+  {id:'ac-teal',   label:'Teal',   color:'#2dd4bf'},
+];
+var themeSettings;
+try{themeSettings=JSON.parse(localStorage.getItem('fw_theme')||'null')||{mode:'system',accent:'ac-green'}}
+catch(e){themeSettings={mode:'system',accent:'ac-green'}}
+var mq=window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)');
+function applyTheme(){
+  var isDark;
+  if(themeSettings.mode==='dark') isDark=true;
+  else if(themeSettings.mode==='light') isDark=false;
+  else isDark=mq?mq.matches:true;
+  var b=document.body;
+  b.classList.toggle('light',!isDark);
+  ACCENT_THEMES.forEach(function(t){b.classList.remove(t.id)});
+  b.classList.add(themeSettings.accent||'ac-green');
+  var tc=document.querySelector('meta[name="theme-color"]');
+  if(tc) tc.content=isDark?'#080809':'#f4f4f5';
+  try{localStorage.setItem('fw_theme',JSON.stringify(themeSettings))}catch(e){}
+}
+if(mq&&mq.addEventListener){mq.addEventListener('change',function(){if(themeSettings.mode==='system')applyTheme();})}
+else if(mq&&mq.addListener){mq.addListener(function(){if(themeSettings.mode==='system')applyTheme();})}
+applyTheme();
+
+function setAccent(id){themeSettings.accent=id;applyTheme();renderSettings();}
+function setMode(m){themeSettings.mode=m;applyTheme();renderSettings();}
+function hexToRgb(hex){
+  var r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return r+','+g+','+b;
+}
+
+function renderSettings(){
+  var currentAccent=themeSettings.accent||'ac-green';
+  var currentMode=themeSettings.mode||'system';
+  var modeRows=[
+    {id:'system',label:'Sisteme Göre',icon:'📱',sub:'Cihazın temasını takip eder'},
+    {id:'dark',  label:'Koyu',        icon:'🌙',sub:'Her zaman koyu tema'},
+    {id:'light', label:'Açık',        icon:'☀️', sub:'Her zaman açık tema'},
+  ];
+  var accentGrid=ACCENT_THEMES.map(function(t){
+    var sel=currentAccent===t.id;
+    return '<div onclick="setAccent(\''+t.id+'\')" style="display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;padding:10px 4px;border-radius:12px;border:2px solid '+(sel?t.color:'var(--border)')+';background:'+(sel?'rgba('+hexToRgb(t.color)+',0.12)':'var(--s2)')+';">'
+      +'<div style="width:26px;height:26px;border-radius:50%;background:'+t.color+'"></div>'
+      +'<div style="font-size:10px;font-weight:600;color:'+(sel?t.color:'var(--text2)')+'">'+t.label+'</div>'
+      +'</div>';
+  }).join('');
+  var modeHTML=modeRows.map(function(m){
+    var sel=currentMode===m.id;
+    return '<div onclick="setMode(\''+m.id+'\')" style="display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:var(--r-sm);border:2px solid '+(sel?'var(--accent)':'var(--border)')+';background:'+(sel?'var(--accent-dim)':'var(--s2)')+';cursor:pointer;margin-bottom:8px;min-height:60px;">'
+      +'<span style="font-size:22px">'+m.icon+'</span>'
+      +'<div style="flex:1"><div style="font-weight:600;font-size:14px;color:'+(sel?'var(--accent)':'var(--text)')+'">'+m.label+'</div>'
+      +'<div style="font-size:12px;color:var(--text2)">'+m.sub+'</div></div>'
+      +(sel?'<span style="color:var(--accent);font-size:16px">✓</span>':'')
+      +'</div>';
+  }).join('');
+  document.getElementById('sc-settings').innerHTML='<div class="pad">'
+    +'<div class="sec-title">Ayarlar</div>'
+    +'<div class="sec-sub">Uygulama görünümünü kişiselleştir</div>'
+    +'<div class="card" style="margin-bottom:14px">'
+    +'<div style="font-weight:700;font-size:15px;margin-bottom:14px">🎨 Vurgu Rengi</div>'
+    +'<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">'+accentGrid+'</div>'
+    +'</div>'
+    +'<div class="card" style="margin-bottom:14px">'
+    +'<div style="font-weight:700;font-size:15px;margin-bottom:14px">🌓 Tema Modu</div>'
+    +modeHTML
+    +'</div>'
+    +'<div class="card" style="margin-bottom:14px">'
+    +'<div style="font-weight:700;font-size:15px;margin-bottom:4px">👁 Önizleme</div>'
+    +'<div style="font-size:12px;color:var(--text2);margin-bottom:14px">Seçili tema</div>'
+    +'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">'
+    +'<span class="tag tag-g">Etiket</span><span class="tag tag-b">Etiket</span><span class="tag tag-y">Etiket</span>'
+    +'</div>'
+    +'<div class="prog-track"><div class="prog-fill" style="width:70%"></div></div>'
+    +'<div style="display:flex;gap:8px;margin-top:12px">'
+    +'<button class="btn btn-p btn-sm" style="flex:1">Birincil</button>'
+    +'<button class="btn btn-s btn-sm" style="flex:1">İkincil</button>'
+    +'<button class="btn btn-g btn-sm" style="flex:1">Nötr</button>'
+    +'</div></div>'
+    +'<div class="divl"></div>'
+    +'<div style="font-size:11px;color:var(--text3);text-align:center;line-height:1.8">'
+    +'fieldwork v2<br>Tüm veriler bu cihazda saklanır'
+    +'</div></div>';
+}
+
+// ================================================================
 // NAV
 // ================================================================
 function go(screen){
@@ -617,6 +744,7 @@ function renderScreen(s){
   else if(s==='history') renderHistory();
   else if(s==='stats') renderStats();
   else if(s==='projects') renderProjects();
+  else if(s==='settings') renderSettings();
 }
 
 function goProjects(){
@@ -650,6 +778,8 @@ function renderHome(){
     +'<div class="stat-mini-box"><div class="stat-mini-n">'+today+'</div><div class="stat-mini-l">Bugün</div></div>'
     +'</div>'
     +(total>0?'<div class="sec-title" style="margin-bottom:10px">Son Cevaplar</div>'+recent:'')
+    +'<div class="divl"></div>'
+    +'<button class="btn btn-g" onclick="openM(\'import\')" style="margin-top:4px">📥 Eski Uygulamadan Veri Aktar</button>'
     +'</div>';
 }
 
@@ -1657,6 +1787,161 @@ function showToast(msg){
   var t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
   setTimeout(function(){t.classList.remove('show')},2400);
+}
+
+// ================================================================
+// IMPORT FROM OLD "FELSEFİ ANKET" APP
+// ================================================================
+// Old structure: surveys[] = [{id, person, date, status, persons[], answers[personIdx][qIdx]{selected,note}, bonusAnswers...}]
+// Old QUESTIONS had: {cat, text, opts[]}
+// We convert each survey → one response in a "Felsefi Anket" project
+
+var OLD_QUESTIONS=[
+  {cat:"İnsan Doğası",   text:"İnsanlar özünde iyi mi, yoksa kötü mü?",                                              opts:["İyi","Kötü"]},
+  {cat:"İnsan Doğası",   text:"Bir insan hiç değişmez mi, yoksa tamamen değişebilir mi?",                            opts:["Değişmez","Değişebilir"]},
+  {cat:"İnsan Doğası",   text:"İnsanı diğer canlılardan üstün kılan şey nedir — akıl mı, duygu mu?",                opts:["Akıl","Duygu"]},
+  {cat:"Etik & Değerler",text:"Ahlak toplumdan mı öğrenilir, yoksa doğuştan mı gelir?",                             opts:["Öğrenilir","Doğuştan"]},
+  {cat:"Etik & Değerler",text:"İyi niyet kötü sonucu haklı kılar mı?",                                              opts:["Evet","Hayır"]},
+  {cat:"Etik & Değerler",text:"Adalet mi, merhamet mi — birini seçmek zorunda kalsan?",                              opts:["Adalet","Merhamet"]},
+  {cat:"Toplum & Adalet",text:"Eşitlik mi, özgürlük mi daha temel bir hak?",                                        opts:["Eşitlik","Özgürlük"]},
+  {cat:"Toplum & Adalet",text:"Toplumu bir arada tutan şey korku mu, sevgi mi?",                                     opts:["Korku","Sevgi"]},
+  {cat:"Toplum & Adalet",text:"Bir insanın başarısı kendi çabasının mı, yoksa şansın mı ürünüdür?",                 opts:["Çaba","Şans"]},
+  {cat:"Tanrı & Varoluş", text:"Evren bir amaçla mı yaratıldı, yoksa anlamsız bir tesadüf müdür?",                  opts:["Amaçlı","Tesadüf"]},
+  {cat:"Tanrı & Varoluş", text:"Ölümden sonra bir şey var mı?",                                                      opts:["Var","Yok"]},
+  {cat:"Tanrı & Varoluş", text:"Hayatın anlamı dışarıdan mı verilir, içeriden mi yaratılır?",                       opts:["Dışarıdan","İçeriden"]},
+  {cat:"Bilgi & Gerçek",  text:"Mutlak bir gerçek var mı, yoksa her şey göreceli mi?",                              opts:["Var","Göreceli"]},
+  {cat:"Bilgi & Gerçek",  text:"Bilimin açıklayamadığı şeyler var mıdır?",                                          opts:["Var","Yok"]},
+  {cat:"Bilgi & Gerçek",  text:"Acı veren bir gerçek mi, yoksa rahatlatıcı bir yalan mı tercih edilir?",            opts:["Gerçek","Yalan"]},
+  {cat:"Özgürlük & Güç",  text:"Tam özgürlük mümkün müdür, yoksa her zaman bir sınır var mıdır?",                  opts:["Mümkün","Sınır var"]},
+  {cat:"Özgürlük & Güç",  text:"Güç insanı bozar mı, yoksa sadece içindekini ortaya çıkarır mı?",                  opts:["Bozar","Ortaya çıkarır"]},
+  {cat:"Özgürlük & Güç",  text:"Boyun eğmek mi, yoksa özgürce yanılmak mı daha insancadır?",                       opts:["Boyun eğmek","Özgürce yanılmak"]},
+];
+var OLD_BONUS=[
+  {cat:"Bonus",text:"Hayatında en çok neyin peşindesin — anlam mı, başarı mı, mutluluk mu?",          opts:["Anlam","Başarı","Mutluluk"]},
+  {cat:"Bonus",text:"Sence insanlar temelde yalnız mı, yoksa bağlantı içinde mi yaşıyor?",            opts:["Yalnız","Bağlantı içinde"]},
+  {cat:"Bonus",text:"Çok iyi bir kitap okudun mu? Hangisi seni en çok etkiledi?",                     opts:["Evet, etkileyeni var","Pek okumam"]},
+  {cat:"Bonus",text:"Hiç tamamen yanlış olduğunu sonradan anladığın güçlü bir fikrin oldu mu?",       opts:["Evet oldu","Hayır olmadı"]},
+  {cat:"Bonus",text:"Bir insan için en değerli şeyin ne olduğunu düşünüyorsun — zeka mı, empati mi?",opts:["Zeka","Empati"]},
+  {cat:"Bonus",text:"Seninle aynı fikirde olmayan biriyle nasıl başa çıkıyorsun?",                    opts:["Tartışırım","Anlamaya çalışırım","Geçip giderim"]},
+  {cat:"Bonus",text:"Hayatta en çok kimi ya da neyi kaybetmekten korkuyorsun?",                       opts:["Yakınlarımı","Kendimi","Özgürlüğümü"]},
+  {cat:"Bonus",text:"10 yıl sonra nerede olmak istiyorsun?",                                          opts:["Hedefim var","Henüz bilmiyorum"]},
+];
+
+function processOldImport(event){
+  var file=event.target.files[0];
+  if(!file) return;
+  var statusEl=document.getElementById('import-status');
+  statusEl.textContent='Dosya okunuyor...';
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      var oldSurveys=JSON.parse(e.target.result);
+      if(!Array.isArray(oldSurveys)) throw new Error('Geçersiz format');
+
+      // Find or create "Felsefi Anket" project
+      var proj=db.projects.find(function(p){return p.name==='Felsefi Anket'});
+      if(!proj){
+        // Build questions from old structure with categories
+        var cats=[
+          {id:'c_human',name:'İnsan Doğası',color:'#6ee7b7'},
+          {id:'c_ethics',name:'Etik & Değerler',color:'#fbbf24'},
+          {id:'c_society',name:'Toplum & Adalet',color:'#60a5fa'},
+          {id:'c_god',name:'Tanrı & Varoluş',color:'#a78bfa'},
+          {id:'c_knowledge',name:'Bilgi & Gerçek',color:'#f472b6'},
+          {id:'c_freedom',name:'Özgürlük & Güç',color:'#fb923c'},
+          {id:'c_bonus',name:'Bonus',color:'#34d399'},
+        ];
+        var catNameToId={
+          'İnsan Doğası':'c_human','Etik & Değerler':'c_ethics',
+          'Toplum & Adalet':'c_society','Tanrı & Varoluş':'c_god',
+          'Bilgi & Gerçek':'c_knowledge','Özgürlük & Güç':'c_freedom','Bonus':'c_bonus'
+        };
+        var allOldQs=OLD_QUESTIONS.concat(OLD_BONUS);
+        var questions=allOldQs.map(function(q,i){
+          return {id:'oq_'+i, text:q.text, subtext:'Seçenekler: '+q.opts.join(' / '),
+            type:'mcq', options:q.opts, catId:catNameToId[q.cat]||''};
+        });
+        proj={id:'p_oldfelsefi',name:'Felsefi Anket',emoji:'🧠',
+          desc:'Eski uygulamadan aktarıldı',color:'#6ee7b7',
+          structure:'cats',categories:cats,questions:questions};
+        db.projects.push(proj);
+      }
+
+      var allOldQs=OLD_QUESTIONS.concat(OLD_BONUS);
+      var imported=0;
+      var skipped=0;
+      var existingIds=new Set(db.responses.map(function(r){return r.id}));
+
+      oldSurveys.forEach(function(s){
+        // Normalize old format
+        if(!s.persons) s.persons=[];
+        if(s.answers&&!Array.isArray(s.answers[0])) s.answers=[s.answers];
+        if(!s.bonusAnswers) s.bonusAnswers=[];
+        var persons=s.persons.length>0?s.persons:['Kişi 1'];
+
+        persons.forEach(function(personName,pi){
+          var respId='r_old_'+s.id+'_'+pi;
+          if(existingIds.has(respId)){skipped++;return;}
+
+          var answers={};
+          // Main questions
+          if(s.answers&&s.answers[pi]){
+            s.answers[pi].forEach(function(ans,qi){
+              var q=proj.questions[qi];
+              if(!q) return;
+              var val=null;
+              if(ans.selected!==null&&ans.selected!==undefined&&OLD_QUESTIONS[qi]){
+                val=OLD_QUESTIONS[qi].opts[ans.selected]||null;
+              }
+              // Store answer + note combined if both exist
+              if(val&&ans.note) answers[q.id]=val+' — '+ans.note;
+              else if(val) answers[q.id]=val;
+              else if(ans.note) answers[q.id]=ans.note;
+            });
+          }
+          // Bonus questions
+          if(s.bonusAnswers&&s.bonusAnswers[pi]){
+            var bonusOffset=OLD_QUESTIONS.length;
+            s.bonusAnswers[pi].forEach(function(ans,qi){
+              var q=proj.questions[bonusOffset+qi];
+              if(!q) return;
+              var val=null;
+              if(ans.selected!==null&&ans.selected!==undefined&&OLD_BONUS[qi]){
+                val=OLD_BONUS[qi].opts[ans.selected]||null;
+              }
+              if(val&&ans.note) answers[q.id]=val+' — '+ans.note;
+              else if(val) answers[q.id]=val;
+              else if(ans.note) answers[q.id]=ans.note;
+            });
+          }
+
+          var resp={
+            id:respId,projectId:proj.id,
+            date:new Date(s.id).toISOString(),// id was Date.now()
+            profile:{note:(persons.length>1?s.person+' · '+personName:s.person)||'',age:'',gender:'',nationality:'Fethiye'},
+            answers:answers,
+            qIds:proj.questions.map(function(q){return q.id}),
+            step:'done',
+          };
+          if(s.status==='rejected') resp.profile.note+=' (Reddetti)';
+          db.responses.push(resp);
+          imported++;
+        });
+      });
+
+      save();
+      event.target.value='';
+      var msg='✅ '+imported+' cevap başarıyla aktarıldı!'+(skipped>0?' ('+skipped+' zaten vardı)':'');
+      statusEl.innerHTML='<div style="color:var(--accent);font-weight:600">'+msg+'</div>'
+        +'<div style="margin-top:6px">📁 "Felsefi Anket" projesi oluşturuldu. Cevaplar sekmesinden görüntüleyebilirsin.</div>';
+      showToast('✓ '+imported+' cevap aktarıldı');
+      renderHome();
+    }catch(err){
+      statusEl.innerHTML='<div style="color:var(--red)">❌ Hata: '+err.message+'<br>Lütfen doğru dosyayı seçtiğinden emin ol.</div>';
+      event.target.value='';
+    }
+  };
+  reader.readAsText(file);
 }
 
 // ================================================================
