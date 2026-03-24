@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
@@ -47,284 +46,284 @@ body.ac-red    {--accent:#f87171;--accent-dim:rgba(248,113,113,0.14)}
 body.ac-teal   {--accent:#2dd4bf;--accent-dim:rgba(45,212,191,0.14)}
 
 *{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
-html{height:100%;height:-webkit-fill-available;background:var(–bg)}
-body{height:100%;height:-webkit-fill-available;background:var(–bg);color:var(–text);
-font-family:‘Instrument Sans’,system-ui,-apple-system,sans-serif;
-overflow:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;
--webkit-transition:background .25s,color .25s;transition:background .25s,color .25s}
-@supports (height:100dvh){:root{–app-h:100dvh}}
+html{height:100%;height:-webkit-fill-available;background:var(--bg)}
+body{height:100%;height:-webkit-fill-available;background:var(--bg);color:var(--text);
+  font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  overflow:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;
+  -webkit-transition:background .25s,color .25s;transition:background .25s,color .25s}
+@supports (height:100dvh){:root{--app-h:100dvh}}
 
 /* ── APP SHELL ───────────────────────────────────────────── */
 #app{
-height:var(–app-h);
-display:-webkit-flex;display:flex;
--webkit-flex-direction:column;flex-direction:column;
-max-width:430px;margin:0 auto;position:relative;overflow:hidden;
+  height:var(--app-h);
+  display:-webkit-flex;display:flex;
+  -webkit-flex-direction:column;flex-direction:column;
+  max-width:430px;margin:0 auto;position:relative;overflow:hidden;
 }
 
 /* ── TOPBAR ──────────────────────────────────────────────── */
 .topbar{
-padding:calc(var(–sat) + 14px) calc(18px + var(–sar)) 12px calc(18px + var(–sal));
-display:-webkit-flex;display:flex;
--webkit-align-items:center;align-items:center;
--webkit-justify-content:space-between;justify-content:space-between;
--webkit-flex-shrink:0;flex-shrink:0;
-border-bottom:1px solid var(–border);background:var(–bg);
+  padding:calc(var(--sat) + 14px) calc(18px + var(--sar)) 12px calc(18px + var(--sal));
+  display:-webkit-flex;display:flex;
+  -webkit-align-items:center;align-items:center;
+  -webkit-justify-content:space-between;justify-content:space-between;
+  -webkit-flex-shrink:0;flex-shrink:0;
+  border-bottom:1px solid var(--border);background:var(--bg);
 }
-.topbar-logo{font-family:‘Syne’,sans-serif;font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(–text)}
-.topbar-logo span{color:var(–accent)}
-.icon-pill{background:var(–s2);border:1px solid var(–border);border-radius:20px;padding:8px 14px;
-/* min 44px tap target */
-min-height:44px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
-font-size:14px;font-weight:600;color:var(–text2);cursor:pointer;}
+.topbar-logo{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.topbar-logo span{color:var(--accent)}
+.icon-pill{background:var(--s2);border:1px solid var(--border);border-radius:20px;padding:8px 14px;
+  /* min 44px tap target */
+  min-height:44px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
+  font-size:14px;font-weight:600;color:var(--text2);cursor:pointer;}
 .icon-pill:active{opacity:.6}
 
 /* ── SCREENS ─────────────────────────────────────────────── */
 .screen{
--webkit-flex:1;flex:1;
-overflow-y:auto;overflow-x:hidden;
--webkit-overflow-scrolling:touch;
-display:none;
-/* Ensure scroll works on older iOS */
-position:relative;
+  -webkit-flex:1;flex:1;
+  overflow-y:auto;overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  display:none;
+  /* Ensure scroll works on older iOS */
+  position:relative;
 }
 .screen.active{display:block}
-.pad{padding:18px 18px calc(90px + var(–sab) + 10px)}
+.pad{padding:18px 18px calc(90px + var(--sab) + 10px)}
 
 /* ── BOTTOM NAV ──────────────────────────────────────────── */
 .nav{
-position:absolute;bottom:0;left:0;right:0;
-padding:10px 0 calc(var(–sab) + 6px);
-background:var(–s1);border-top:1px solid var(–border);
-display:-webkit-flex;display:flex;
--webkit-justify-content:space-around;justify-content:space-around;
-z-index:100;-webkit-flex-shrink:0;flex-shrink:0;
+  position:absolute;bottom:0;left:0;right:0;
+  padding:10px 0 calc(var(--sab) + 6px);
+  background:var(--s1);border-top:1px solid var(--border);
+  display:-webkit-flex;display:flex;
+  -webkit-justify-content:space-around;justify-content:space-around;
+  z-index:100;-webkit-flex-shrink:0;flex-shrink:0;
 }
 .nv{
-display:-webkit-flex;display:flex;
--webkit-flex-direction:column;flex-direction:column;
--webkit-align-items:center;align-items:center;
-gap:3px;cursor:pointer;padding:4px 12px;border-radius:10px;
-/* 44px minimum touch target */
-min-width:60px;min-height:44px;-webkit-justify-content:center;justify-content:center;
+  display:-webkit-flex;display:flex;
+  -webkit-flex-direction:column;flex-direction:column;
+  -webkit-align-items:center;align-items:center;
+  gap:3px;cursor:pointer;padding:4px 12px;border-radius:10px;
+  /* 44px minimum touch target */
+  min-width:60px;min-height:44px;-webkit-justify-content:center;justify-content:center;
 }
 .nv .ni{font-size:22px}
-.nv .nl{font-size:10px;font-weight:600;color:var(–text3);letter-spacing:.02em}
-.nv.on .nl{color:var(–accent)}
+.nv .nl{font-size:10px;font-weight:600;color:var(--text3);letter-spacing:.02em}
+.nv.on .nl{color:var(--accent)}
 .nv:active{opacity:.6}
 
 /* ── CARDS ───────────────────────────────────────────────── */
-.card{background:var(–s1);border:1px solid var(–border);border-radius:var(–r);padding:16px;margin-bottom:10px}
-.card-hi{border-left:3px solid var(–accent)}
+.card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:10px}
+.card-hi{border-left:3px solid var(--accent)}
 
 /* ── TYPOGRAPHY ──────────────────────────────────────────── */
-.sec-title{font-family:‘Syne’,sans-serif;font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
-.sec-sub{font-size:13px;color:var(–text2);margin-bottom:18px;line-height:1.5}
+.sec-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+.sec-sub{font-size:13px;color:var(--text2);margin-bottom:18px;line-height:1.5}
 
 /* ── BUTTONS — min 44px height ───────────────────────────── */
 .btn{
-display:-webkit-flex;display:flex;
--webkit-align-items:center;align-items:center;
--webkit-justify-content:center;justify-content:center;
-gap:7px;padding:13px 18px;min-height:44px;
-border-radius:var(–r-sm);border:none;
-font-family:‘Instrument Sans’,system-ui,sans-serif;
-font-size:16px;/* ≥16px prevents iOS zoom */
-font-weight:600;cursor:pointer;width:100%;
--webkit-appearance:none;appearance:none;
+  display:-webkit-flex;display:flex;
+  -webkit-align-items:center;align-items:center;
+  -webkit-justify-content:center;justify-content:center;
+  gap:7px;padding:13px 18px;min-height:44px;
+  border-radius:var(--r-sm);border:none;
+  font-family:'Instrument Sans',system-ui,sans-serif;
+  font-size:16px;/* ≥16px prevents iOS zoom */
+  font-weight:600;cursor:pointer;width:100%;
+  -webkit-appearance:none;appearance:none;
 }
 .btn:active{opacity:.7}
-.btn-p{background:var(–accent);color:#080809}
-.btn-s{background:var(–s2);color:var(–text);border:1px solid var(–border2)}
-.btn-d{background:var(–red-dim);color:var(–red);border:1px solid rgba(248,113,113,.3)}
-.btn-g{background:transparent;color:var(–text2);border:1px solid var(–border)}
+.btn-p{background:var(--accent);color:#080809}
+.btn-s{background:var(--s2);color:var(--text);border:1px solid var(--border2)}
+.btn-d{background:var(--red-dim);color:var(--red);border:1px solid rgba(248,113,113,.3)}
+.btn-g{background:transparent;color:var(--text2);border:1px solid var(--border)}
 .btn-sm{padding:10px 14px;font-size:14px;border-radius:8px;min-height:40px}
 .btn-row{display:-webkit-flex;display:flex;gap:8px}
 .btn-row .btn{-webkit-flex:1;flex:1}
 
 /* ── INPUTS — font-size ≥16px prevents iOS auto-zoom ──────── */
 .ig{margin-bottom:13px}
-.il{font-size:12px;font-weight:600;color:var(–text2);letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px;display:block}
+.il{font-size:12px;font-weight:600;color:var(--text2);letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px;display:block}
 .inp{
-width:100%;background:var(–s2);border:1px solid var(–border);
-border-radius:var(–r-sm);color:var(–text);
-font-family:‘Instrument Sans’,system-ui,sans-serif;
-font-size:16px;/* CRITICAL: prevents iOS zoom on focus */
-padding:12px 14px;min-height:44px;outline:none;
--webkit-appearance:none;appearance:none;
+  width:100%;background:var(--s2);border:1px solid var(--border);
+  border-radius:var(--r-sm);color:var(--text);
+  font-family:'Instrument Sans',system-ui,sans-serif;
+  font-size:16px;/* CRITICAL: prevents iOS zoom on focus */
+  padding:12px 14px;min-height:44px;outline:none;
+  -webkit-appearance:none;appearance:none;
 }
-.inp:focus{border-color:var(–accent)}
-.inp:focus-visible{border-color:var(–accent)}
-.inp::-webkit-input-placeholder{color:var(–text3)}
-.inp::placeholder{color:var(–text3)}
+.inp:focus{border-color:var(--accent)}
+.inp:focus-visible{border-color:var(--accent)}
+.inp::-webkit-input-placeholder{color:var(--text3)}
+.inp::placeholder{color:var(--text3)}
 textarea.inp{resize:vertical;min-height:80px;line-height:1.5}
 select.inp{
--webkit-appearance:none;appearance:none;
-background-image:url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘10’ height=‘7’ viewBox=‘0 0 10 7’%3E%3Cpath d=‘M1 1l4 4 4-4’ stroke=’%238a8a92’ stroke-width=‘1.5’ fill=‘none’ stroke-linecap=‘round’/%3E%3C/svg%3E”);
-background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238a8a92' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;
 }
 
 /* ── TAGS ────────────────────────────────────────────────── */
 .tag{display:-webkit-inline-flex;display:inline-flex;-webkit-align-items:center;align-items:center;
-padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.03em}
-.tag-g{background:var(–accent-dim);color:var(–accent)}
-.tag-y{background:var(–accent2-dim);color:var(–accent2)}
-.tag-b{background:var(–blue-dim);color:var(–blue)}
-.tag-p{background:var(–pink-dim);color:var(–pink)}
-.tag-r{background:var(–red-dim);color:var(–red)}
+  padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.03em}
+.tag-g{background:var(--accent-dim);color:var(--accent)}
+.tag-y{background:var(--accent2-dim);color:var(--accent2)}
+.tag-b{background:var(--blue-dim);color:var(--blue)}
+.tag-p{background:var(--pink-dim);color:var(--pink)}
+.tag-r{background:var(--red-dim);color:var(--red)}
 
 /* ── PROGRESS ────────────────────────────────────────────── */
-.prog-track{height:3px;background:var(–s3);border-radius:2px;overflow:hidden}
-.prog-fill{height:100%;background:var(–accent);-webkit-transition:width .4s ease;transition:width .4s ease}
+.prog-track{height:3px;background:var(--s3);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:var(--accent);-webkit-transition:width .4s ease;transition:width .4s ease}
 
 /* ── PROJECT CARD ────────────────────────────────────────── */
-.proj-card{background:var(–s1);border:1px solid var(–border);border-radius:var(–r);
-padding:16px 18px;margin-bottom:10px;cursor:pointer;position:relative;overflow:hidden}
-.proj-card::before{content:’’;position:absolute;top:0;left:0;right:0;height:2px;background:var(–accent)}
+.proj-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);
+  padding:16px 18px;margin-bottom:10px;cursor:pointer;position:relative;overflow:hidden}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent)}
 .proj-card:active{opacity:.7}
-.proj-card-title{font-family:‘Syne’,sans-serif;font-size:16px;font-weight:700;line-height:1.3}
-.proj-card-desc{font-size:13px;color:var(–text2);margin-bottom:10px;line-height:1.4;
-display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.proj-card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;line-height:1.3}
+.proj-card-desc{font-size:13px;color:var(--text2);margin-bottom:10px;line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .proj-card-meta{display:-webkit-flex;display:flex;gap:6px;-webkit-flex-wrap:wrap;flex-wrap:wrap;-webkit-align-items:center;align-items:center}
 
 /* ── RESPONSE CARD ───────────────────────────────────────── */
-.resp-card{background:var(–s1);border:1px solid var(–border);border-radius:var(–r);
-padding:14px 16px;margin-bottom:8px;cursor:pointer}
+.resp-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);
+  padding:14px 16px;margin-bottom:8px;cursor:pointer}
 .resp-card:active{opacity:.7}
 .resp-card-top{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:12px;margin-bottom:6px}
 .resp-avatar{width:42px;height:42px;border-radius:50%;-webkit-flex-shrink:0;flex-shrink:0;
-display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
--webkit-justify-content:center;justify-content:center;
-font-family:‘Syne’,sans-serif;font-size:16px;font-weight:700;color:#080809}
+  display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
+  -webkit-justify-content:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#080809}
 .resp-name{font-weight:600;font-size:14px;margin-bottom:2px}
-.resp-meta{font-size:11px;color:var(–text2)}
+.resp-meta{font-size:11px;color:var(--text2)}
 .resp-prog-label{display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;
-font-size:11px;color:var(–text3);margin-bottom:4px;margin-top:8px}
+  font-size:11px;color:var(--text3);margin-bottom:4px;margin-top:8px}
 
 /* ── SURVEY FLOW ─────────────────────────────────────────── */
-.sf-header{position:-webkit-sticky;position:sticky;top:0;z-index:10;background:var(–bg);
-border-bottom:1px solid var(–border);padding:12px 18px}
+.sf-header{position:-webkit-sticky;position:sticky;top:0;z-index:10;background:var(--bg);
+  border-bottom:1px solid var(--border);padding:12px 18px}
 .sf-meta{display:-webkit-flex;display:flex;-webkit-justify-content:space-between;justify-content:space-between;
-font-size:12px;color:var(–text2);margin-bottom:8px}
-.q-card{background:var(–s1);border:1px solid var(–border);border-radius:var(–r);padding:20px 18px;margin-bottom:14px}
+  font-size:12px;color:var(--text2);margin-bottom:8px}
+.q-card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:20px 18px;margin-bottom:14px}
 .q-type-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
-.q-text{font-family:‘Syne’,sans-serif;font-size:17px;font-weight:600;line-height:1.45;margin-bottom:4px}
-.q-text-sub{font-size:13px;color:var(–text3);margin-bottom:14px;font-style:italic}
+.q-text{font-family:'Syne',sans-serif;font-size:17px;font-weight:600;line-height:1.45;margin-bottom:4px}
+.q-text-sub{font-size:13px;color:var(--text3);margin-bottom:14px;font-style:italic}
 .ans-area{
-width:100%;background:var(–s2);border:1px solid var(–border);border-radius:var(–r-sm);
-color:var(–text);font-family:‘Instrument Sans’,system-ui,sans-serif;
-font-size:16px;/* prevents iOS zoom */
-padding:12px 14px;min-height:100px;resize:vertical;outline:none;line-height:1.6;
--webkit-appearance:none;appearance:none;
+  width:100%;background:var(--s2);border:1px solid var(--border);border-radius:var(--r-sm);
+  color:var(--text);font-family:'Instrument Sans',system-ui,sans-serif;
+  font-size:16px;/* prevents iOS zoom */
+  padding:12px 14px;min-height:100px;resize:vertical;outline:none;line-height:1.6;
+  -webkit-appearance:none;appearance:none;
 }
-.ans-area:focus{border-color:var(–accent)}
-.ans-area::-webkit-input-placeholder{color:var(–text3)}
-.ans-area::placeholder{color:var(–text3)}
+.ans-area:focus{border-color:var(--accent)}
+.ans-area::-webkit-input-placeholder{color:var(--text3)}
+.ans-area::placeholder{color:var(--text3)}
 
 /* ── STAR RATING ─────────────────────────────────────────── */
 .star-row{display:-webkit-flex;display:flex;gap:10px;-webkit-justify-content:center;justify-content:center;padding:12px 0}
-.star{font-size:36px;cursor:pointer;color:var(–text3);/* 44px touch area */
-width:44px;height:44px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;}
-.star.lit{color:var(–accent2)}
+.star{font-size:36px;cursor:pointer;color:var(--text3);/* 44px touch area */
+  width:44px;height:44px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;}
+.star.lit{color:var(--accent2)}
 .star:active{opacity:.6}
 
 /* ── MCQ ─────────────────────────────────────────────────── */
 .mcq-opts{display:-webkit-flex;display:flex;-webkit-flex-direction:column;flex-direction:column;gap:8px}
-.mcq-opt{background:var(–s2);border:1px solid var(–border);border-radius:var(–r-sm);
-padding:14px 16px;min-height:44px;font-size:15px;cursor:pointer;text-align:left;
-display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;}
-.mcq-opt.sel{border-color:var(–accent);background:var(–accent-dim);color:var(–accent);font-weight:600}
+.mcq-opt{background:var(--s2);border:1px solid var(--border);border-radius:var(--r-sm);
+  padding:14px 16px;min-height:44px;font-size:15px;cursor:pointer;text-align:left;
+  display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;}
+.mcq-opt.sel{border-color:var(--accent);background:var(--accent-dim);color:var(--accent);font-weight:600}
 .mcq-opt:active{opacity:.7}
 
 /* ── SURVEY FIXED NAV ────────────────────────────────────── */
 .sf-nav{
-position:fixed;bottom:0;left:50%;
--webkit-transform:translateX(-50%);transform:translateX(-50%);
-width:100%;max-width:430px;
-/* Extra padding: nav bar height ~56px + safe area + breathing room */
-padding:10px 18px calc(var(–sab) + 64px);
-background:var(–bg);border-top:1px solid var(–border);
-display:-webkit-flex;display:flex;gap:8px;z-index:150;
+  position:fixed;bottom:0;left:50%;
+  -webkit-transform:translateX(-50%);transform:translateX(-50%);
+  width:100%;max-width:430px;
+  /* Extra padding: nav bar height ~56px + safe area + breathing room */
+  padding:10px 18px calc(var(--sab) + 64px);
+  background:var(--bg);border-top:1px solid var(--border);
+  display:-webkit-flex;display:flex;gap:8px;z-index:150;
 }
 /* sf-body needs enough bottom padding to clear sf-nav */
-.sf-body{padding:16px 18px calc(140px + var(–sab))}
+.sf-body{padding:16px 18px calc(140px + var(--sab))}
 .back-bar{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
-gap:8px;padding:14px 18px;border-bottom:1px solid var(–border);
-cursor:pointer;color:var(–accent);font-size:15px;font-weight:600;
--webkit-flex-shrink:0;flex-shrink:0;min-height:48px;}
+  gap:8px;padding:14px 18px;border-bottom:1px solid var(--border);
+  cursor:pointer;color:var(--accent);font-size:15px;font-weight:600;
+  -webkit-flex-shrink:0;flex-shrink:0;min-height:48px;}
 .back-bar:active{opacity:.6}
 
 /* ── STAT BARS ───────────────────────────────────────────── */
 .stat-bar-row{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:10px;margin-bottom:9px}
-.sbl{font-size:12px;color:var(–text2);width:80px;-webkit-flex-shrink:0;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sbt{-webkit-flex:1;flex:1;height:7px;background:var(–s2);border-radius:3px;overflow:hidden}
-.sbf{height:100%;border-radius:3px;background:var(–accent);-webkit-transition:width .5s ease;transition:width .5s ease}
-.sbc{font-size:11px;color:var(–text2);width:28px;text-align:right;-webkit-flex-shrink:0;flex-shrink:0}
+.sbl{font-size:12px;color:var(--text2);width:80px;-webkit-flex-shrink:0;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sbt{-webkit-flex:1;flex:1;height:7px;background:var(--s2);border-radius:3px;overflow:hidden}
+.sbf{height:100%;border-radius:3px;background:var(--accent);-webkit-transition:width .5s ease;transition:width .5s ease}
+.sbc{font-size:11px;color:var(--text2);width:28px;text-align:right;-webkit-flex-shrink:0;flex-shrink:0}
 
 /* ── MODAL — no dvh, use % instead ──────────────────────── */
 .modal-ov{
-position:fixed;inset:0;top:0;left:0;right:0;bottom:0;/* inset fallback */
-background:rgba(0,0,0,.85);z-index:300;
-display:-webkit-flex;display:flex;
--webkit-align-items:flex-end;align-items:flex-end;
--webkit-justify-content:center;justify-content:center;
-opacity:0;pointer-events:none;-webkit-transition:opacity .2s;transition:opacity .2s;
+  position:fixed;inset:0;top:0;left:0;right:0;bottom:0;/* inset fallback */
+  background:rgba(0,0,0,.85);z-index:300;
+  display:-webkit-flex;display:flex;
+  -webkit-align-items:flex-end;align-items:flex-end;
+  -webkit-justify-content:center;justify-content:center;
+  opacity:0;pointer-events:none;-webkit-transition:opacity .2s;transition:opacity .2s;
 }
 .modal-ov.open{opacity:1;pointer-events:all}
 .modal-sh{
-background:var(–s1);border-radius:20px 20px 0 0;
-width:100%;max-width:430px;
-padding:18px 18px calc(var(–sab) + 20px);
--webkit-transform:translateY(100%);transform:translateY(100%);
--webkit-transition:-webkit-transform .3s ease;transition:transform .3s ease;
-max-height:88vh;/* vh not dvh for compat */
-overflow-y:auto;-webkit-overflow-scrolling:touch;
+  background:var(--s1);border-radius:20px 20px 0 0;
+  width:100%;max-width:430px;
+  padding:18px 18px calc(var(--sab) + 20px);
+  -webkit-transform:translateY(100%);transform:translateY(100%);
+  -webkit-transition:-webkit-transform .3s ease;transition:transform .3s ease;
+  max-height:88vh;/* vh not dvh for compat */
+  overflow-y:auto;-webkit-overflow-scrolling:touch;
 }
 .modal-ov.open .modal-sh{-webkit-transform:translateY(0);transform:translateY(0)}
-.modal-handle{width:36px;height:4px;background:var(–border2);border-radius:2px;margin:0 auto 18px}
-.modal-title{font-family:‘Syne’,sans-serif;font-size:19px;font-weight:700;margin-bottom:4px}
-.modal-sub{font-size:13px;color:var(–text2);margin-bottom:18px;line-height:1.5}
+.modal-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 18px}
+.modal-title{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;margin-bottom:4px}
+.modal-sub{font-size:13px;color:var(--text2);margin-bottom:18px;line-height:1.5}
 
 /* ── CHIPS ───────────────────────────────────────────────── */
 .chip-row{display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .chip{padding:10px 16px;min-height:44px;border-radius:22px;font-size:14px;font-weight:600;
-background:var(–s2);border:1px solid var(–border);color:var(–text2);cursor:pointer;
-display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;}
-.chip.on{background:var(–accent-dim);border-color:var(–accent);color:var(–accent)}
+  background:var(--s2);border:1px solid var(--border);color:var(--text2);cursor:pointer;
+  display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;}
+.chip.on{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
 .chip:active{opacity:.7}
 
 /* ── COLOR PICKER ────────────────────────────────────────── */
 .color-row{display:-webkit-flex;display:flex;gap:10px;-webkit-flex-wrap:wrap;flex-wrap:wrap;margin-bottom:14px}
 .color-dot{width:32px;height:32px;border-radius:50%;cursor:pointer;border:3px solid transparent}
-.color-dot.sel{border-color:var(–text);-webkit-transform:scale(1.15);transform:scale(1.15)}
+.color-dot.sel{border-color:var(--text);-webkit-transform:scale(1.15);transform:scale(1.15)}
 
 /* ── DIVIDER ─────────────────────────────────────────────── */
-.divl{height:1px;background:var(–border);margin:14px 0}
+.divl{height:1px;background:var(--border);margin:14px 0}
 
 /* ── TOAST ───────────────────────────────────────────────── */
 .toast{
-position:fixed;
-top:calc(var(–sat) + 72px);
-left:50%;
--webkit-transform:translateX(-50%) translateY(-8px);transform:translateX(-50%) translateY(-8px);
-background:var(–s2);border:1px solid var(–border2);border-radius:30px;
-padding:10px 20px;font-size:14px;font-weight:500;color:var(–text);
-z-index:999;opacity:0;-webkit-transition:.2s;transition:.2s;pointer-events:none;white-space:nowrap;
-max-width:calc(100vw - 40px);text-align:center;
+  position:fixed;
+  top:calc(var(--sat) + 72px);
+  left:50%;
+  -webkit-transform:translateX(-50%) translateY(-8px);transform:translateX(-50%) translateY(-8px);
+  background:var(--s2);border:1px solid var(--border2);border-radius:30px;
+  padding:10px 20px;font-size:14px;font-weight:500;color:var(--text);
+  z-index:999;opacity:0;-webkit-transition:.2s;transition:.2s;pointer-events:none;white-space:nowrap;
+  max-width:calc(100vw - 40px);text-align:center;
 }
 .toast.show{opacity:1;-webkit-transform:translateX(-50%) translateY(0);transform:translateX(-50%) translateY(0)}
 
 /* ── EMPTY STATE ─────────────────────────────────────────── */
 .empty{text-align:center;padding:50px 20px}
 .empty-ico{font-size:44px;margin-bottom:12px}
-.empty-t{font-family:‘Syne’,sans-serif;font-size:18px;font-weight:700;margin-bottom:6px}
-.empty-s{font-size:13px;color:var(–text2);margin-bottom:22px}
+.empty-t{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:6px}
+.empty-s{font-size:13px;color:var(--text2);margin-bottom:22px}
 
 /* ── AI BOX ──────────────────────────────────────────────── */
-.ai-box{background:var(–s2);border:1px solid var(–accent);border-radius:var(–r-sm);padding:14px;margin-top:12px}
-.ai-loading{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:10px;color:var(–text2);font-size:13px;padding:8px 0}
-.spinner{width:16px;height:16px;border:2px solid var(–border2);border-top-color:var(–accent);border-radius:50%;
--webkit-animation:spin .8s linear infinite;animation:spin .8s linear infinite;-webkit-flex-shrink:0;flex-shrink:0}
+.ai-box{background:var(--s2);border:1px solid var(--accent);border-radius:var(--r-sm);padding:14px;margin-top:12px}
+.ai-loading{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;gap:10px;color:var(--text2);font-size:13px;padding:8px 0}
+.spinner{width:16px;height:16px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;
+  -webkit-animation:spin .8s linear infinite;animation:spin .8s linear infinite;-webkit-flex-shrink:0;flex-shrink:0}
 @-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -332,52 +331,52 @@ max-width:calc(100vw - 40px);text-align:center;
 .frow{display:-webkit-flex;display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;scrollbar-width:none}
 .frow::-webkit-scrollbar{display:none}
 .fchip{-webkit-flex-shrink:0;flex-shrink:0;padding:8px 14px;min-height:36px;border-radius:20px;
-font-size:13px;font-weight:600;background:var(–s1);border:1px solid var(–border);color:var(–text2);cursor:pointer;
-display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;}
-.fchip.on{background:var(–accent);color:#080809;border-color:var(–accent)}
+  font-size:13px;font-weight:600;background:var(--s1);border:1px solid var(--border);color:var(--text2);cursor:pointer;
+  display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;}
+.fchip.on{background:var(--accent);color:#080809;border-color:var(--accent)}
 .fchip:active{opacity:.7}
 
 /* ── HERO ────────────────────────────────────────────────── */
-.hero{background:-webkit-linear-gradient(135deg,var(–s1) 0%,var(–s2) 100%);
-background:linear-gradient(135deg,var(–s1) 0%,var(–s2) 100%);
-border:1px solid var(–border);border-radius:var(–r);padding:22px 18px;margin-bottom:18px;
-position:relative;overflow:hidden}
-.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(–accent);margin-bottom:8px}
-.hero-title{font-family:‘Syne’,sans-serif;font-size:24px;font-weight:800;line-height:1.25;margin-bottom:6px}
-.hero-sub{font-size:13px;color:var(–text2);line-height:1.55;margin-bottom:18px}
+.hero{background:-webkit-linear-gradient(135deg,var(--s1) 0%,var(--s2) 100%);
+  background:linear-gradient(135deg,var(--s1) 0%,var(--s2) 100%);
+  border:1px solid var(--border);border-radius:var(--r);padding:22px 18px;margin-bottom:18px;
+  position:relative;overflow:hidden}
+.hero-eyebrow{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.hero-title{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;line-height:1.25;margin-bottom:6px}
+.hero-sub{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:18px}
 
 /* ── STATS MINI ──────────────────────────────────────────── */
 .stats-mini{display:-webkit-flex;display:flex;gap:8px;margin-bottom:18px}
-.stat-mini-box{background:var(–s1);border:1px solid var(–border);border-radius:var(–r-sm);
-padding:12px 10px;text-align:center;-webkit-flex:1;flex:1}
-.stat-mini-n{font-family:‘Syne’,sans-serif;font-size:22px;font-weight:700;color:var(–accent)}
-.stat-mini-l{font-size:10px;color:var(–text3);margin-top:2px}
+.stat-mini-box{background:var(--s1);border:1px solid var(--border);border-radius:var(--r-sm);
+  padding:12px 10px;text-align:center;-webkit-flex:1;flex:1}
+.stat-mini-n{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--accent)}
+.stat-mini-l{font-size:10px;color:var(--text3);margin-top:2px}
 
 /* ── QUESTION BUILDER ────────────────────────────────────── */
-.qb-item{background:var(–s1);border:1px solid var(–border);border-radius:var(–r-sm);
-padding:12px 14px;margin-bottom:7px;display:-webkit-flex;display:flex;-webkit-align-items:flex-start;align-items:flex-start;gap:10px}
+.qb-item{background:var(--s1);border:1px solid var(--border);border-radius:var(--r-sm);
+  padding:12px 14px;margin-bottom:7px;display:-webkit-flex;display:flex;-webkit-align-items:flex-start;align-items:flex-start;gap:10px}
 .qb-body{-webkit-flex:1;flex:1;min-width:0}
-.qb-q{font-size:13px;color:var(–text);line-height:1.4;margin-bottom:4px}
-.qb-meta{font-size:11px;color:var(–text3)}
+.qb-q{font-size:13px;color:var(--text);line-height:1.4;margin-bottom:4px}
+.qb-meta{font-size:11px;color:var(--text3)}
 .qb-actions{display:-webkit-flex;display:flex;gap:4px;-webkit-flex-shrink:0;flex-shrink:0}
-.ib{background:none;border:none;color:var(–text3);font-size:16px;cursor:pointer;
-min-width:36px;min-height:36px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;}
+.ib{background:none;border:none;color:var(--text3);font-size:16px;cursor:pointer;
+  min-width:36px;min-height:36px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;}
 .ib:active{opacity:.5}
 
 /* ── EXPORT SECTION ──────────────────────────────────────── */
-.export-section{background:var(–s2);border:1px solid var(–border2);border-radius:var(–r);padding:18px;margin-bottom:12px}
-.export-title{font-family:‘Syne’,sans-serif;font-size:15px;font-weight:700;margin-bottom:4px}
-.export-sub{font-size:12px;color:var(–text2);margin-bottom:14px}
+.export-section{background:var(--s2);border:1px solid var(--border2);border-radius:var(--r);padding:18px;margin-bottom:12px}
+.export-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:4px}
+.export-sub{font-size:12px;color:var(--text2);margin-bottom:14px}
 
 /* ── DETAIL ANSWER BLOCK ─────────────────────────────────── */
 .dq{margin-bottom:16px}
-.dq-label{font-size:11px;font-weight:700;color:var(–text3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
-.dq-q{font-size:13px;color:var(–text2);margin-bottom:6px;line-height:1.4}
-.dq-a{font-size:14px;color:var(–text);background:var(–s2);padding:12px 14px;border-radius:var(–r-sm);border-left:2px solid var(–accent);line-height:1.55}
-.dq-a.empty{color:var(–text3);font-style:italic;border-left-color:var(–border2)}
-.dq-a textarea{background:transparent;border:none;outline:none;color:var(–text);
-font-family:‘Instrument Sans’,system-ui,sans-serif;font-size:16px;line-height:1.55;width:100%;resize:vertical;min-height:50px;
--webkit-appearance:none;appearance:none;}
+.dq-label{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+.dq-q{font-size:13px;color:var(--text2);margin-bottom:6px;line-height:1.4}
+.dq-a{font-size:14px;color:var(--text);background:var(--s2);padding:12px 14px;border-radius:var(--r-sm);border-left:2px solid var(--accent);line-height:1.55}
+.dq-a.empty{color:var(--text3);font-style:italic;border-left-color:var(--border2)}
+.dq-a textarea{background:transparent;border:none;outline:none;color:var(--text);
+  font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;width:100%;resize:vertical;min-height:50px;
+  -webkit-appearance:none;appearance:none;}
 
 /* ── SCROLL ──────────────────────────────────────────────── */
 .screen::-webkit-scrollbar{width:0;display:none}
@@ -390,17 +389,16 @@ font-family:‘Instrument Sans’,system-ui,sans-serif;font-size:16px;line-heigh
 
 /* ── GENDER CHIPS ────────────────────────────────────────── */
 .gender-chip{-webkit-flex:1;flex:1;padding:12px 8px;min-height:44px;text-align:center;
-border-radius:var(–r-sm);border:1px solid var(–border);background:var(–s2);
-color:var(–text2);cursor:pointer;font-size:14px;font-weight:600;
-display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;}
-.gender-chip.sel{border-color:var(–accent);color:var(–accent);background:var(–accent-dim)}
+  border-radius:var(--r-sm);border:1px solid var(--border);background:var(--s2);
+  color:var(--text2);cursor:pointer;font-size:14px;font-weight:600;
+  display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;-webkit-justify-content:center;justify-content:center;}
+.gender-chip.sel{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
 .gender-chip:active{opacity:.7}
 
 /* ── QR ──────────────────────────────────────────────────── */
 #qr-wrap{text-align:center;padding:10px 0 16px}
 #qr-wrap canvas,#qr-wrap img{border-radius:8px;max-width:200px}
 </style>
-
 </head>
 <body>
 <div id="app">
@@ -429,7 +427,6 @@ display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
   </nav>
 
   <!-- MODALS -->
-
   <div class="modal-ov" id="m-project" onclick="cm('project')">
     <div class="modal-sh" onclick="event.stopPropagation()">
       <div class="modal-handle"></div>
@@ -545,7 +542,6 @@ display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
   </div>
 
   <!-- IMPORT OLD DATA MODAL -->
-
   <div class="modal-ov" id="m-import" onclick="cm('import')">
     <div class="modal-sh" onclick="event.stopPropagation()">
       <div class="modal-handle"></div>
@@ -565,7 +561,6 @@ display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
 </div>
 
 <!-- QR inline — no external CDN dependency -->
-
 <script>
 /* Minimal QR encoder (no CDN needed — works offline) */
 /* We generate a simple data URI via Google Charts API with fallback text */
@@ -1399,133 +1394,132 @@ function renderSurveyStep(){
     }).join('')+'</div>';
   } else {
     ansUI='<textarea class="ans-area" id="ans-text" placeholder="Cevabı buraya yazın...">'+esc(existing||'')+'</textarea>';
+  }
 
-}
-
-el.innerHTML=’<div class="sf-header">’
-+’<div class="sf-meta"><span style="color:'+qclr+'">’+(cat?esc(cat.name):T(‘Soru’,‘Question’))+’ ‘+(stepIdx+1)+’/’+surveyState.qIds.length+’</span><span>’+curStep+’/’+totalSteps+’</span></div>’
-+’<div class="prog-track"><div class="prog-fill" style="width:'+pct+'%"></div></div>’
-+’</div>’
-+’<div class="sf-body">’
-+’<div class="q-card">’
-+’<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">’
-+’<div class="q-type-label" style="color:'+qclr+';margin-bottom:0">’+(QTL[q.type]||T(‘Yazılı’,‘Text’))+’</div>’
-+(ttsSettings.enabled?’<button onclick=“speakText('’+q.text.replace(/’/g,”\’”)+’')” style=“background:var(–accent-dim);border:1px solid var(–accent);border-radius:20px;padding:5px 12px;font-size:12px;font-weight:600;color:var(–accent);cursor:pointer;min-height:32px”>🔊 ‘+TTS_LANGS[ttsSettings.lang].label+’</button>’:’’)
-+’</div>’
-+’<div class="q-text">’+esc(q.text)+’</div>’
-+(q.subtext?’<div class="q-text-sub">’+esc(q.subtext)+’</div>’:’’)
-+ansUI
-+’</div></div>’
-+’<div class="sf-nav">’
-+’<button class="btn btn-g" onclick="surveyPrev()">← ‘+T(‘Geri’,‘Back’)+’</button>’
-+’<button class="btn btn-s" onclick="surveySkip()">’+T(‘Atla’,‘Skip’)+’</button>’
-+’<button class="btn btn-p" onclick="surveyNext()">’+(stepIdx===surveyState.qIds.length-1?‘✓ ‘+T(‘Bitir’,‘Finish’):T(‘İleri →’,‘Next →’))+’</button>’
-+’</div>’;
+  el.innerHTML='<div class="sf-header">'
+    +'<div class="sf-meta"><span style="color:'+qclr+'">'+(cat?esc(cat.name):T('Soru','Question'))+' '+(stepIdx+1)+'/'+surveyState.qIds.length+'</span><span>'+curStep+'/'+totalSteps+'</span></div>'
+    +'<div class="prog-track"><div class="prog-fill" style="width:'+pct+'%"></div></div>'
+    +'</div>'
+    +'<div class="sf-body">'
+    +'<div class="q-card">'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">'
+    +'<div class="q-type-label" style="color:'+qclr+';margin-bottom:0">'+(QTL[q.type]||T('Yazılı','Text'))+'</div>'
+    +(ttsSettings.enabled?'<button onclick="speakText(\''+q.text.replace(/'/g,"\\'")+'\')" style="background:var(--accent-dim);border:1px solid var(--accent);border-radius:20px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--accent);cursor:pointer;min-height:32px">🔊 '+TTS_LANGS[ttsSettings.lang].label+'</button>':'')
+    +'</div>'
+    +'<div class="q-text">'+esc(q.text)+'</div>'
+    +(q.subtext?'<div class="q-text-sub">'+esc(q.subtext)+'</div>':'')
+    +ansUI
+    +'</div></div>'
+    +'<div class="sf-nav">'
+    +'<button class="btn btn-g" onclick="surveyPrev()">← '+T('Geri','Back')+'</button>'
+    +'<button class="btn btn-s" onclick="surveySkip()">'+T('Atla','Skip')+'</button>'
+    +'<button class="btn btn-p" onclick="surveyNext()">'+(stepIdx===surveyState.qIds.length-1?'✓ '+T('Bitir','Finish'):T('İleri →','Next →'))+'</button>'
+    +'</div>';
 }
 
 function setRating(val){
-var qId=surveyState.qIds[surveyState.step];
-surveyState.answers[qId]=val;
-for(var i=1;i<=5;i++){
-var s=document.getElementById(‘star-’+i);
-if(s) s.className=‘star’+(i<=val?’ lit’:’’);
-}
+  var qId=surveyState.qIds[surveyState.step];
+  surveyState.answers[qId]=val;
+  for(var i=1;i<=5;i++){
+    var s=document.getElementById('star-'+i);
+    if(s) s.className='star'+(i<=val?' lit':'');
+  }
 }
 
 function selectMCQ(el,val){
-var qId=surveyState.qIds[surveyState.step];
-document.querySelectorAll(’.mcq-opt’).forEach(function(o){o.classList.remove(‘sel’)});
-el.classList.add(‘sel’);
-surveyState.answers[qId]=val;
+  var qId=surveyState.qIds[surveyState.step];
+  document.querySelectorAll('.mcq-opt').forEach(function(o){o.classList.remove('sel')});
+  el.classList.add('sel');
+  surveyState.answers[qId]=val;
 }
 
 function selectGender(g,el){
-surveyState.profile.gender=g;
-document.querySelectorAll(’.gender-chip’).forEach(function(e){
-var match=e.textContent.trim()===g;
-e.className=‘gender-chip’+(match?’ sel’:’’);
-});
+  surveyState.profile.gender=g;
+  document.querySelectorAll('.gender-chip').forEach(function(e){
+    var match=e.textContent.trim()===g;
+    e.className='gender-chip'+(match?' sel':'');
+  });
 }
 
 function profileNext(){
-surveyState.profile.note=(document.getElementById(‘p-note’)||{}).value||’’;
-surveyState.profile.age=(document.getElementById(‘p-age’)||{}).value||’’;
-surveyState.profile.nationality=(document.getElementById(‘p-nat’)||{}).value||’’;
-surveyState.step=0;
-renderSurveyStep();
+  surveyState.profile.note=(document.getElementById('p-note')||{}).value||'';
+  surveyState.profile.age=(document.getElementById('p-age')||{}).value||'';
+  surveyState.profile.nationality=(document.getElementById('p-nat')||{}).value||'';
+  surveyState.step=0;
+  renderSurveyStep();
 }
 
 function surveyNext(){
-var stepIdx=surveyState.step;
-var qId=surveyState.qIds[stepIdx];
-var proj=db.projects.find(function(p){return p.id===surveyState.projectId});
-var q=proj?proj.questions.find(function(q){return q.id===qId}):null;
-if(q&&q.type===‘text’){
-var ta=document.getElementById(‘ans-text’);
-var ans=ta?ta.value.trim():’’;
-if(ans) surveyState.answers[qId]=ans;
-}
-advanceStep();
+  var stepIdx=surveyState.step;
+  var qId=surveyState.qIds[stepIdx];
+  var proj=db.projects.find(function(p){return p.id===surveyState.projectId});
+  var q=proj?proj.questions.find(function(q){return q.id===qId}):null;
+  if(q&&q.type==='text'){
+    var ta=document.getElementById('ans-text');
+    var ans=ta?ta.value.trim():'';
+    if(ans) surveyState.answers[qId]=ans;
+  }
+  advanceStep();
 }
 
 function advanceStep(){
-if(surveyState.step>=surveyState.qIds.length-1) finishSurvey();
-else{surveyState.step++;renderSurveyStep();}
+  if(surveyState.step>=surveyState.qIds.length-1) finishSurvey();
+  else{surveyState.step++;renderSurveyStep();}
 }
 
 function surveyPrev(){
-if(surveyState.step===0) surveyState.step=‘profile’;
-else if(surveyState.step!==‘profile’) surveyState.step–;
-renderSurveyStep();
+  if(surveyState.step===0) surveyState.step='profile';
+  else if(surveyState.step!=='profile') surveyState.step--;
+  renderSurveyStep();
 }
 
 function surveySkip(){advanceStep();}
 
-function cancelSurvey(){surveyState=null;go(‘home’);}
+function cancelSurvey(){surveyState=null;go('home');}
 
 function finishSurvey(){
-db.responses.push(Object.assign({},surveyState,{step:‘done’}));
-save();
-surveyState.step=‘done’;
-renderSurveyStep();
-showToast(‘✓ Kaydedildi’);
+  db.responses.push(Object.assign({},surveyState,{step:'done'}));
+  save();
+  surveyState.step='done';
+  renderSurveyStep();
+  showToast('✓ Kaydedildi');
 }
 
 function launchNewFromDone(){
-var pid=surveyState.projectId;
-surveyState=null;
-openStartSurveyModal(pid);
+  var pid=surveyState.projectId;
+  surveyState=null;
+  openStartSurveyModal(pid);
 }
 
 // ================================================================
 // HISTORY
 // ================================================================
-var histFilter=‘all’;
-var histSearch=’’;
+var histFilter='all';
+var histSearch='';
 
 function renderHistory(){
-var resp=db.responses.slice().reverse();
-if(histFilter!==‘all’) resp=resp.filter(function(r){return r.projectId===histFilter});
-if(histSearch){
-var s=histSearch.toLowerCase();
-resp=resp.filter(function(r){
-var prof=r.profile||{};
-var ansTxt=Object.values(r.answers||{}).join(’ ‘);
-return ((prof.note||’’)+(prof.nationality||’’)+ansTxt).toLowerCase().indexOf(s)>-1;
-});
-}
-var chips=[{id:‘all’,name:‘Tümü’}].concat(db.projects.map(function(p){return{id:p.id,name:(p.emoji||‘📋’)+’ ‘+p.name}}));
-var cards=resp.map(function(r){return respCardHTML(r)}).join(’’);
-var sv=histSearch;
-document.getElementById(‘sc-history’).innerHTML=’<div class="pad">’
-+’<div class="sec-title">Cevaplar</div>’
-+’<div class="sec-sub">’+db.responses.length+’ toplam kayıt</div>’
-+’<div class="ig" style="margin-bottom:10px">’
-+’<input class="inp" id="hist-search" type="search" placeholder="Ara..." value="'+esc(sv)+'" oninput="histSearch=this.value;renderHistory()" autocomplete="off">’
-+’</div>’
-+’<div class="frow">’+chips.map(function(c){return’<div class="fchip'+(histFilter===c.id?' on':'')+'" onclick="setHistFilter(\''+safeId(c.id)+'\')">’+esc(c.name)+’</div>’}).join(’’)+’</div>’
-+(resp.length===0?’<div class="empty"><div class="empty-ico">🔍</div><div class="empty-t">Sonuç yok</div></div>’:cards)
-+’</div>’;
+  var resp=db.responses.slice().reverse();
+  if(histFilter!=='all') resp=resp.filter(function(r){return r.projectId===histFilter});
+  if(histSearch){
+    var s=histSearch.toLowerCase();
+    resp=resp.filter(function(r){
+      var prof=r.profile||{};
+      var ansTxt=Object.values(r.answers||{}).join(' ');
+      return ((prof.note||'')+(prof.nationality||'')+ansTxt).toLowerCase().indexOf(s)>-1;
+    });
+  }
+  var chips=[{id:'all',name:'Tümü'}].concat(db.projects.map(function(p){return{id:p.id,name:(p.emoji||'📋')+' '+p.name}}));
+  var cards=resp.map(function(r){return respCardHTML(r)}).join('');
+  var sv=histSearch;
+  document.getElementById('sc-history').innerHTML='<div class="pad">'
+    +'<div class="sec-title">Cevaplar</div>'
+    +'<div class="sec-sub">'+db.responses.length+' toplam kayıt</div>'
+    +'<div class="ig" style="margin-bottom:10px">'
+    +'<input class="inp" id="hist-search" type="search" placeholder="Ara..." value="'+esc(sv)+'" oninput="histSearch=this.value;renderHistory()" autocomplete="off">'
+    +'</div>'
+    +'<div class="frow">'+chips.map(function(c){return'<div class="fchip'+(histFilter===c.id?' on':'')+'" onclick="setHistFilter(\''+safeId(c.id)+'\')">'+esc(c.name)+'</div>'}).join('')+'</div>'
+    +(resp.length===0?'<div class="empty"><div class="empty-ico">🔍</div><div class="empty-t">Sonuç yok</div></div>':cards)
+    +'</div>';
 }
 
 function setHistFilter(f){histFilter=f;renderHistory();}
@@ -1534,583 +1528,580 @@ function setHistFilter(f){histFilter=f;renderHistory();}
 // RESPONSE DETAIL
 // ================================================================
 function openRespDetail(id){
-document.querySelectorAll(’.screen’).forEach(function(s){s.classList.remove(‘active’)});
-document.getElementById(‘sc-detail’).classList.add(‘active’);
-document.getElementById(‘main-nav’).style.display=‘flex’;
-activeScreen=‘detail’;
-renderRespDetail(safeId(id),false);
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active')});
+  document.getElementById('sc-detail').classList.add('active');
+  document.getElementById('main-nav').style.display='flex';
+  activeScreen='detail';
+  renderRespDetail(safeId(id),false);
 }
 
 function renderRespDetail(id,editing){
-var resp=db.responses.find(function(r){return r.id===id});
-if(!resp) return;
-var proj=db.projects.find(function(p){return p.id===resp.projectId});
-if(!proj) return;
-var el=document.getElementById(‘sc-detail’);
-var clr=‘var(–accent)’;
-var prof=resp.profile||{};
-var dateStr=new Date(resp.date).toLocaleDateString(‘tr-TR’,{day:‘numeric’,month:‘long’,year:‘numeric’});
-var qIds=resp.qIds||proj.questions.map(function(q){return q.id});
-var ans=Object.values(resp.answers||{}).filter(function(a){return a!==null&&a!==undefined&&String(a).trim()}).length;
+  var resp=db.responses.find(function(r){return r.id===id});
+  if(!resp) return;
+  var proj=db.projects.find(function(p){return p.id===resp.projectId});
+  if(!proj) return;
+  var el=document.getElementById('sc-detail');
+  var clr='var(--accent)';
+  var prof=resp.profile||{};
+  var dateStr=new Date(resp.date).toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'});
+  var qIds=resp.qIds||proj.questions.map(function(q){return q.id});
+  var ans=Object.values(resp.answers||{}).filter(function(a){return a!==null&&a!==undefined&&String(a).trim()}).length;
 
-var qaHtml=qIds.map(function(qid){
-var q=proj.questions.find(function(q){return q.id===qid});
-if(!q) return ‘’;
-var cat=proj.categories?proj.categories.find(function(c){return c.id===q.catId}):null;
-var qclr=cat&&cat.color?cat.color:clr;
-var av=resp.answers?resp.answers[qid]:null;
-var ansDisplay=’’;
-if(editing){
-if(q.type===‘text’){
-ansDisplay=’<div class="dq-a"><textarea data-qid="'+safeId(qid)+'">’+esc(av||’’)+’</textarea></div>’;
-} else if(q.type===‘rating’){
-ansDisplay=’<div class="dq-a"><input type="number" inputmode="numeric" min="1" max="5" data-qid="'+safeId(qid)+'" value="'+esc(av||'')+'" style="background:transparent;border:none;outline:none;color:var(--text);font-size:16px;width:60px"></div>’;
-} else if(q.type===‘mcq’){
-var optsHtml=(q.options||[]).map(function(opt){
-return ‘<div class="mcq-opt'+(av===opt?' sel':'')+'" style="margin-bottom:6px;font-size:14px" onclick="this.closest(\'[data-qid]\').querySelectorAll(\'.mcq-opt\').forEach(function(o){o.classList.remove(\'sel\')});this.classList.add(\'sel\')" data-opt="'+esc(opt)+'">’+esc(opt)+’</div>’;
-}).join(’’);
-ansDisplay=’<div class="dq-a" data-qid="'+safeId(qid)+'">’+optsHtml+’</div>’;
-}
-} else {
-var displayVal=av;
-if(q.type===‘rating’&&av) displayVal=‘★’.repeat(av)+‘☆’.repeat(5-av)+’ (’+av+’/5)’;
-ansDisplay=’<div class="dq-a'+(displayVal?'':' empty')+'">’+esc(displayVal?String(displayVal):‘Cevap verilmedi’)+’</div>’;
-}
-return ‘<div class="dq">’
-+’<div class="dq-label" style="color:'+qclr+'">’+(cat?esc(cat.name)+’ · ‘:’’)+esc(QTL[q.type]||’’)+’</div>’
-+’<div class="dq-q">’+esc(q.text)+’</div>’
-+ansDisplay+’</div>’;
-}).join(’’);
+  var qaHtml=qIds.map(function(qid){
+    var q=proj.questions.find(function(q){return q.id===qid});
+    if(!q) return '';
+    var cat=proj.categories?proj.categories.find(function(c){return c.id===q.catId}):null;
+    var qclr=cat&&cat.color?cat.color:clr;
+    var av=resp.answers?resp.answers[qid]:null;
+    var ansDisplay='';
+    if(editing){
+      if(q.type==='text'){
+        ansDisplay='<div class="dq-a"><textarea data-qid="'+safeId(qid)+'">'+esc(av||'')+'</textarea></div>';
+      } else if(q.type==='rating'){
+        ansDisplay='<div class="dq-a"><input type="number" inputmode="numeric" min="1" max="5" data-qid="'+safeId(qid)+'" value="'+esc(av||'')+'" style="background:transparent;border:none;outline:none;color:var(--text);font-size:16px;width:60px"></div>';
+      } else if(q.type==='mcq'){
+        var optsHtml=(q.options||[]).map(function(opt){
+          return '<div class="mcq-opt'+(av===opt?' sel':'')+'" style="margin-bottom:6px;font-size:14px" onclick="this.closest(\'[data-qid]\').querySelectorAll(\'.mcq-opt\').forEach(function(o){o.classList.remove(\'sel\')});this.classList.add(\'sel\')" data-opt="'+esc(opt)+'">'+esc(opt)+'</div>';
+        }).join('');
+        ansDisplay='<div class="dq-a" data-qid="'+safeId(qid)+'">'+optsHtml+'</div>';
+      }
+    } else {
+      var displayVal=av;
+      if(q.type==='rating'&&av) displayVal='★'.repeat(av)+'☆'.repeat(5-av)+' ('+av+'/5)';
+      ansDisplay='<div class="dq-a'+(displayVal?'':' empty')+'">'+esc(displayVal?String(displayVal):'Cevap verilmedi')+'</div>';
+    }
+    return '<div class="dq">'
+      +'<div class="dq-label" style="color:'+qclr+'">'+(cat?esc(cat.name)+' · ':'')+esc(QTL[q.type]||'')+'</div>'
+      +'<div class="dq-q">'+esc(q.text)+'</div>'
+      +ansDisplay+'</div>';
+  }).join('');
 
-var profileEditHtml=editing?’<div class="ig"><label class="il">Not / İsim</label><input class="inp" id="e-note" value="'+esc(prof.note||'')+'" autocomplete="off"></div>’
-+’<div style="display:flex;gap:10px">’
-+’<div class="ig" style="flex:1"><label class="il">Yaş</label><input class="inp" id="e-age" type="number" inputmode="numeric" value="'+esc(prof.age||'')+'"></div>’
-+’<div class="ig" style="flex:1"><label class="il">Uyruk/Şehir</label><input class="inp" id="e-nat" value="'+esc(prof.nationality||'')+'" autocomplete="off"></div>’
-+’</div>’
-+’<div class="ig"><label class="il">Cinsiyet</label><input class="inp" id="e-gender" value="'+esc(prof.gender||'')+'" autocomplete="off"></div>’
-+’<div class="divl"></div>’:’’;
+  var profileEditHtml=editing?'<div class="ig"><label class="il">Not / İsim</label><input class="inp" id="e-note" value="'+esc(prof.note||'')+'" autocomplete="off"></div>'
+    +'<div style="display:flex;gap:10px">'
+    +'<div class="ig" style="flex:1"><label class="il">Yaş</label><input class="inp" id="e-age" type="number" inputmode="numeric" value="'+esc(prof.age||'')+'"></div>'
+    +'<div class="ig" style="flex:1"><label class="il">Uyruk/Şehir</label><input class="inp" id="e-nat" value="'+esc(prof.nationality||'')+'" autocomplete="off"></div>'
+    +'</div>'
+    +'<div class="ig"><label class="il">Cinsiyet</label><input class="inp" id="e-gender" value="'+esc(prof.gender||'')+'" autocomplete="off"></div>'
+    +'<div class="divl"></div>':'';
 
-var actionBtns=editing
-?’<button class="btn btn-p btn-sm" onclick="saveRespEdit(\''+safeId(id)+'\')">✓ Kaydet</button>’
-+’<button class="btn btn-g btn-sm" onclick="renderRespDetail(\''+safeId(id)+'\',false)">İptal</button>’
-:’<button class="btn btn-s btn-sm" onclick="renderRespDetail(\''+safeId(id)+'\',true)">✏️ Düzenle</button>’
-+’<button class="btn btn-s btn-sm" onclick="openExportModal(\''+safeId(id)+'\',\'resp\')">📸 Export</button>’
-+’<button class="btn btn-d btn-sm" style="width:auto;padding:0 14px" onclick="confirmDelete(function(){deleteResp(\''+safeId(id)+'\')})">🗑️</button>’;
+  var actionBtns=editing
+    ?'<button class="btn btn-p btn-sm" onclick="saveRespEdit(\''+safeId(id)+'\')">✓ Kaydet</button>'
+      +'<button class="btn btn-g btn-sm" onclick="renderRespDetail(\''+safeId(id)+'\',false)">İptal</button>'
+    :'<button class="btn btn-s btn-sm" onclick="renderRespDetail(\''+safeId(id)+'\',true)">✏️ Düzenle</button>'
+      +'<button class="btn btn-s btn-sm" onclick="openExportModal(\''+safeId(id)+'\',\'resp\')">📸 Export</button>'
+      +'<button class="btn btn-d btn-sm" style="width:auto;padding:0 14px" onclick="confirmDelete(function(){deleteResp(\''+safeId(id)+'\')})">🗑️</button>';
 
-el.innerHTML=’<div class="back-bar" onclick="backFromDetail()">← Geri</div>’
-+’<div class="pad">’
-+’<div class="card card-hi" style="border-left-color:'+clr+';margin-bottom:18px">’
-+’<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">’
-+’<div class="resp-avatar" style="background:'+clr+';width:44px;height:44px;font-size:18px">’+(prof.note||’?’).charAt(0).toUpperCase()+’</div>’
-+’<div><div style="font-weight:700;font-size:16px">’+esc(prof.note||‘İsimsiz’)+’</div>’
-+’<div style="font-size:12px;color:var(--text2)">’+dateStr+’</div></div></div>’
-+’<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">’
-+(prof.age?’<span class="tag tag-g">’+esc(prof.age)+’ yaş</span>’:’’)
-+(prof.gender?’<span class="tag tag-b">’+esc(prof.gender)+’</span>’:’’)
-+(prof.nationality?’<span class="tag tag-y">’+esc(prof.nationality)+’</span>’:’’)
-+’<span class="tag tag-p">’+esc(proj.emoji||‘📋’)+’ ‘+esc(proj.name)+’</span>’
-+’<span class="tag tag-r">’+ans+’/’+qIds.length+’ cevap</span>’
-+’</div>’
-+’<div class="btn-row" style="flex-wrap:wrap;gap:6px">’+actionBtns+’</div>’
-+’</div>’
-+profileEditHtml
-+qaHtml+’</div>’;
+  el.innerHTML='<div class="back-bar" onclick="backFromDetail()">← Geri</div>'
+    +'<div class="pad">'
+    +'<div class="card card-hi" style="border-left-color:'+clr+';margin-bottom:18px">'
+    +'<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">'
+    +'<div class="resp-avatar" style="background:'+clr+';width:44px;height:44px;font-size:18px">'+(prof.note||'?').charAt(0).toUpperCase()+'</div>'
+    +'<div><div style="font-weight:700;font-size:16px">'+esc(prof.note||'İsimsiz')+'</div>'
+    +'<div style="font-size:12px;color:var(--text2)">'+dateStr+'</div></div></div>'
+    +'<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px">'
+    +(prof.age?'<span class="tag tag-g">'+esc(prof.age)+' yaş</span>':'')
+    +(prof.gender?'<span class="tag tag-b">'+esc(prof.gender)+'</span>':'')
+    +(prof.nationality?'<span class="tag tag-y">'+esc(prof.nationality)+'</span>':'')
+    +'<span class="tag tag-p">'+esc(proj.emoji||'📋')+' '+esc(proj.name)+'</span>'
+    +'<span class="tag tag-r">'+ans+'/'+qIds.length+' cevap</span>'
+    +'</div>'
+    +'<div class="btn-row" style="flex-wrap:wrap;gap:6px">'+actionBtns+'</div>'
+    +'</div>'
+    +profileEditHtml
+    +qaHtml+'</div>';
 }
 
 function saveRespEdit(id){
-var idx=db.responses.findIndex(function(r){return r.id===id});
-if(idx===-1) return;
-var proj=db.projects.find(function(p){return p.id===db.responses[idx].projectId});
-var en=document.getElementById(‘e-note’);
-var ea=document.getElementById(‘e-age’);
-var enat=document.getElementById(‘e-nat’);
-var eg=document.getElementById(‘e-gender’);
-if(en) db.responses[idx].profile.note=en.value.trim();
-if(ea) db.responses[idx].profile.age=ea.value.trim();
-if(enat) db.responses[idx].profile.nationality=enat.value.trim();
-if(eg) db.responses[idx].profile.gender=eg.value.trim();
-document.querySelectorAll(’[data-qid]’).forEach(function(el){
-var qid=el.getAttribute(‘data-qid’);
-var q=proj?proj.questions.find(function(q){return q.id===qid}):null;
-if(!q) return;
-if(q.type===‘text’&&el.tagName===‘TEXTAREA’) db.responses[idx].answers[qid]=el.value.trim();
-else if(q.type===‘rating’&&el.tagName===‘INPUT’) db.responses[idx].answers[qid]=parseInt(el.value)||null;
-else if(q.type===‘mcq’){var sel=el.querySelector(’.mcq-opt.sel’);if(sel) db.responses[idx].answers[qid]=sel.getAttribute(‘data-opt’);}
-});
-save();renderRespDetail(id,false);showToast(‘✓ Kaydedildi’);
+  var idx=db.responses.findIndex(function(r){return r.id===id});
+  if(idx===-1) return;
+  var proj=db.projects.find(function(p){return p.id===db.responses[idx].projectId});
+  var en=document.getElementById('e-note');
+  var ea=document.getElementById('e-age');
+  var enat=document.getElementById('e-nat');
+  var eg=document.getElementById('e-gender');
+  if(en) db.responses[idx].profile.note=en.value.trim();
+  if(ea) db.responses[idx].profile.age=ea.value.trim();
+  if(enat) db.responses[idx].profile.nationality=enat.value.trim();
+  if(eg) db.responses[idx].profile.gender=eg.value.trim();
+  document.querySelectorAll('[data-qid]').forEach(function(el){
+    var qid=el.getAttribute('data-qid');
+    var q=proj?proj.questions.find(function(q){return q.id===qid}):null;
+    if(!q) return;
+    if(q.type==='text'&&el.tagName==='TEXTAREA') db.responses[idx].answers[qid]=el.value.trim();
+    else if(q.type==='rating'&&el.tagName==='INPUT') db.responses[idx].answers[qid]=parseInt(el.value)||null;
+    else if(q.type==='mcq'){var sel=el.querySelector('.mcq-opt.sel');if(sel) db.responses[idx].answers[qid]=sel.getAttribute('data-opt');}
+  });
+  save();renderRespDetail(id,false);showToast('✓ Kaydedildi');
 }
 
 function deleteResp(id){
-db.responses=db.responses.filter(function(r){return r.id!==id});
-save();backFromDetail();showToast(‘Cevap silindi’);
+  db.responses=db.responses.filter(function(r){return r.id!==id});
+  save();backFromDetail();showToast('Cevap silindi');
 }
 
-function backFromDetail(){go(‘history’);}
+function backFromDetail(){go('history');}
 
 // ================================================================
 // STATS
 // ================================================================
 function renderStats(){
-var el=document.getElementById(‘sc-stats’);
-if(db.responses.length===0){
-el.innerHTML=’<div class="pad"><div class="sec-title">İstatistikler</div>’
-+’<div class="empty"><div class="empty-ico">📊</div><div class="empty-t">Veri yok</div>’
-+’<div class="empty-s">Anket yaparak istatistikleri görün</div></div></div>’;
-return;
-}
-var pfEl=document.getElementById(‘stats-pf’);
-var projFilter=pfEl?pfEl.value:‘all’;
-var resps=projFilter===‘all’?db.responses:db.responses.filter(function(r){return r.projectId===projFilter});
-var total=resps.length;
-var ages=resps.filter(function(r){return r.profile&&r.profile.age}).map(function(r){return parseInt(r.profile.age)});
-var avgAge=ages.length?Math.round(ages.reduce(function(a,b){return a+b},0)/ages.length):’–’;
-var natMap={},gMap={},projMap={};
-resps.forEach(function(r){
-var n=(r.profile&&r.profile.nationality)||‘Belirtilmemiş’;
-natMap[n]=(natMap[n]||0)+1;
-var g=(r.profile&&r.profile.gender)||‘Belirtilmemiş’;
-gMap[g]=(gMap[g]||0)+1;
-var p=db.projects.find(function(pp){return pp.id===r.projectId});
-if(p){var pn=p.name;projMap[pn]=(projMap[pn]||0)+1;}
-});
-var maxNat=Math.max.apply(null,Object.values(natMap).concat([1]));
-var maxG=Math.max.apply(null,Object.values(gMap).concat([1]));
-var maxP=Math.max.apply(null,Object.values(projMap).concat([1]));
+  var el=document.getElementById('sc-stats');
+  if(db.responses.length===0){
+    el.innerHTML='<div class="pad"><div class="sec-title">İstatistikler</div>'
+      +'<div class="empty"><div class="empty-ico">📊</div><div class="empty-t">Veri yok</div>'
+      +'<div class="empty-s">Anket yaparak istatistikleri görün</div></div></div>';
+    return;
+  }
+  var pfEl=document.getElementById('stats-pf');
+  var projFilter=pfEl?pfEl.value:'all';
+  var resps=projFilter==='all'?db.responses:db.responses.filter(function(r){return r.projectId===projFilter});
+  var total=resps.length;
+  var ages=resps.filter(function(r){return r.profile&&r.profile.age}).map(function(r){return parseInt(r.profile.age)});
+  var avgAge=ages.length?Math.round(ages.reduce(function(a,b){return a+b},0)/ages.length):'–';
+  var natMap={},gMap={},projMap={};
+  resps.forEach(function(r){
+    var n=(r.profile&&r.profile.nationality)||'Belirtilmemiş';
+    natMap[n]=(natMap[n]||0)+1;
+    var g=(r.profile&&r.profile.gender)||'Belirtilmemiş';
+    gMap[g]=(gMap[g]||0)+1;
+    var p=db.projects.find(function(pp){return pp.id===r.projectId});
+    if(p){var pn=p.name;projMap[pn]=(projMap[pn]||0)+1;}
+  });
+  var maxNat=Math.max.apply(null,Object.values(natMap).concat([1]));
+  var maxG=Math.max.apply(null,Object.values(gMap).concat([1]));
+  var maxP=Math.max.apply(null,Object.values(projMap).concat([1]));
 
-var qStatsHtml=’’;
-if(projFilter!==‘all’){
-var proj=db.projects.find(function(p){return p.id===projFilter});
-if(proj){
-var qStats=(proj.questions||[]).map(function(q){
-var a=resps.filter(function(r){return r.answers&&r.answers[q.id]!==null&&r.answers[q.id]!==undefined&&String(r.answers[q.id]).trim()}).length;
-return{q:q,ans:a,pct:total?Math.round(a/total*100):0};
-}).sort(function(a,b){return b.ans-a.ans}).slice(0,8);
-qStatsHtml=’<div class="card" style="margin-bottom:12px"><div style="font-weight:700;font-size:14px;margin-bottom:12px">🏆 ‘+T(‘En Çok Cevaplanan’,‘Most Answered’)+’</div>’
-+qStats.map(function(s){return’<div class="stat-bar-row"><div class="sbl">’+esc(s.q.text.slice(0,26))+’…</div><div class="sbt"><div class="sbf" style="width:'+s.pct+'%"></div></div><div class="sbc" style="width:36px">’+s.pct+’%</div></div>’}).join(’’)
-+’</div>’;
-// MCQ breakdown
-(proj.questions||[]).filter(function(q){return q.type===‘mcq’}).forEach(function(q){
-var om={};(q.options||[]).forEach(function(o){om[o]=0});
-resps.forEach(function(r){var a=r.answers&&r.answers[q.id];if(a&&om[a]!==undefined)om[a]++;});
-var mv=Math.max.apply(null,Object.values(om).concat([1]));
-qStatsHtml+=’<div class="card" style="margin-bottom:12px">’
-+’<div style="font-weight:700;font-size:13px;margin-bottom:3px;line-height:1.4">’+esc(q.text)+’</div>’
-+’<div style="font-size:11px;color:var(--text3);margin-bottom:10px">Çoktan Seçmeli Dağılım</div>’
-+Object.entries(om).map(function(e){return’<div class="stat-bar-row"><div class="sbl">’+esc(e[0])+’</div><div class="sbt"><div class="sbf" style="width:'+Math.round(e[1]/mv*100)+'%;background:var(--accent2)"></div></div><div class="sbc">’+e[1]+’</div></div>’}).join(’’)
-+’</div>’;
-});
-// Rating breakdown
-(proj.questions||[]).filter(function(q){return q.type===‘rating’}).forEach(function(q){
-var vals=resps.map(function(r){return r.answers&&r.answers[q.id]}).filter(function(v){return v>0});
-var avg=vals.length?(vals.reduce(function(a,b){return a+b},0)/vals.length).toFixed(1):’–’;
-qStatsHtml+=’<div class="card" style="margin-bottom:12px">’
-+’<div style="font-weight:700;font-size:13px;margin-bottom:3px">’+esc(q.text)+’</div>’
-+’<div style="font-size:11px;color:var(--text3);margin-bottom:8px">Ortalama Puan</div>’
-+’<div style="font-family:\'Syne\',sans-serif;font-size:32px;color:var(--accent2)">’+avg+’ <span style="font-size:16px;color:var(--text3)">/ 5</span></div>’
-+’</div>’;
-});
-}
-}
+  var qStatsHtml='';
+  if(projFilter!=='all'){
+    var proj=db.projects.find(function(p){return p.id===projFilter});
+    if(proj){
+      var qStats=(proj.questions||[]).map(function(q){
+        var a=resps.filter(function(r){return r.answers&&r.answers[q.id]!==null&&r.answers[q.id]!==undefined&&String(r.answers[q.id]).trim()}).length;
+        return{q:q,ans:a,pct:total?Math.round(a/total*100):0};
+      }).sort(function(a,b){return b.ans-a.ans}).slice(0,8);
+      qStatsHtml='<div class="card" style="margin-bottom:12px"><div style="font-weight:700;font-size:14px;margin-bottom:12px">🏆 '+T('En Çok Cevaplanan','Most Answered')+'</div>'
+        +qStats.map(function(s){return'<div class="stat-bar-row"><div class="sbl">'+esc(s.q.text.slice(0,26))+'…</div><div class="sbt"><div class="sbf" style="width:'+s.pct+'%"></div></div><div class="sbc" style="width:36px">'+s.pct+'%</div></div>'}).join('')
+        +'</div>';
+      // MCQ breakdown
+      (proj.questions||[]).filter(function(q){return q.type==='mcq'}).forEach(function(q){
+        var om={};(q.options||[]).forEach(function(o){om[o]=0});
+        resps.forEach(function(r){var a=r.answers&&r.answers[q.id];if(a&&om[a]!==undefined)om[a]++;});
+        var mv=Math.max.apply(null,Object.values(om).concat([1]));
+        qStatsHtml+='<div class="card" style="margin-bottom:12px">'
+          +'<div style="font-weight:700;font-size:13px;margin-bottom:3px;line-height:1.4">'+esc(q.text)+'</div>'
+          +'<div style="font-size:11px;color:var(--text3);margin-bottom:10px">Çoktan Seçmeli Dağılım</div>'
+          +Object.entries(om).map(function(e){return'<div class="stat-bar-row"><div class="sbl">'+esc(e[0])+'</div><div class="sbt"><div class="sbf" style="width:'+Math.round(e[1]/mv*100)+'%;background:var(--accent2)"></div></div><div class="sbc">'+e[1]+'</div></div>'}).join('')
+          +'</div>';
+      });
+      // Rating breakdown
+      (proj.questions||[]).filter(function(q){return q.type==='rating'}).forEach(function(q){
+        var vals=resps.map(function(r){return r.answers&&r.answers[q.id]}).filter(function(v){return v>0});
+        var avg=vals.length?(vals.reduce(function(a,b){return a+b},0)/vals.length).toFixed(1):'–';
+        qStatsHtml+='<div class="card" style="margin-bottom:12px">'
+          +'<div style="font-weight:700;font-size:13px;margin-bottom:3px">'+esc(q.text)+'</div>'
+          +'<div style="font-size:11px;color:var(--text3);margin-bottom:8px">Ortalama Puan</div>'
+          +'<div style="font-family:\'Syne\',sans-serif;font-size:32px;color:var(--accent2)">'+avg+' <span style="font-size:16px;color:var(--text3)">/ 5</span></div>'
+          +'</div>';
+      });
+    }
+  }
 
-el.innerHTML=’<div class="pad">’
-+’<div class="sec-title">’+T(‘İstatistikler’,‘Statistics’)+’</div>’
-+’<div class="sec-sub">’+total+’ ‘+T(‘kayıt analiz ediliyor’,‘records analyzed’)+’</div>’
-+’<div class="ig" style="margin-bottom:14px"><label class="il">’+T(‘Proje Filtresi’,‘Project Filter’)+’</label>’
-+’<select class="inp" id="stats-pf" onchange="renderStats()">’
-+’<option value="all">’+T(‘Tüm Projeler’,‘All Projects’)+’</option>’
-+db.projects.map(function(p){return’<option value=”’+safeId(p.id)+’”’+(projFilter===p.id?’ selected’:’’)+’>’+esc(p.emoji||‘📋’)+’ ‘+esc(p.name)+’</option>’}).join(’’)
-+’</select></div>’
-+’<div class="stats-mini" style="margin-bottom:14px">’
-+’<div class="stat-mini-box"><div class="stat-mini-n">’+total+’</div><div class="stat-mini-l">’+T(‘Cevap’,‘Responses’)+’</div></div>’
-+’<div class="stat-mini-box"><div class="stat-mini-n">’+avgAge+’</div><div class="stat-mini-l">’+T(‘Ort. Yaş’,‘Avg Age’)+’</div></div>’
-+’<div class="stat-mini-box"><div class="stat-mini-n">’+Object.keys(natMap).length+’</div><div class="stat-mini-l">’+T(‘Uyruk’,‘Nationalities’)+’</div></div>’
-+’</div>’
-+’<div class="card" style="margin-bottom:12px"><div style="font-weight:700;font-size:14px;margin-bottom:12px">👥 ‘+T(‘Cinsiyet’,‘Gender’)+’</div>’
-+Object.entries(gMap).map(function(e){var pct=Math.round(e[1]/maxG*100);return’<div class="stat-bar-row"><div class="sbl">’+esc(e[0])+’</div><div class="sbt"><div class="sbf" style="width:'+pct+'%;background:var(--blue)"></div></div><div class="sbc" style="width:36px">’+e[1]+’</div></div>’}).join(’’)
-+’</div>’
-+’<div class="card" style="margin-bottom:12px"><div style="font-weight:700;font-size:14px;margin-bottom:12px">🌍 ‘+T(‘Uyruk / Şehir’,‘Nationality / City’)+’</div>’
-+Object.entries(natMap).sort(function(a,b){return b[1]-a[1]}).slice(0,8).map(function(e){var pct=Math.round(e[1]/maxNat*100);return’<div class="stat-bar-row"><div class="sbl">’+esc(e[0])+’</div><div class="sbt"><div class="sbf" style="width:'+pct+'%;background:var(--pink)"></div></div><div class="sbc" style="width:36px">’+e[1]+’</div></div>’}).join(’’)
-+’</div>’
-+(projFilter===‘all’?’<div class="card" style="margin-bottom:12px"><div style="font-weight:700;font-size:14px;margin-bottom:12px">📁 ‘+T(‘Projeye Göre’,‘By Project’)+’</div>’
-+Object.entries(projMap).map(function(e){var pct=Math.round(e[1]/maxP*100);return’<div class="stat-bar-row"><div class="sbl">’+esc(e[0].slice(0,15))+’</div><div class="sbt"><div class="sbf" style="width:'+pct+'%;background:var(--accent2)"></div></div><div class="sbc" style="width:36px">’+e[1]+’</div></div>’}).join(’’)
-+’</div>’:’’)
-+qStatsHtml+’</div>’;
+  el.innerHTML='<div class="pad">'
+    +'<div class="sec-title">'+T('İstatistikler','Statistics')+'</div>'
+    +'<div class="sec-sub">'+total+' '+T('kayıt analiz ediliyor','records analyzed')+'</div>'
+    +'<div class="ig" style="margin-bottom:14px"><label class="il">'+T('Proje Filtresi','Project Filter')+'</label>'
+    +'<select class="inp" id="stats-pf" onchange="renderStats()">'
+    +'<option value="all">'+T('Tüm Projeler','All Projects')+'</option>'
+    +db.projects.map(function(p){return'<option value="'+safeId(p.id)+'"'+(projFilter===p.id?' selected':'')+'>'+esc(p.emoji||'📋')+' '+esc(p.name)+'</option>'}).join('')
+    +'</select></div>'
+    +'<div class="stats-mini" style="margin-bottom:14px">'
+    +'<div class="stat-mini-box"><div class="stat-mini-n">'+total+'</div><div class="stat-mini-l">'+T('Cevap','Responses')+'</div></div>'
+    +'<div class="stat-mini-box"><div class="stat-mini-n">'+avgAge+'</div><div class="stat-mini-l">'+T('Ort. Yaş','Avg Age')+'</div></div>'
+    +'<div class="stat-mini-box"><div class="stat-mini-n">'+Object.keys(natMap).length+'</div><div class="stat-mini-l">'+T('Uyruk','Nationalities')+'</div></div>'
+    +'</div>'
+    +'<div class="card" style="margin-bottom:12px"><div style="font-weight:700;font-size:14px;margin-bottom:12px">👥 '+T('Cinsiyet','Gender')+'</div>'
+    +Object.entries(gMap).map(function(e){var pct=Math.round(e[1]/maxG*100);return'<div class="stat-bar-row"><div class="sbl">'+esc(e[0])+'</div><div class="sbt"><div class="sbf" style="width:'+pct+'%;background:var(--blue)"></div></div><div class="sbc" style="width:36px">'+e[1]+'</div></div>'}).join('')
+    +'</div>'
+    +'<div class="card" style="margin-bottom:12px"><div style="font-weight:700;font-size:14px;margin-bottom:12px">🌍 '+T('Uyruk / Şehir','Nationality / City')+'</div>'
+    +Object.entries(natMap).sort(function(a,b){return b[1]-a[1]}).slice(0,8).map(function(e){var pct=Math.round(e[1]/maxNat*100);return'<div class="stat-bar-row"><div class="sbl">'+esc(e[0])+'</div><div class="sbt"><div class="sbf" style="width:'+pct+'%;background:var(--pink)"></div></div><div class="sbc" style="width:36px">'+e[1]+'</div></div>'}).join('')
+    +'</div>'
+    +(projFilter==='all'?'<div class="card" style="margin-bottom:12px"><div style="font-weight:700;font-size:14px;margin-bottom:12px">📁 '+T('Projeye Göre','By Project')+'</div>'
+      +Object.entries(projMap).map(function(e){var pct=Math.round(e[1]/maxP*100);return'<div class="stat-bar-row"><div class="sbl">'+esc(e[0].slice(0,15))+'</div><div class="sbt"><div class="sbf" style="width:'+pct+'%;background:var(--accent2)"></div></div><div class="sbc" style="width:36px">'+e[1]+'</div></div>'}).join('')
+      +'</div>':'')
+    +qStatsHtml+'</div>';
 }
 
 // ================================================================
 // EXPORT
 // ================================================================
 function openExportModal(id,type){
-var c=document.getElementById(‘export-modal-content’);
-if(type===‘proj’){
-var pid=safeId(id);
-c.innerHTML=’<div class="export-section"><div class="export-title">📥 CSV İndir</div>’
-+’<div class="export-sub">Excel'de açılabilir format</div>’
-+’<button class="btn btn-p" onclick="exportCSV(\''+pid+'\')">⬇️ CSV İndir</button></div>’
-+’<div class="export-section"><div class="export-title">📦 JSON İndir</div>’
-+’<div class="export-sub">Ham veri JSON formatında</div>’
-+’<button class="btn btn-s" onclick="exportJSON(\''+pid+'\')">⬇️ JSON İndir</button></div>’
-+’<div class="export-section"><div class="export-title">📡 QR Kod & Link</div>’
-+’<div class="export-sub">Başkalarının doldurabileceği link</div>’
-+’<button class="btn btn-s" onclick="cm(\'export\');openQRModal(\''+pid+'\')">📡 QR Oluştur</button></div>’;
-} else {
-var rid=safeId(id);
-c.innerHTML=’<div class="export-section"><div class="export-title">🤖 AI ile Öne Çıkan Cevap</div>’
-+’<div class="export-sub">En çarpıcı cevabı AI seçer + Instagram caption üretir</div>’
-+’<button class="btn btn-p" onclick="aiPick(\''+rid+'\')">✨ AI Seçimi</button>’
-+’<div id="ai-pick-result"></div></div>’
-+’<div class="export-section"><div class="export-title">📄 Cevap Özeti</div>’
-+’<div class="export-sub">AI özeti + Instagram post metni</div>’
-+’<button class="btn btn-s" onclick="aiSummary(\''+rid+'\')">📝 Özet Üret</button>’
-+’<div id="ai-sum-result"></div></div>’
-+’<div class="export-section"><div class="export-title">📋 Manuel Alıntı</div>’
-+’<div class="export-sub">Bir cevabı seçip kopyala</div>’
-+’<select class="inp" id="manual-q-sel" style="margin-bottom:10px">’
-+getFilledQOptions(rid)
-+’</select>’
-+’<button class="btn btn-g" onclick="manualQuote(\''+rid+'\')">📋 Kopyala</button>’
-+’<div id="manual-q-result"></div></div>’;
-}
-openM(‘export’);
+  var c=document.getElementById('export-modal-content');
+  if(type==='proj'){
+    var pid=safeId(id);
+    c.innerHTML='<div class="export-section"><div class="export-title">📥 CSV İndir</div>'
+      +'<div class="export-sub">Excel\'de açılabilir format</div>'
+      +'<button class="btn btn-p" onclick="exportCSV(\''+pid+'\')">⬇️ CSV İndir</button></div>'
+      +'<div class="export-section"><div class="export-title">📦 JSON İndir</div>'
+      +'<div class="export-sub">Ham veri JSON formatında</div>'
+      +'<button class="btn btn-s" onclick="exportJSON(\''+pid+'\')">⬇️ JSON İndir</button></div>'
+      +'<div class="export-section"><div class="export-title">📡 QR Kod & Link</div>'
+      +'<div class="export-sub">Başkalarının doldurabileceği link</div>'
+      +'<button class="btn btn-s" onclick="cm(\'export\');openQRModal(\''+pid+'\')">📡 QR Oluştur</button></div>';
+  } else {
+    var rid=safeId(id);
+    c.innerHTML='<div class="export-section"><div class="export-title">🤖 AI ile Öne Çıkan Cevap</div>'
+      +'<div class="export-sub">En çarpıcı cevabı AI seçer + Instagram caption üretir</div>'
+      +'<button class="btn btn-p" onclick="aiPick(\''+rid+'\')">✨ AI Seçimi</button>'
+      +'<div id="ai-pick-result"></div></div>'
+      +'<div class="export-section"><div class="export-title">📄 Cevap Özeti</div>'
+      +'<div class="export-sub">AI özeti + Instagram post metni</div>'
+      +'<button class="btn btn-s" onclick="aiSummary(\''+rid+'\')">📝 Özet Üret</button>'
+      +'<div id="ai-sum-result"></div></div>'
+      +'<div class="export-section"><div class="export-title">📋 Manuel Alıntı</div>'
+      +'<div class="export-sub">Bir cevabı seçip kopyala</div>'
+      +'<select class="inp" id="manual-q-sel" style="margin-bottom:10px">'
+      +getFilledQOptions(rid)
+      +'</select>'
+      +'<button class="btn btn-g" onclick="manualQuote(\''+rid+'\')">📋 Kopyala</button>'
+      +'<div id="manual-q-result"></div></div>';
+  }
+  openM('export');
 }
 
 function getFilledQOptions(respId){
-var resp=db.responses.find(function(r){return r.id===respId});
-var proj=resp?db.projects.find(function(p){return p.id===resp.projectId}):null;
-if(!resp||!proj) return ‘’;
-return (resp.qIds||proj.questions.map(function(q){return q.id})).map(function(qid){
-var q=proj.questions.find(function(q){return q.id===qid});
-var ans=resp.answers&&resp.answers[qid];
-if(!ans||!q) return ‘’;
-return ‘<option value="'+safeId(qid)+'">’+esc(q.text.slice(0,50))+’</option>’;
-}).filter(Boolean).join(’’);
+  var resp=db.responses.find(function(r){return r.id===respId});
+  var proj=resp?db.projects.find(function(p){return p.id===resp.projectId}):null;
+  if(!resp||!proj) return '';
+  return (resp.qIds||proj.questions.map(function(q){return q.id})).map(function(qid){
+    var q=proj.questions.find(function(q){return q.id===qid});
+    var ans=resp.answers&&resp.answers[qid];
+    if(!ans||!q) return '';
+    return '<option value="'+safeId(qid)+'">'+esc(q.text.slice(0,50))+'</option>';
+  }).filter(Boolean).join('');
 }
 
 async function aiPick(respId){
-var resp=db.responses.find(function(r){return r.id===respId});
-var proj=db.projects.find(function(p){return p.id===(resp&&resp.projectId)});
-if(!resp||!proj) return;
-var el=document.getElementById(‘ai-pick-result’);
-el.innerHTML=’<div class="ai-loading"><div class="spinner"></div>AI analiz ediyor…</div>’;
-var filled=Object.entries(resp.answers||{}).filter(function(e){return e[1]!==null&&e[1]!==undefined&&String(e[1]).trim()}).map(function(e){
-var q=proj.questions.find(function(q){return q.id===e[0]});
-return ‘S: ‘+(q?q.text:e[0])+’\nC: ‘+e[1];
-}).join(’\n\n’);
-if(!filled){el.innerHTML=’<div style="color:var(--red);font-size:13px;padding:8px">Cevap bulunamadı</div>’;return;}
-try{
-var r=await fetch(‘https://api.anthropic.com/v1/messages’,{method:‘POST’,headers:{‘Content-Type’:‘application/json’},body:JSON.stringify({
-model:‘claude-sonnet-4-20250514’,max_tokens:1000,
-system:‘Saha araştırması verisi analiz et. En çarpıcı cevabı seç. SADECE JSON: {“q”:“soru”,“a”:“cevap”,“caption”:“instagram caption (emoji+hashtag dahil)”,“why”:“seçme nedeni (1 cümle)”}’,
-messages:[{role:‘user’,content:‘Proje: ‘+proj.name+’\nKişi: ‘+((resp.profile&&resp.profile.note)||’’)+’ ‘+((resp.profile&&resp.profile.age)||’’)+’ ‘+((resp.profile&&resp.profile.nationality)||’’)+’\n\n’+filled}]
-})});
-var d=await r.json();
-var parsed=JSON.parse((d.content&&d.content[0]&&d.content[0].text||’{}’).replace(/`json|`/g,’’).trim());
-el.innerHTML=’<div class="ai-box"><div style="font-size:11px;color:var(--text3);margin-bottom:6px">🤖 ‘+esc(parsed.why||’’)+’</div>’
-+’<div style="font-size:12px;color:var(--text2);margin-bottom:4px;font-style:italic">”’+esc(parsed.q)+’”</div>’
-+’<div style="font-family:\'Syne\',sans-serif;font-size:15px;color:var(--text);margin-bottom:12px;line-height:1.5">”’+esc(parsed.a)+’”</div>’
-+’<div class="divl"></div>’
-+’<div style="font-size:12px;color:var(--text2);margin-bottom:6px">Instagram Caption:</div>’
-+’<div style="font-size:13px;line-height:1.7;color:var(--text);background:var(--bg);padding:10px;border-radius:8px;white-space:pre-wrap;word-break:break-word" id="ai-cap">’+esc(parsed.caption)+’</div>’
-+’<button class="btn btn-g btn-sm" style="margin-top:8px" onclick="copyEl(\'ai-cap\')">📋 Kopyala</button>’
-+’</div>’;
-}catch(e){el.innerHTML=’<div style="color:var(--red);font-size:13px;padding:8px">Hata. Tekrar deneyin.</div>’;}
+  var resp=db.responses.find(function(r){return r.id===respId});
+  var proj=db.projects.find(function(p){return p.id===(resp&&resp.projectId)});
+  if(!resp||!proj) return;
+  var el=document.getElementById('ai-pick-result');
+  el.innerHTML='<div class="ai-loading"><div class="spinner"></div>AI analiz ediyor...</div>';
+  var filled=Object.entries(resp.answers||{}).filter(function(e){return e[1]!==null&&e[1]!==undefined&&String(e[1]).trim()}).map(function(e){
+    var q=proj.questions.find(function(q){return q.id===e[0]});
+    return 'S: '+(q?q.text:e[0])+'\nC: '+e[1];
+  }).join('\n\n');
+  if(!filled){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Cevap bulunamadı</div>';return;}
+  try{
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',max_tokens:1000,
+      system:'Saha araştırması verisi analiz et. En çarpıcı cevabı seç. SADECE JSON: {"q":"soru","a":"cevap","caption":"instagram caption (emoji+hashtag dahil)","why":"seçme nedeni (1 cümle)"}',
+      messages:[{role:'user',content:'Proje: '+proj.name+'\nKişi: '+((resp.profile&&resp.profile.note)||'')+' '+((resp.profile&&resp.profile.age)||'')+' '+((resp.profile&&resp.profile.nationality)||'')+'\n\n'+filled}]
+    })});
+    var d=await r.json();
+    var parsed=JSON.parse((d.content&&d.content[0]&&d.content[0].text||'{}').replace(/```json|```/g,'').trim());
+    el.innerHTML='<div class="ai-box"><div style="font-size:11px;color:var(--text3);margin-bottom:6px">🤖 '+esc(parsed.why||'')+'</div>'
+      +'<div style="font-size:12px;color:var(--text2);margin-bottom:4px;font-style:italic">"'+esc(parsed.q)+'"</div>'
+      +'<div style="font-family:\'Syne\',sans-serif;font-size:15px;color:var(--text);margin-bottom:12px;line-height:1.5">"'+esc(parsed.a)+'"</div>'
+      +'<div class="divl"></div>'
+      +'<div style="font-size:12px;color:var(--text2);margin-bottom:6px">Instagram Caption:</div>'
+      +'<div style="font-size:13px;line-height:1.7;color:var(--text);background:var(--bg);padding:10px;border-radius:8px;white-space:pre-wrap;word-break:break-word" id="ai-cap">'+esc(parsed.caption)+'</div>'
+      +'<button class="btn btn-g btn-sm" style="margin-top:8px" onclick="copyEl(\'ai-cap\')">📋 Kopyala</button>'
+      +'</div>';
+  }catch(e){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Hata. Tekrar deneyin.</div>';}
 }
 
 async function aiSummary(respId){
-var resp=db.responses.find(function(r){return r.id===respId});
-var proj=db.projects.find(function(p){return p.id===(resp&&resp.projectId)});
-if(!resp||!proj) return;
-var el=document.getElementById(‘ai-sum-result’);
-el.innerHTML=’<div class="ai-loading"><div class="spinner"></div>Özet oluşturuluyor…</div>’;
-var filled=Object.entries(resp.answers||{}).filter(function(e){return e[1]!==null&&e[1]!==undefined&&String(e[1]).trim()}).map(function(e){
-var q=proj.questions.find(function(q){return q.id===e[0]});
-return ‘S: ‘+(q?q.text:e[0])+’\nC: ‘+e[1];
-}).join(’\n\n’);
-if(!filled){el.innerHTML=’<div style="color:var(--red);font-size:13px;padding:8px">Cevap bulunamadı</div>’;return;}
-try{
-var r=await fetch(‘https://api.anthropic.com/v1/messages’,{method:‘POST’,headers:{‘Content-Type’:‘application/json’},body:JSON.stringify({
-model:‘claude-sonnet-4-20250514’,max_tokens:1000,
-system:‘Saha araştırması cevaplarını analiz et. SADECE JSON: {“summary”:“kişinin görüşlerini özetleyen 3-4 cümle”,“caption”:“instagram post metni (emoji+hashtag dahil)”}’,
-messages:[{role:‘user’,content:‘Proje: ‘+proj.name+’\nKişi: ‘+((resp.profile&&resp.profile.note)||’’)+’\n\n’+filled}]
-})});
-var d=await r.json();
-var parsed=JSON.parse((d.content&&d.content[0]&&d.content[0].text||’{}’).replace(/`json|`/g,’’).trim());
-el.innerHTML=’<div class="ai-box"><div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:12px">’+esc(parsed.summary)+’</div>’
-+’<div class="divl"></div>’
-+’<div style="font-size:12px;color:var(--text2);margin-bottom:6px">Instagram Post:</div>’
-+’<div style="font-size:13px;line-height:1.7;color:var(--text);background:var(--bg);padding:10px;border-radius:8px;white-space:pre-wrap;word-break:break-word" id="ai-sum-cap">’+esc(parsed.caption)+’</div>’
-+’<button class="btn btn-g btn-sm" style="margin-top:8px" onclick="copyEl(\'ai-sum-cap\')">📋 Kopyala</button>’
-+’</div>’;
-}catch(e){el.innerHTML=’<div style="color:var(--red);font-size:13px;padding:8px">Hata.</div>’;}
+  var resp=db.responses.find(function(r){return r.id===respId});
+  var proj=db.projects.find(function(p){return p.id===(resp&&resp.projectId)});
+  if(!resp||!proj) return;
+  var el=document.getElementById('ai-sum-result');
+  el.innerHTML='<div class="ai-loading"><div class="spinner"></div>Özet oluşturuluyor...</div>';
+  var filled=Object.entries(resp.answers||{}).filter(function(e){return e[1]!==null&&e[1]!==undefined&&String(e[1]).trim()}).map(function(e){
+    var q=proj.questions.find(function(q){return q.id===e[0]});
+    return 'S: '+(q?q.text:e[0])+'\nC: '+e[1];
+  }).join('\n\n');
+  if(!filled){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Cevap bulunamadı</div>';return;}
+  try{
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',max_tokens:1000,
+      system:'Saha araştırması cevaplarını analiz et. SADECE JSON: {"summary":"kişinin görüşlerini özetleyen 3-4 cümle","caption":"instagram post metni (emoji+hashtag dahil)"}',
+      messages:[{role:'user',content:'Proje: '+proj.name+'\nKişi: '+((resp.profile&&resp.profile.note)||'')+'\n\n'+filled}]
+    })});
+    var d=await r.json();
+    var parsed=JSON.parse((d.content&&d.content[0]&&d.content[0].text||'{}').replace(/```json|```/g,'').trim());
+    el.innerHTML='<div class="ai-box"><div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:12px">'+esc(parsed.summary)+'</div>'
+      +'<div class="divl"></div>'
+      +'<div style="font-size:12px;color:var(--text2);margin-bottom:6px">Instagram Post:</div>'
+      +'<div style="font-size:13px;line-height:1.7;color:var(--text);background:var(--bg);padding:10px;border-radius:8px;white-space:pre-wrap;word-break:break-word" id="ai-sum-cap">'+esc(parsed.caption)+'</div>'
+      +'<button class="btn btn-g btn-sm" style="margin-top:8px" onclick="copyEl(\'ai-sum-cap\')">📋 Kopyala</button>'
+      +'</div>';
+  }catch(e){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Hata.</div>';}
 }
 
 function manualQuote(respId){
-var resp=db.responses.find(function(r){return r.id===respId});
-var proj=db.projects.find(function(p){return p.id===(resp&&resp.projectId)});
-if(!resp||!proj) return;
-var qid=document.getElementById(‘manual-q-sel’).value;
-var q=proj.questions.find(function(q){return q.id===qid});
-var ans=resp.answers&&resp.answers[qid];
-if(!ans||!q) return;
-var prof=resp.profile||{};
-var text=’”’+ans+’”\n\n— ‘+(prof.note||‘Anonim’)+(prof.age?’ · ‘+prof.age+’ yaş’:’’)+(prof.nationality?’ · ‘+prof.nationality:’’)+’\n\n#’+(proj.name.replace(/\s+/g,’’))+’ #sahaarastirmasi’;
-document.getElementById(‘manual-q-result’).innerHTML=’<div class="ai-box" style="margin-top:10px">’
-+’<div style="font-size:13px;line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-word" id="manual-q-text">’+esc(text)+’</div>’
-+’<button class="btn btn-g btn-sm" style="margin-top:8px" onclick="copyEl(\'manual-q-text\')">📋 Kopyala</button>’
-+’</div>’;
+  var resp=db.responses.find(function(r){return r.id===respId});
+  var proj=db.projects.find(function(p){return p.id===(resp&&resp.projectId)});
+  if(!resp||!proj) return;
+  var qid=document.getElementById('manual-q-sel').value;
+  var q=proj.questions.find(function(q){return q.id===qid});
+  var ans=resp.answers&&resp.answers[qid];
+  if(!ans||!q) return;
+  var prof=resp.profile||{};
+  var text='"'+ans+'"\n\n— '+(prof.note||'Anonim')+(prof.age?' · '+prof.age+' yaş':'')+(prof.nationality?' · '+prof.nationality:'')+'\n\n#'+(proj.name.replace(/\s+/g,''))+' #sahaarastirmasi';
+  document.getElementById('manual-q-result').innerHTML='<div class="ai-box" style="margin-top:10px">'
+    +'<div style="font-size:13px;line-height:1.7;color:var(--text);white-space:pre-wrap;word-break:break-word" id="manual-q-text">'+esc(text)+'</div>'
+    +'<button class="btn btn-g btn-sm" style="margin-top:8px" onclick="copyEl(\'manual-q-text\')">📋 Kopyala</button>'
+    +'</div>';
 }
 
 // ================================================================
 // CSV / JSON
 // ================================================================
 function exportCSV(projId){
-var proj=db.projects.find(function(p){return p.id===projId});
-if(!proj) return;
-var resps=db.responses.filter(function(r){return r.projectId===projId});
-var qs=proj.questions||[];
-var headers=[‘Tarih’,‘Not/İsim’,‘Yaş’,‘Cinsiyet’,‘Uyruk/Şehir’].concat(qs.map(function(q){return q.text.replace(/”/g,”’”)}));
-var rows=resps.map(function(r){
-var prof=r.profile||{};
-var base=[new Date(r.date).toLocaleDateString(‘tr-TR’),prof.note||’’,prof.age||’’,prof.gender||’’,prof.nationality||’’];
-var ans=qs.map(function(q){var a=r.answers&&r.answers[q.id];return a!==null&&a!==undefined?String(a):’’});
-return base.concat(ans).map(function(v){return’”’+String(v).replace(/”/g,’””’)+’”’}).join(’,’);
-});
-var csv=[headers.map(function(h){return’”’+h+’”’}).join(’,’)].concat(rows).join(’\n’);
-dlFile(proj.name+’_veriler.csv’,‘text/csv;charset=utf-8;’,’\uFEFF’+csv);
-showToast(‘✓ CSV indirildi’);
+  var proj=db.projects.find(function(p){return p.id===projId});
+  if(!proj) return;
+  var resps=db.responses.filter(function(r){return r.projectId===projId});
+  var qs=proj.questions||[];
+  var headers=['Tarih','Not/İsim','Yaş','Cinsiyet','Uyruk/Şehir'].concat(qs.map(function(q){return q.text.replace(/"/g,"'")}));
+  var rows=resps.map(function(r){
+    var prof=r.profile||{};
+    var base=[new Date(r.date).toLocaleDateString('tr-TR'),prof.note||'',prof.age||'',prof.gender||'',prof.nationality||''];
+    var ans=qs.map(function(q){var a=r.answers&&r.answers[q.id];return a!==null&&a!==undefined?String(a):''});
+    return base.concat(ans).map(function(v){return'"'+String(v).replace(/"/g,'""')+'"'}).join(',');
+  });
+  var csv=[headers.map(function(h){return'"'+h+'"'}).join(',')].concat(rows).join('\n');
+  dlFile(proj.name+'_veriler.csv','text/csv;charset=utf-8;','\uFEFF'+csv);
+  showToast('✓ CSV indirildi');
 }
 
 function exportJSON(projId){
-var proj=db.projects.find(function(p){return p.id===projId});
-if(!proj) return;
-dlFile(proj.name+’_veriler.json’,‘application/json’,JSON.stringify({project:proj,responses:db.responses.filter(function(r){return r.projectId===projId})},null,2));
-showToast(‘✓ JSON indirildi’);
+  var proj=db.projects.find(function(p){return p.id===projId});
+  if(!proj) return;
+  dlFile(proj.name+'_veriler.json','application/json',JSON.stringify({project:proj,responses:db.responses.filter(function(r){return r.projectId===projId})},null,2));
+  showToast('✓ JSON indirildi');
 }
 
 function dlFile(name,mime,content){
-try{
-var blob=new Blob([content],{type:mime});
-var url=URL.createObjectURL(blob);
-var a=document.createElement(‘a’);a.href=url;a.download=name;
-document.body.appendChild(a);a.click();
-setTimeout(function(){URL.revokeObjectURL(url);document.body.removeChild(a)},1000);
-}catch(e){showToast(’İndirme hatası: ’+e.message);}
+  try{
+    var blob=new Blob([content],{type:mime});
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');a.href=url;a.download=name;
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(url);document.body.removeChild(a)},1000);
+  }catch(e){showToast('İndirme hatası: '+e.message);}
 }
 
 // ================================================================
 // QR
 // ================================================================
 function openQRModal(projId){
-var link=window.location.href.split(’?’)[0]+’?proj=’+projId;
-var c=document.getElementById(‘qr-content’);
-c.innerHTML=’<div id="qr-wrap"></div>’
-+’<div class="ig"><label class="il">Anket Linki</label>’
-+’<div style="display:flex;gap:8px">’
-+’<input class="inp" id="qr-link" value="'+esc(link)+'" readonly style="flex:1">’
-+’<button class="btn btn-s btn-sm" style="width:auto;padding:0 14px" onclick="copyEl(\'qr-link\')">Kopyala</button>’
-+’</div></div>’
-+’<div style="font-size:12px;color:var(--text3);line-height:1.6">💡 QR kodu ekran görüntüsü alarak paylaşabilirsiniz.</div>’;
-openM(‘qr’);
-makeQR(document.getElementById(‘qr-wrap’),link);
+  var link=window.location.href.split('?')[0]+'?proj='+projId;
+  var c=document.getElementById('qr-content');
+  c.innerHTML='<div id="qr-wrap"></div>'
+    +'<div class="ig"><label class="il">Anket Linki</label>'
+    +'<div style="display:flex;gap:8px">'
+    +'<input class="inp" id="qr-link" value="'+esc(link)+'" readonly style="flex:1">'
+    +'<button class="btn btn-s btn-sm" style="width:auto;padding:0 14px" onclick="copyEl(\'qr-link\')">Kopyala</button>'
+    +'</div></div>'
+    +'<div style="font-size:12px;color:var(--text3);line-height:1.6">💡 QR kodu ekran görüntüsü alarak paylaşabilirsiniz.</div>';
+  openM('qr');
+  makeQR(document.getElementById('qr-wrap'),link);
 }
 
 // ================================================================
 // DELETE CONFIRM
 // ================================================================
 function confirmDelete(cb){
-pendingDelCb=cb;
-document.getElementById(‘del-confirm-btn’).onclick=function(){if(pendingDelCb)pendingDelCb();cm(‘delete’);};
-openM(‘delete’);
+  pendingDelCb=cb;
+  document.getElementById('del-confirm-btn').onclick=function(){if(pendingDelCb)pendingDelCb();cm('delete');};
+  openM('delete');
 }
 
 // ================================================================
 // MODAL OPEN/CLOSE — with body scroll lock
 // ================================================================
 function openM(id){
-document.getElementById(‘m-’+id).classList.add(‘open’);
-document.body.style.overflow=‘hidden’;
+  document.getElementById('m-'+id).classList.add('open');
+  document.body.style.overflow='hidden';
 }
 function cm(id){
-document.getElementById(‘m-’+id).classList.remove(‘open’);
-// only unlock if no other modal open
-if(!document.querySelector(’.modal-ov.open’)) document.body.style.overflow=’’;
+  document.getElementById('m-'+id).classList.remove('open');
+  // only unlock if no other modal open
+  if(!document.querySelector('.modal-ov.open')) document.body.style.overflow='';
 }
 
 // ================================================================
 // COPY — works on HTTP + old Android
 // ================================================================
 function copyEl(elementId){
-var el=document.getElementById(elementId);
-if(!el) return;
-var text=(el.tagName===‘INPUT’||el.tagName===‘TEXTAREA’)?el.value:el.textContent;
-safeCopy(text);
+  var el=document.getElementById(elementId);
+  if(!el) return;
+  var text=(el.tagName==='INPUT'||el.tagName==='TEXTAREA')?el.value:el.textContent;
+  safeCopy(text);
 }
 
 // ================================================================
 // TOAST
 // ================================================================
 function showToast(msg){
-var t=document.getElementById(‘toast’);
-t.textContent=msg;t.classList.add(‘show’);
-setTimeout(function(){t.classList.remove(‘show’)},2400);
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show')},2400);
 }
 
 // ================================================================
-// IMPORT FROM OLD “FELSEFİ ANKET” APP
+// IMPORT FROM OLD "FELSEFİ ANKET" APP
 // ================================================================
-// Old structure: surveys[] = [{id, person, date, status, persons[], answers[personIdx][qIdx]{selected,note}, bonusAnswers…}]
+// Old structure: surveys[] = [{id, person, date, status, persons[], answers[personIdx][qIdx]{selected,note}, bonusAnswers...}]
 // Old QUESTIONS had: {cat, text, opts[]}
-// We convert each survey → one response in a “Felsefi Anket” project
+// We convert each survey → one response in a "Felsefi Anket" project
 
 var OLD_QUESTIONS=[
-{cat:“İnsan Doğası”,   text:“İnsanlar özünde iyi mi, yoksa kötü mü?”,                                              opts:[“İyi”,“Kötü”]},
-{cat:“İnsan Doğası”,   text:“Bir insan hiç değişmez mi, yoksa tamamen değişebilir mi?”,                            opts:[“Değişmez”,“Değişebilir”]},
-{cat:“İnsan Doğası”,   text:“İnsanı diğer canlılardan üstün kılan şey nedir — akıl mı, duygu mu?”,                opts:[“Akıl”,“Duygu”]},
-{cat:“Etik & Değerler”,text:“Ahlak toplumdan mı öğrenilir, yoksa doğuştan mı gelir?”,                             opts:[“Öğrenilir”,“Doğuştan”]},
-{cat:“Etik & Değerler”,text:“İyi niyet kötü sonucu haklı kılar mı?”,                                              opts:[“Evet”,“Hayır”]},
-{cat:“Etik & Değerler”,text:“Adalet mi, merhamet mi — birini seçmek zorunda kalsan?”,                              opts:[“Adalet”,“Merhamet”]},
-{cat:“Toplum & Adalet”,text:“Eşitlik mi, özgürlük mi daha temel bir hak?”,                                        opts:[“Eşitlik”,“Özgürlük”]},
-{cat:“Toplum & Adalet”,text:“Toplumu bir arada tutan şey korku mu, sevgi mi?”,                                     opts:[“Korku”,“Sevgi”]},
-{cat:“Toplum & Adalet”,text:“Bir insanın başarısı kendi çabasının mı, yoksa şansın mı ürünüdür?”,                 opts:[“Çaba”,“Şans”]},
-{cat:“Tanrı & Varoluş”, text:“Evren bir amaçla mı yaratıldı, yoksa anlamsız bir tesadüf müdür?”,                  opts:[“Amaçlı”,“Tesadüf”]},
-{cat:“Tanrı & Varoluş”, text:“Ölümden sonra bir şey var mı?”,                                                      opts:[“Var”,“Yok”]},
-{cat:“Tanrı & Varoluş”, text:“Hayatın anlamı dışarıdan mı verilir, içeriden mi yaratılır?”,                       opts:[“Dışarıdan”,“İçeriden”]},
-{cat:“Bilgi & Gerçek”,  text:“Mutlak bir gerçek var mı, yoksa her şey göreceli mi?”,                              opts:[“Var”,“Göreceli”]},
-{cat:“Bilgi & Gerçek”,  text:“Bilimin açıklayamadığı şeyler var mıdır?”,                                          opts:[“Var”,“Yok”]},
-{cat:“Bilgi & Gerçek”,  text:“Acı veren bir gerçek mi, yoksa rahatlatıcı bir yalan mı tercih edilir?”,            opts:[“Gerçek”,“Yalan”]},
-{cat:“Özgürlük & Güç”,  text:“Tam özgürlük mümkün müdür, yoksa her zaman bir sınır var mıdır?”,                  opts:[“Mümkün”,“Sınır var”]},
-{cat:“Özgürlük & Güç”,  text:“Güç insanı bozar mı, yoksa sadece içindekini ortaya çıkarır mı?”,                  opts:[“Bozar”,“Ortaya çıkarır”]},
-{cat:“Özgürlük & Güç”,  text:“Boyun eğmek mi, yoksa özgürce yanılmak mı daha insancadır?”,                       opts:[“Boyun eğmek”,“Özgürce yanılmak”]},
+  {cat:"İnsan Doğası",   text:"İnsanlar özünde iyi mi, yoksa kötü mü?",                                              opts:["İyi","Kötü"]},
+  {cat:"İnsan Doğası",   text:"Bir insan hiç değişmez mi, yoksa tamamen değişebilir mi?",                            opts:["Değişmez","Değişebilir"]},
+  {cat:"İnsan Doğası",   text:"İnsanı diğer canlılardan üstün kılan şey nedir — akıl mı, duygu mu?",                opts:["Akıl","Duygu"]},
+  {cat:"Etik & Değerler",text:"Ahlak toplumdan mı öğrenilir, yoksa doğuştan mı gelir?",                             opts:["Öğrenilir","Doğuştan"]},
+  {cat:"Etik & Değerler",text:"İyi niyet kötü sonucu haklı kılar mı?",                                              opts:["Evet","Hayır"]},
+  {cat:"Etik & Değerler",text:"Adalet mi, merhamet mi — birini seçmek zorunda kalsan?",                              opts:["Adalet","Merhamet"]},
+  {cat:"Toplum & Adalet",text:"Eşitlik mi, özgürlük mi daha temel bir hak?",                                        opts:["Eşitlik","Özgürlük"]},
+  {cat:"Toplum & Adalet",text:"Toplumu bir arada tutan şey korku mu, sevgi mi?",                                     opts:["Korku","Sevgi"]},
+  {cat:"Toplum & Adalet",text:"Bir insanın başarısı kendi çabasının mı, yoksa şansın mı ürünüdür?",                 opts:["Çaba","Şans"]},
+  {cat:"Tanrı & Varoluş", text:"Evren bir amaçla mı yaratıldı, yoksa anlamsız bir tesadüf müdür?",                  opts:["Amaçlı","Tesadüf"]},
+  {cat:"Tanrı & Varoluş", text:"Ölümden sonra bir şey var mı?",                                                      opts:["Var","Yok"]},
+  {cat:"Tanrı & Varoluş", text:"Hayatın anlamı dışarıdan mı verilir, içeriden mi yaratılır?",                       opts:["Dışarıdan","İçeriden"]},
+  {cat:"Bilgi & Gerçek",  text:"Mutlak bir gerçek var mı, yoksa her şey göreceli mi?",                              opts:["Var","Göreceli"]},
+  {cat:"Bilgi & Gerçek",  text:"Bilimin açıklayamadığı şeyler var mıdır?",                                          opts:["Var","Yok"]},
+  {cat:"Bilgi & Gerçek",  text:"Acı veren bir gerçek mi, yoksa rahatlatıcı bir yalan mı tercih edilir?",            opts:["Gerçek","Yalan"]},
+  {cat:"Özgürlük & Güç",  text:"Tam özgürlük mümkün müdür, yoksa her zaman bir sınır var mıdır?",                  opts:["Mümkün","Sınır var"]},
+  {cat:"Özgürlük & Güç",  text:"Güç insanı bozar mı, yoksa sadece içindekini ortaya çıkarır mı?",                  opts:["Bozar","Ortaya çıkarır"]},
+  {cat:"Özgürlük & Güç",  text:"Boyun eğmek mi, yoksa özgürce yanılmak mı daha insancadır?",                       opts:["Boyun eğmek","Özgürce yanılmak"]},
 ];
 var OLD_BONUS=[
-{cat:“Bonus”,text:“Hayatında en çok neyin peşindesin — anlam mı, başarı mı, mutluluk mu?”,          opts:[“Anlam”,“Başarı”,“Mutluluk”]},
-{cat:“Bonus”,text:“Sence insanlar temelde yalnız mı, yoksa bağlantı içinde mi yaşıyor?”,            opts:[“Yalnız”,“Bağlantı içinde”]},
-{cat:“Bonus”,text:“Çok iyi bir kitap okudun mu? Hangisi seni en çok etkiledi?”,                     opts:[“Evet, etkileyeni var”,“Pek okumam”]},
-{cat:“Bonus”,text:“Hiç tamamen yanlış olduğunu sonradan anladığın güçlü bir fikrin oldu mu?”,       opts:[“Evet oldu”,“Hayır olmadı”]},
-{cat:“Bonus”,text:“Bir insan için en değerli şeyin ne olduğunu düşünüyorsun — zeka mı, empati mi?”,opts:[“Zeka”,“Empati”]},
-{cat:“Bonus”,text:“Seninle aynı fikirde olmayan biriyle nasıl başa çıkıyorsun?”,                    opts:[“Tartışırım”,“Anlamaya çalışırım”,“Geçip giderim”]},
-{cat:“Bonus”,text:“Hayatta en çok kimi ya da neyi kaybetmekten korkuyorsun?”,                       opts:[“Yakınlarımı”,“Kendimi”,“Özgürlüğümü”]},
-{cat:“Bonus”,text:“10 yıl sonra nerede olmak istiyorsun?”,                                          opts:[“Hedefim var”,“Henüz bilmiyorum”]},
+  {cat:"Bonus",text:"Hayatında en çok neyin peşindesin — anlam mı, başarı mı, mutluluk mu?",          opts:["Anlam","Başarı","Mutluluk"]},
+  {cat:"Bonus",text:"Sence insanlar temelde yalnız mı, yoksa bağlantı içinde mi yaşıyor?",            opts:["Yalnız","Bağlantı içinde"]},
+  {cat:"Bonus",text:"Çok iyi bir kitap okudun mu? Hangisi seni en çok etkiledi?",                     opts:["Evet, etkileyeni var","Pek okumam"]},
+  {cat:"Bonus",text:"Hiç tamamen yanlış olduğunu sonradan anladığın güçlü bir fikrin oldu mu?",       opts:["Evet oldu","Hayır olmadı"]},
+  {cat:"Bonus",text:"Bir insan için en değerli şeyin ne olduğunu düşünüyorsun — zeka mı, empati mi?",opts:["Zeka","Empati"]},
+  {cat:"Bonus",text:"Seninle aynı fikirde olmayan biriyle nasıl başa çıkıyorsun?",                    opts:["Tartışırım","Anlamaya çalışırım","Geçip giderim"]},
+  {cat:"Bonus",text:"Hayatta en çok kimi ya da neyi kaybetmekten korkuyorsun?",                       opts:["Yakınlarımı","Kendimi","Özgürlüğümü"]},
+  {cat:"Bonus",text:"10 yıl sonra nerede olmak istiyorsun?",                                          opts:["Hedefim var","Henüz bilmiyorum"]},
 ];
 
 function processOldImport(event){
-var file=event.target.files[0];
-if(!file) return;
-var statusEl=document.getElementById(‘import-status’);
-statusEl.textContent=‘Dosya okunuyor…’;
-var reader=new FileReader();
-reader.onload=function(e){
-try{
-var oldSurveys=JSON.parse(e.target.result);
-if(!Array.isArray(oldSurveys)) throw new Error(‘Geçersiz format’);
+  var file=event.target.files[0];
+  if(!file) return;
+  var statusEl=document.getElementById('import-status');
+  statusEl.textContent='Dosya okunuyor...';
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      var oldSurveys=JSON.parse(e.target.result);
+      if(!Array.isArray(oldSurveys)) throw new Error('Geçersiz format');
 
-```
-  // Find or create "Felsefi Anket" project
-  var proj=db.projects.find(function(p){return p.name==='Felsefi Anket'});
-  if(!proj){
-    // Build questions from old structure with categories
-    var cats=[
-      {id:'c_human',name:'İnsan Doğası',color:'#6ee7b7'},
-      {id:'c_ethics',name:'Etik & Değerler',color:'#fbbf24'},
-      {id:'c_society',name:'Toplum & Adalet',color:'#60a5fa'},
-      {id:'c_god',name:'Tanrı & Varoluş',color:'#a78bfa'},
-      {id:'c_knowledge',name:'Bilgi & Gerçek',color:'#f472b6'},
-      {id:'c_freedom',name:'Özgürlük & Güç',color:'#fb923c'},
-      {id:'c_bonus',name:'Bonus',color:'#34d399'},
-    ];
-    var catNameToId={
-      'İnsan Doğası':'c_human','Etik & Değerler':'c_ethics',
-      'Toplum & Adalet':'c_society','Tanrı & Varoluş':'c_god',
-      'Bilgi & Gerçek':'c_knowledge','Özgürlük & Güç':'c_freedom','Bonus':'c_bonus'
-    };
-    var allOldQs=OLD_QUESTIONS.concat(OLD_BONUS);
-    var questions=allOldQs.map(function(q,i){
-      return {id:'oq_'+i, text:q.text, subtext:'Seçenekler: '+q.opts.join(' / '),
-        type:'mcq', options:q.opts, catId:catNameToId[q.cat]||''};
-    });
-    proj={id:'p_oldfelsefi',name:'Felsefi Anket',emoji:'🧠',
-      desc:'Eski uygulamadan aktarıldı',color:'#6ee7b7',
-      structure:'cats',categories:cats,questions:questions};
-    db.projects.push(proj);
-  }
-
-  var allOldQs=OLD_QUESTIONS.concat(OLD_BONUS);
-  var imported=0;
-  var skipped=0;
-  var existingIds=new Set(db.responses.map(function(r){return r.id}));
-
-  oldSurveys.forEach(function(s){
-    // Normalize old format
-    if(!s.persons) s.persons=[];
-    if(s.answers&&!Array.isArray(s.answers[0])) s.answers=[s.answers];
-    if(!s.bonusAnswers) s.bonusAnswers=[];
-    var persons=s.persons.length>0?s.persons:['Kişi 1'];
-
-    persons.forEach(function(personName,pi){
-      var respId='r_old_'+s.id+'_'+pi;
-      if(existingIds.has(respId)){skipped++;return;}
-
-      var answers={};
-      // Main questions
-      if(s.answers&&s.answers[pi]){
-        s.answers[pi].forEach(function(ans,qi){
-          var q=proj.questions[qi];
-          if(!q) return;
-          var val=null;
-          if(ans.selected!==null&&ans.selected!==undefined&&OLD_QUESTIONS[qi]){
-            val=OLD_QUESTIONS[qi].opts[ans.selected]||null;
-          }
-          // Store answer + note combined if both exist
-          if(val&&ans.note) answers[q.id]=val+' — '+ans.note;
-          else if(val) answers[q.id]=val;
-          else if(ans.note) answers[q.id]=ans.note;
+      // Find or create "Felsefi Anket" project
+      var proj=db.projects.find(function(p){return p.name==='Felsefi Anket'});
+      if(!proj){
+        // Build questions from old structure with categories
+        var cats=[
+          {id:'c_human',name:'İnsan Doğası',color:'#6ee7b7'},
+          {id:'c_ethics',name:'Etik & Değerler',color:'#fbbf24'},
+          {id:'c_society',name:'Toplum & Adalet',color:'#60a5fa'},
+          {id:'c_god',name:'Tanrı & Varoluş',color:'#a78bfa'},
+          {id:'c_knowledge',name:'Bilgi & Gerçek',color:'#f472b6'},
+          {id:'c_freedom',name:'Özgürlük & Güç',color:'#fb923c'},
+          {id:'c_bonus',name:'Bonus',color:'#34d399'},
+        ];
+        var catNameToId={
+          'İnsan Doğası':'c_human','Etik & Değerler':'c_ethics',
+          'Toplum & Adalet':'c_society','Tanrı & Varoluş':'c_god',
+          'Bilgi & Gerçek':'c_knowledge','Özgürlük & Güç':'c_freedom','Bonus':'c_bonus'
+        };
+        var allOldQs=OLD_QUESTIONS.concat(OLD_BONUS);
+        var questions=allOldQs.map(function(q,i){
+          return {id:'oq_'+i, text:q.text, subtext:'Seçenekler: '+q.opts.join(' / '),
+            type:'mcq', options:q.opts, catId:catNameToId[q.cat]||''};
         });
-      }
-      // Bonus questions
-      if(s.bonusAnswers&&s.bonusAnswers[pi]){
-        var bonusOffset=OLD_QUESTIONS.length;
-        s.bonusAnswers[pi].forEach(function(ans,qi){
-          var q=proj.questions[bonusOffset+qi];
-          if(!q) return;
-          var val=null;
-          if(ans.selected!==null&&ans.selected!==undefined&&OLD_BONUS[qi]){
-            val=OLD_BONUS[qi].opts[ans.selected]||null;
-          }
-          if(val&&ans.note) answers[q.id]=val+' — '+ans.note;
-          else if(val) answers[q.id]=val;
-          else if(ans.note) answers[q.id]=ans.note;
-        });
+        proj={id:'p_oldfelsefi',name:'Felsefi Anket',emoji:'🧠',
+          desc:'Eski uygulamadan aktarıldı',color:'#6ee7b7',
+          structure:'cats',categories:cats,questions:questions};
+        db.projects.push(proj);
       }
 
-      var resp={
-        id:respId,projectId:proj.id,
-        date:new Date(s.id).toISOString(),// id was Date.now()
-        profile:{note:(persons.length>1?s.person+' · '+personName:s.person)||'',age:'',gender:'',nationality:'Fethiye'},
-        answers:answers,
-        qIds:proj.questions.map(function(q){return q.id}),
-        step:'done',
-      };
-      if(s.status==='rejected') resp.profile.note+=' (Reddetti)';
-      db.responses.push(resp);
-      imported++;
-    });
-  });
+      var allOldQs=OLD_QUESTIONS.concat(OLD_BONUS);
+      var imported=0;
+      var skipped=0;
+      var existingIds=new Set(db.responses.map(function(r){return r.id}));
 
-  save();
-  event.target.value='';
-  var msg='✅ '+imported+' cevap başarıyla aktarıldı!'+(skipped>0?' ('+skipped+' zaten vardı)':'');
-  statusEl.innerHTML='<div style="color:var(--accent);font-weight:600">'+msg+'</div>'
-    +'<div style="margin-top:6px">📁 "Felsefi Anket" projesi oluşturuldu. Cevaplar sekmesinden görüntüleyebilirsin.</div>';
-  showToast('✓ '+imported+' cevap aktarıldı');
-  renderHome();
-}catch(err){
-  statusEl.innerHTML='<div style="color:var(--red)">❌ Hata: '+err.message+'<br>Lütfen doğru dosyayı seçtiğinden emin ol.</div>';
-  event.target.value='';
-}
-```
+      oldSurveys.forEach(function(s){
+        // Normalize old format
+        if(!s.persons) s.persons=[];
+        if(s.answers&&!Array.isArray(s.answers[0])) s.answers=[s.answers];
+        if(!s.bonusAnswers) s.bonusAnswers=[];
+        var persons=s.persons.length>0?s.persons:['Kişi 1'];
 
-};
-reader.readAsText(file);
+        persons.forEach(function(personName,pi){
+          var respId='r_old_'+s.id+'_'+pi;
+          if(existingIds.has(respId)){skipped++;return;}
+
+          var answers={};
+          // Main questions
+          if(s.answers&&s.answers[pi]){
+            s.answers[pi].forEach(function(ans,qi){
+              var q=proj.questions[qi];
+              if(!q) return;
+              var val=null;
+              if(ans.selected!==null&&ans.selected!==undefined&&OLD_QUESTIONS[qi]){
+                val=OLD_QUESTIONS[qi].opts[ans.selected]||null;
+              }
+              // Store answer + note combined if both exist
+              if(val&&ans.note) answers[q.id]=val+' — '+ans.note;
+              else if(val) answers[q.id]=val;
+              else if(ans.note) answers[q.id]=ans.note;
+            });
+          }
+          // Bonus questions
+          if(s.bonusAnswers&&s.bonusAnswers[pi]){
+            var bonusOffset=OLD_QUESTIONS.length;
+            s.bonusAnswers[pi].forEach(function(ans,qi){
+              var q=proj.questions[bonusOffset+qi];
+              if(!q) return;
+              var val=null;
+              if(ans.selected!==null&&ans.selected!==undefined&&OLD_BONUS[qi]){
+                val=OLD_BONUS[qi].opts[ans.selected]||null;
+              }
+              if(val&&ans.note) answers[q.id]=val+' — '+ans.note;
+              else if(val) answers[q.id]=val;
+              else if(ans.note) answers[q.id]=ans.note;
+            });
+          }
+
+          var resp={
+            id:respId,projectId:proj.id,
+            date:new Date(s.id).toISOString(),// id was Date.now()
+            profile:{note:(persons.length>1?s.person+' · '+personName:s.person)||'',age:'',gender:'',nationality:'Fethiye'},
+            answers:answers,
+            qIds:proj.questions.map(function(q){return q.id}),
+            step:'done',
+          };
+          if(s.status==='rejected') resp.profile.note+=' (Reddetti)';
+          db.responses.push(resp);
+          imported++;
+        });
+      });
+
+      save();
+      event.target.value='';
+      var msg='✅ '+imported+' cevap başarıyla aktarıldı!'+(skipped>0?' ('+skipped+' zaten vardı)':'');
+      statusEl.innerHTML='<div style="color:var(--accent);font-weight:600">'+msg+'</div>'
+        +'<div style="margin-top:6px">📁 "Felsefi Anket" projesi oluşturuldu. Cevaplar sekmesinden görüntüleyebilirsin.</div>';
+      showToast('✓ '+imported+' cevap aktarıldı');
+      renderHome();
+    }catch(err){
+      statusEl.innerHTML='<div style="color:var(--red)">❌ Hata: '+err.message+'<br>Lütfen doğru dosyayı seçtiğinden emin ol.</div>';
+      event.target.value='';
+    }
+  };
+  reader.readAsText(file);
 }
 
 // ================================================================
@@ -2118,8 +2109,7 @@ reader.readAsText(file);
 // ================================================================
 // Init nav labels from saved lang
 setLang(appLang);
-go(‘home’);
+go('home');
 </script>
-
 </body>
 </html>
