@@ -2,12 +2,12 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=375, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#080809">
-<title>Fieldwork</title>
+<title>Fieldwork · Halis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
@@ -63,19 +63,18 @@ body{height:100%;height:-webkit-fill-available;background:var(--bg);color:var(--
 
 /* ── TOPBAR ──────────────────────────────────────────────── */
 .topbar{
-  padding:calc(var(--sat) + 14px) calc(18px + var(--sar)) 12px calc(18px + var(--sal));
+  padding:calc(var(--sat) + 12px) 15px 10px;
   display:-webkit-flex;display:flex;
   -webkit-align-items:center;align-items:center;
   -webkit-justify-content:space-between;justify-content:space-between;
   -webkit-flex-shrink:0;flex-shrink:0;
   border-bottom:1px solid var(--border);background:var(--bg);
 }
-.topbar-logo{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+.topbar-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--text)}
 .topbar-logo span{color:var(--accent)}
-.icon-pill{background:var(--s2);border:1px solid var(--border);border-radius:20px;padding:8px 14px;
-  /* min 44px tap target */
-  min-height:44px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
-  font-size:14px;font-weight:600;color:var(--text2);cursor:pointer;}
+.icon-pill{background:var(--s2);border:1px solid var(--border);border-radius:20px;padding:7px 12px;
+  min-height:36px;display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
+  font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;}
 .icon-pill:active{opacity:.6}
 
 /* ── SCREENS ─────────────────────────────────────────────── */
@@ -142,8 +141,12 @@ body{height:100%;height:-webkit-fill-available;background:var(--bg);color:var(--
 .btn-row .btn{-webkit-flex:1;flex:1}
 
 /* ── INPUTS — font-size ≥16px prevents iOS auto-zoom ──────── */
-.ig{margin-bottom:13px}
-.il{font-size:12px;font-weight:600;color:var(--text2);letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px;display:block}
+.ig{margin-bottom:13px;padding-left:0;padding-right:0}
+.il{font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px;display:block}
+/* Modal içindeki her .ig öğesi padding alır */
+.modal-sh .ig{padding:0}
+.modal-sh .il{padding-left:0}
+.modal-sh .btn-row{margin-top:8px}
 .inp{
   width:100%;background:var(--s2);border:1px solid var(--border);
   border-radius:var(--r-sm);color:var(--text);
@@ -239,14 +242,13 @@ select.inp{
 .sf-nav{
   position:fixed;bottom:0;left:50%;
   -webkit-transform:translateX(-50%);transform:translateX(-50%);
-  width:100%;max-width:430px;
-  /* Extra padding: nav bar height ~56px + safe area + breathing room */
-  padding:10px 18px calc(var(--sab) + 64px);
+  width:375px;max-width:375px;
+  padding:10px 15px calc(var(--sab) + 70px);
   background:var(--bg);border-top:1px solid var(--border);
-  display:-webkit-flex;display:flex;gap:8px;z-index:150;
+  display:-webkit-flex;display:flex;gap:8px;z-index:50;
 }
-/* sf-body needs enough bottom padding to clear sf-nav */
-.sf-body{padding:16px 18px calc(140px + var(--sab))}
+/* sf-body bottom clearance = sf-nav total height (~110px) + nav bar (~56px) */
+.sf-body{padding:12px 15px calc(170px + var(--sab))}
 .back-bar{display:-webkit-flex;display:flex;-webkit-align-items:center;align-items:center;
   gap:8px;padding:14px 18px;border-bottom:1px solid var(--border);
   cursor:pointer;color:var(--accent);font-size:15px;font-weight:600;
@@ -262,8 +264,8 @@ select.inp{
 
 /* ── MODAL — no dvh, use % instead ──────────────────────── */
 .modal-ov{
-  position:fixed;inset:0;top:0;left:0;right:0;bottom:0;/* inset fallback */
-  background:rgba(0,0,0,.85);z-index:300;
+  position:fixed;top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,.82);z-index:300;
   display:-webkit-flex;display:flex;
   -webkit-align-items:flex-end;align-items:flex-end;
   -webkit-justify-content:center;justify-content:center;
@@ -272,17 +274,18 @@ select.inp{
 .modal-ov.open{opacity:1;pointer-events:all}
 .modal-sh{
   background:var(--s1);border-radius:20px 20px 0 0;
-  width:100%;max-width:430px;
-  padding:18px 18px calc(var(--sab) + 20px);
+  width:100%;max-width:375px;
+  padding:20px 20px calc(var(--sab) + 24px);
+  -webkit-box-sizing:border-box;box-sizing:border-box;
   -webkit-transform:translateY(100%);transform:translateY(100%);
   -webkit-transition:-webkit-transform .3s ease;transition:transform .3s ease;
-  max-height:88vh;/* vh not dvh for compat */
+  max-height:88vh;
   overflow-y:auto;-webkit-overflow-scrolling:touch;
 }
 .modal-ov.open .modal-sh{-webkit-transform:translateY(0);transform:translateY(0)}
 .modal-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 18px}
-.modal-title{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;margin-bottom:4px}
-.modal-sub{font-size:13px;color:var(--text2);margin-bottom:18px;line-height:1.5}
+.modal-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:6px}
+.modal-sub{font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.5}
 
 /* ── CHIPS ───────────────────────────────────────────────── */
 .chip-row{display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;gap:8px;margin-bottom:14px}
@@ -293,8 +296,8 @@ select.inp{
 .chip:active{opacity:.7}
 
 /* ── COLOR PICKER ────────────────────────────────────────── */
-.color-row{display:-webkit-flex;display:flex;gap:10px;-webkit-flex-wrap:wrap;flex-wrap:wrap;margin-bottom:14px}
-.color-dot{width:32px;height:32px;border-radius:50%;cursor:pointer;border:3px solid transparent}
+.color-row{display:-webkit-flex;display:flex;gap:8px;-webkit-flex-wrap:wrap;flex-wrap:wrap;margin-bottom:14px}
+.color-dot{width:30px;height:30px;border-radius:50%;cursor:pointer;border:3px solid transparent;-webkit-flex-shrink:0;flex-shrink:0}
 .color-dot.sel{border-color:var(--text);-webkit-transform:scale(1.15);transform:scale(1.15)}
 
 /* ── DIVIDER ─────────────────────────────────────────────── */
@@ -378,7 +381,48 @@ select.inp{
   font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;width:100%;resize:vertical;min-height:50px;
   -webkit-appearance:none;appearance:none;}
 
-/* ── SCROLL ──────────────────────────────────────────────── */
+/* ── iPhone SE 2 OVERRIDES (375×667) ────────────────────── */
+html,body{width:375px;overflow-x:hidden}
+#app{max-width:375px;width:375px}
+/* Typography */
+.sec-title{font-size:19px}
+.hero-title{font-size:20px}
+.hero-sub{font-size:12px;margin-bottom:14px}
+.hero{padding:16px 16px;margin-bottom:14px}
+/* Padding — 16px yatay minimum */
+.pad{padding:16px 16px calc(88px + var(--sab))}
+.sf-body{padding:14px 16px calc(170px + var(--sab))}
+/* Nav */
+.nv{min-width:52px;padding:3px 8px}
+.nv .ni{font-size:20px}
+.nv .nl{font-size:9px}
+/* Buttons */
+.btn{font-size:14px;padding:11px 14px;min-height:42px}
+.btn-sm{padding:8px 12px;font-size:12px;min-height:36px}
+/* Inputs */
+.inp{font-size:16px;padding:10px 12px;min-height:42px}
+/* Cards */
+.card{padding:14px 14px}
+.q-card{padding:15px 14px}
+.q-text{font-size:15px}
+/* Modal — SE2'de de kenarlardan boşluk garantisi */
+.modal-sh{
+  max-width:375px;
+  padding-top:20px !important;
+  padding-left:20px !important;
+  padding-right:20px !important;
+  padding-bottom:calc(var(--sab)+24px) !important;
+  -webkit-box-sizing:border-box!important;box-sizing:border-box!important;
+}
+/* Tüm doğrudan modal içerik elemanları için kenar boşluğu garantisi */
+.modal-sh > *{
+  margin-left:0;
+  margin-right:0;
+}
+/* Stats */
+.stat-mini-n{font-size:18px}
+
+
 .screen::-webkit-scrollbar{width:0;display:none}
 .modal-sh::-webkit-scrollbar{width:0;display:none}
 
@@ -420,15 +464,16 @@ select.inp{
 
   <nav class="nav" id="main-nav">
     <div class="nv on" id="nv-home" onclick="go('home')"><span class="ni">🏠</span><span class="nl" id="nl-home">Ana Sayfa</span></div>
-    <div class="nv" id="nv-history" onclick="go('history')"><span class="ni">📋</span><span class="nl" id="nl-history">Cevaplar</span></div>
-    <div class="nv" id="nv-stats" onclick="go('stats')"><span class="ni">📊</span><span class="nl" id="nl-stats">İstatistik</span></div>
     <div class="nv" id="nv-projects" onclick="go('projects')"><span class="ni">📁</span><span class="nl" id="nl-projects">Projeler</span></div>
+    <div class="nv" id="nv-stats" onclick="go('stats')"><span class="ni">📊</span><span class="nl" id="nl-stats">İstatistik</span></div>
+    <div class="nv" id="nv-history" onclick="go('history')"><span class="ni">📋</span><span class="nl" id="nl-history">Cevaplar</span></div>
     <div class="nv" id="nv-settings" onclick="go('settings')"><span class="ni">⚙️</span><span class="nl" id="nl-settings">Ayarlar</span></div>
   </nav>
 
   <!-- MODALS -->
+  <div class="modal-ov" id="m-home-start" onclick="cm('home-start')"><div class="modal-sh" onclick="event.stopPropagation()" style="padding:20px 20px calc(env(safe-area-inset-bottom,0px) + 24px) !important;"><div class="modal-handle"></div><div class="modal-title">&#9654; Anket Ba&#351;lat</div><div class="modal-sub">Hangi proje i&#231;in anket yapacaks&#305;n?</div><div id="m-home-start-list"></div><button class="btn btn-g" onclick="cm('home-start')" style="margin-top:4px">&#304;ptal</button></div></div>
   <div class="modal-ov" id="m-project" onclick="cm('project')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
+    <div class="modal-sh" onclick="event.stopPropagation()" style="padding:20px 20px calc(env(safe-area-inset-bottom,0px) + 24px) !important;">
       <div class="modal-handle"></div>
       <div class="modal-title" id="m-proj-title">Yeni Proje</div>
       <div class="modal-sub">Araştırma konunuzu tanımlayın</div>
@@ -452,7 +497,7 @@ select.inp{
   </div>
 
   <div class="modal-ov" id="m-question" onclick="cm('question')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
+    <div class="modal-sh" onclick="event.stopPropagation()" style="padding:20px 20px calc(env(safe-area-inset-bottom,0px) + 24px) !important;">
       <div class="modal-handle"></div>
       <div class="modal-title" id="m-q-title">Soru Ekle</div>
       <div class="ig"><label class="il">Soru Metni</label>
@@ -478,7 +523,7 @@ select.inp{
   </div>
 
   <div class="modal-ov" id="m-cat" onclick="cm('cat')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
+    <div class="modal-sh" onclick="event.stopPropagation()" style="padding:20px 20px calc(env(safe-area-inset-bottom,0px) + 24px) !important;">
       <div class="modal-handle"></div>
       <div class="modal-title" id="m-cat-title">Kategori Ekle</div>
       <div class="ig"><label class="il">Kategori Adı</label>
@@ -492,7 +537,7 @@ select.inp{
   </div>
 
   <div class="modal-ov" id="m-start" onclick="cm('start')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
+    <div class="modal-sh" onclick="event.stopPropagation()" style="padding:20px 20px calc(env(safe-area-inset-bottom,0px) + 24px) !important;">
       <div class="modal-handle"></div>
       <div class="modal-title" id="m-start-title">Anket Başlat</div>
       <div class="modal-sub" id="m-start-sub"></div>
@@ -505,6 +550,15 @@ select.inp{
         <label class="il" style="display:block;margin-bottom:8px">Sorular</label>
         <div id="custom-q-list"></div>
       </div>
+      <div class="ig">
+        <label class="il">👥 Kaç Kişiyle?</label>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+          <button onclick="changePersonCount(-1)" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border);background:var(--s2);color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0">−</button>
+          <div id="person-count-display" style="font-family:'Syne',sans-serif;font-size:24px;font-weight:700;color:var(--accent);min-width:32px;text-align:center">1</div>
+          <button onclick="changePersonCount(1)" style="width:40px;height:40px;border-radius:50%;border:1.5px solid var(--border);background:var(--s2);color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0">+</button>
+        </div>
+        <div id="person-labels-area"></div>
+      </div>
       <div class="btn-row" style="margin-top:8px">
         <button class="btn btn-g" onclick="cm('start')">İptal</button>
         <button class="btn btn-p" onclick="launchSurvey()">Başlat →</button>
@@ -513,7 +567,7 @@ select.inp{
   </div>
 
   <div class="modal-ov" id="m-delete" onclick="cm('delete')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
+    <div class="modal-sh" onclick="event.stopPropagation()" style="padding:20px 20px calc(env(safe-area-inset-bottom,0px) + 24px) !important;">
       <div class="modal-handle"></div>
       <div class="modal-title" id="m-del-title">Emin misiniz?</div>
       <div class="modal-sub" id="m-del-sub">Bu işlem geri alınamaz.</div>
@@ -525,30 +579,29 @@ select.inp{
   </div>
 
   <div class="modal-ov" id="m-export" onclick="cm('export')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
+    <div class="modal-sh" onclick="event.stopPropagation()" style="padding:20px 20px calc(env(safe-area-inset-bottom,0px) + 24px) !important;">
       <div class="modal-handle"></div>
       <div class="modal-title">Export & Paylaş</div>
       <div id="export-modal-content"></div>
     </div>
   </div>
-
-  <div class="modal-ov" id="m-qr" onclick="cm('qr')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
-      <div class="modal-handle"></div>
-      <div class="modal-title">QR Kod & Link</div>
-      <div class="modal-sub">Anket linkini paylaşın</div>
-      <div id="qr-content"></div>
-    </div>
   </div>
 
   <!-- IMPORT OLD DATA MODAL -->
   <div class="modal-ov" id="m-import" onclick="cm('import')">
-    <div class="modal-sh" onclick="event.stopPropagation()">
+    <div class="modal-sh" onclick="event.stopPropagation()" style="padding:20px 20px calc(env(safe-area-inset-bottom,0px) + 24px) !important;">
       <div class="modal-handle"></div>
       <div class="modal-title">📥 Eski Veriyi Aktar</div>
-      <div class="modal-sub">Felsefi Anket uygulamasından indirdiğin JSON dosyasını seç. Veriler otomatik dönüştürülür.</div>
-      <div style="background:var(--accent-dim);border:1px solid var(--accent);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:16px;font-size:13px;line-height:1.6;color:var(--accent)">
-        ⚠️ Mevcut veriler silinmez — eski veriler yeni projeye eklenir.
+      <div class="modal-sub">Felsefi Anket uygulamasından indirdiğin JSON dosyasını seç.</div>
+      <div style="background:var(--accent-dim);border:1px solid var(--accent);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:12px;font-size:13px;line-height:1.6;color:var(--accent)">
+        ℹ️ Çoklu kişili anketler her kişi için ayrı kayıt oluşturur.
+      </div>
+      <div class="ig">
+        <label class="il">Import Modu</label>
+        <div class="chip-row">
+          <div class="chip on" id="import-mode-add" onclick="this.className='chip on';document.getElementById('import-mode-fresh').className='chip'">➕ Ekle</div>
+          <div class="chip" id="import-mode-fresh" onclick="this.className='chip on';document.getElementById('import-mode-add').className='chip'">🔄 Temizle & Yeniden Aktar</div>
+        </div>
       </div>
       <input type="file" id="old-import-input" accept=".json" style="display:none" onchange="processOldImport(event)">
       <button class="btn btn-p" onclick="document.getElementById('old-import-input').click()">📂 JSON Dosyası Seç</button>
@@ -560,22 +613,6 @@ select.inp{
   <div class="toast" id="toast"></div>
 </div>
 
-<!-- QR inline — no external CDN dependency -->
-<script>
-/* Minimal QR encoder (no CDN needed — works offline) */
-/* We generate a simple data URI via Google Charts API with fallback text */
-function makeQR(container, text){
-  // Try Google Charts (online), fallback to text link
-  const img = document.createElement('img');
-  img.style.cssText='border-radius:8px;max-width:200px;width:100%';
-  img.src='https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl='+encodeURIComponent(text)+'&choe=UTF-8';
-  img.onerror=function(){
-    container.innerHTML='<div style="font-size:13px;color:var(--text2);padding:10px;text-align:center">QR yüklenemedi — linki kopyalayın</div>';
-  };
-  container.innerHTML='';
-  container.appendChild(img);
-}
-</script>
 
 <script>
 // ================================================================
@@ -655,78 +692,6 @@ function setLang(l){
 }
 
 // ================================================================
-// TTS — Text To Speech
-// ================================================================
-var TTS_LANGS={
-  tr:{label:'Türkçe',   code:'tr-TR', voiceHint:'tr'},
-  en:{label:'İngilizce',code:'en-US', voiceHint:'en'},
-  ru:{label:'Rusça',    code:'ru-RU', voiceHint:'ru'},
-  uk:{label:'Ukraynaca',code:'uk-UA', voiceHint:'uk'},
-  fr:{label:'Fransızca',code:'fr-FR', voiceHint:'fr'},
-  de:{label:'Almanca',  code:'de-DE', voiceHint:'de'},
-  ar:{label:'Arapça',   code:'ar-SA', voiceHint:'ar'},
-};
-var ttsSettings;
-try{ttsSettings=JSON.parse(localStorage.getItem('fw_tts')||'null')||{engine:'browser',lang:'tr',enabled:true}}
-catch(e){ttsSettings={engine:'browser',lang:'tr',enabled:true}}
-
-function saveTTS(){try{localStorage.setItem('fw_tts',JSON.stringify(ttsSettings))}catch(e){}}
-
-var currentUtterance=null;
-
-function speakText(text,langCode){
-  if(!ttsSettings.enabled) return;
-  stopSpeech();
-  var lang=langCode||TTS_LANGS[ttsSettings.lang]?.code||'tr-TR';
-
-  if(ttsSettings.engine==='ai'){
-    speakAI(text,lang);
-    return;
-  }
-  // Browser Web Speech API
-  if(!window.speechSynthesis){showToast(T('Ses desteklenmiyor','Speech not supported'));return;}
-  var utt=new SpeechSynthesisUtterance(text);
-  utt.lang=lang;
-  utt.rate=0.92;
-  utt.pitch=1;
-  // Try to find a matching voice
-  var voices=window.speechSynthesis.getVoices();
-  var match=voices.find(function(v){return v.lang.startsWith(lang.split('-')[0])});
-  if(match) utt.voice=match;
-  currentUtterance=utt;
-  window.speechSynthesis.speak(utt);
-}
-
-async function speakAI(text,lang){
-  showToast(T('Ses üretiliyor...','Generating audio...'));
-  try{
-    var resp=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:200,
-        messages:[{role:'user',content:'Translate this text to the language with code "'+lang+'" and return ONLY the translated text, nothing else: '+text}]
-      })
-    });
-    var d=await resp.json();
-    var translated=(d.content&&d.content[0]&&d.content[0].text)||text;
-    // Use browser TTS with translated text
-    if(window.speechSynthesis){
-      var utt=new SpeechSynthesisUtterance(translated);
-      utt.lang=lang;utt.rate=0.9;
-      var voices=window.speechSynthesis.getVoices();
-      var match=voices.find(function(v){return v.lang.startsWith(lang.split('-')[0])});
-      if(match) utt.voice=match;
-      currentUtterance=utt;
-      window.speechSynthesis.speak(utt);
-    }
-  }catch(e){showToast(T('Ses hatası','Audio error'));}
-}
-
-function stopSpeech(){
-  if(window.speechSynthesis) window.speechSynthesis.cancel();
-  currentUtterance=null;
-}
-
-// ================================================================
 // THEME SYSTEM
 // ================================================================
 var ACCENT_THEMES=[
@@ -759,9 +724,6 @@ function applyTheme(){
 if(mq&&mq.addEventListener){mq.addEventListener('change',function(){if(themeSettings.mode==='system')applyTheme();})}
 else if(mq&&mq.addListener){mq.addListener(function(){if(themeSettings.mode==='system')applyTheme();})}
 applyTheme();
-
-function setTTSLang(l){ttsSettings.lang=l;saveTTS();renderSettings();}
-function setTTSEngine(e){ttsSettings.engine=e;saveTTS();renderSettings();}
 
 function setAccent(id){themeSettings.accent=id;applyTheme();renderSettings();}
 function setMode(m){themeSettings.mode=m;applyTheme();renderSettings();}
@@ -802,46 +764,14 @@ function renderSettings(){
     return '<div onclick="setLang(\''+l+'\')" style="flex:1;padding:12px;text-align:center;border-radius:var(--r-sm);border:2px solid '+(sel?'var(--accent)':'var(--border)')+';background:'+(sel?'var(--accent-dim)':'var(--s2)')+';cursor:pointer;font-weight:600;font-size:14px;color:'+(sel?'var(--accent)':'var(--text2)')+'">'+labels[l]+'</div>';
   }).join('');
 
-  // TTS section
-  var curTTSLang=ttsSettings.lang||'tr';
-  var curEngine=ttsSettings.engine||'browser';
-  var ttsLangOpts=Object.entries(TTS_LANGS).map(function(e){
-    var sel=curTTSLang===e[0];
-    return '<div onclick="setTTSLang(\''+e[0]+'\')" style="padding:9px 12px;min-height:40px;border-radius:8px;border:1.5px solid '+(sel?'var(--accent)':'var(--border)')+';background:'+(sel?'var(--accent-dim)':'var(--s2)')+';cursor:pointer;font-size:13px;font-weight:600;color:'+(sel?'var(--accent)':'var(--text2)')+'">'+e[1].label+'</div>';
-  }).join('');
-  var ttsEngineHTML=['browser','ai'].map(function(eng){
-    var sel=curEngine===eng;
-    var lbl=eng==='browser'?T('Tarayıcı Sesi (Offline)','Browser Voice (Offline)'):T('AI Çeviri + Ses','AI Translate + Voice');
-    var sub=eng==='browser'?T('Hızlı, internet gerekmez','Fast, no internet needed'):T('Önce çevirir, sonra okur','Translates first, then reads');
-    return '<div onclick="setTTSEngine(\''+eng+'\')" style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--r-sm);border:2px solid '+(sel?'var(--accent)':'var(--border)')+';background:'+(sel?'var(--accent-dim)':'var(--s2)')+';cursor:pointer;margin-bottom:8px;">'
-      +'<div style="flex:1"><div style="font-weight:600;font-size:13px;color:'+(sel?'var(--accent)':'var(--text)')+'">'+lbl+'</div><div style="font-size:11px;color:var(--text2)">'+sub+'</div></div>'
-      +(sel?'<span style="color:var(--accent)">✓</span>':'')
-      +'</div>';
-  }).join('');
-
   document.getElementById('sc-settings').innerHTML='<div class="pad">'
     +'<div class="sec-title">'+T('Ayarlar','Settings')+'</div>'
-    +'<div class="sec-sub">'+T('Uygulama görünümünü ve davranışını kişiselleştir','Customize the app appearance and behavior')+'</div>'
+    +'<div class="sec-sub">'+T('Görünümü kişiselleştir','Customize appearance')+'</div>'
 
     // Lang
     +'<div class="card" style="margin-bottom:14px">'
     +'<div style="font-weight:700;font-size:15px;margin-bottom:12px">🌐 '+T('Uygulama Dili','App Language')+'</div>'
     +'<div style="display:flex;gap:10px">'+langHTML+'</div>'
-    +'</div>'
-
-    // TTS
-    +'<div class="card" style="margin-bottom:14px">'
-    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">'
-    +'<div style="font-weight:700;font-size:15px">🔊 '+T('Sesli Soru Okuma','Voice Question Reading')+'</div>'
-    +'<div onclick="ttsSettings.enabled=!ttsSettings.enabled;saveTTS();renderSettings()" style="width:44px;height:26px;border-radius:13px;background:'+(ttsSettings.enabled?'var(--accent)':'var(--border)')+';position:relative;cursor:pointer;transition:.2s">'
-    +'<div style="width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:3px;left:'+(ttsSettings.enabled?'21px':'3px')+';transition:.2s"></div></div>'
-    +'</div>'
-    +(ttsSettings.enabled?''+'<div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">'+T('Okuma Dili','Reading Language')+'</div>'
-    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px">'+ttsLangOpts+'</div>'
-    +'<div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em">'+T('Motor','Engine')+'</div>'
-    +ttsEngineHTML
-    +'<button class="btn btn-s btn-sm" onclick="speakText(\''+T('Merhaba, bu bir test.','Hello, this is a test.')+'\')" style="margin-top:4px">🔊 '+T('Test Et','Test')+'</button>'
-    :'<div style="font-size:13px;color:var(--text3);text-align:center;padding:10px 0">'+T('Kapalı','Disabled')+'</div>')
     +'</div>'
 
     // Accent
@@ -915,31 +845,47 @@ function openProject(id){
 // ================================================================
 // HOME
 // ================================================================
-var homeShowAll=false;
+var homeShownCount=3;
 function renderHome(){
   var total=db.responses.length;
   var todayStr=new Date().toDateString();
   var today=db.responses.filter(function(r){return new Date(r.date).toDateString()===todayStr}).length;
   var allRecent=db.responses.slice().reverse();
-  var shown=homeShowAll?allRecent:allRecent.slice(0,3);
+  var shown=allRecent.slice(0,homeShownCount);
   var recentHtml=shown.map(function(r){return respCardHTML(r)}).join('');
-  var moreBtn=(allRecent.length>3&&!homeShowAll)
-    ?'<button class="btn btn-g" style="margin-top:4px" onclick="homeShowAll=true;renderHome()">'+T('Daha Fazla Göster','Show More')+' ('+allRecent.length+')</button>'
-    :(homeShowAll&&allRecent.length>3?'<button class="btn btn-g" style="margin-top:4px" onclick="homeShowAll=false;renderHome()">'+T('Daha Az Göster','Show Less')+'</button>':'');
+  var remaining=allRecent.length-homeShownCount;
+  var moreBtn=remaining>0
+    ?'<button class="btn btn-g" style="margin-top:6px" onclick="homeShownCount+=5;renderHome()">'+T('5 Tane Daha Göster','Show 5 More')+' ('+remaining+' '+T('kaldı','left')+')</button>'
+    :(homeShownCount>3?'<button class="btn btn-g" style="margin-top:6px" onclick="homeShownCount=3;renderHome()">'+T('Daha Az Göster','Show Less')+'</button>':'');
+  var acceptedCount=db.responses.filter(function(r){return r.step==='done'&&!(r.profile&&(r.profile.note||'').includes('(Reddetti)'))}).length;
+  var rejectedCount=db.responses.filter(function(r){return r.profile&&(r.profile.note||'').includes('(Reddetti)')}).length;
   document.getElementById('sc-home').innerHTML='<div class="pad">'
-    +'<div class="hero"><div class="hero-eyebrow">fieldwork · '+T('saha araştırması','field research')+'</div>'
-    +'<div class="hero-title">'+T('Her soru<br>bir keşif.','Every question<br>a discovery.')+'</div>'
-    +'<div class="hero-sub">'+T('Projeler oluştur, sorular tanımla, sahada veri topla.','Create projects, define questions, collect field data.')+'</div>'
-    +'<button class="btn btn-p" onclick="go(\'projects\')">📁 '+T('Projelere Git','Go to Projects')+'</button></div>'
-    +'<div class="stats-mini">'
+    +'<button class="btn btn-p" style="margin-bottom:14px" onclick="openHomeStartModal()">▶ '+T('Anket Başlat','Start Survey')+'</button>'
+    +'<div class="stats-mini" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px">'
     +'<div class="stat-mini-box"><div class="stat-mini-n">'+db.projects.length+'</div><div class="stat-mini-l">'+T('Proje','Projects')+'</div></div>'
-    +'<div class="stat-mini-box"><div class="stat-mini-n">'+total+'</div><div class="stat-mini-l">'+T('Cevap','Responses')+'</div></div>'
-    +'<div class="stat-mini-box"><div class="stat-mini-n">'+today+'</div><div class="stat-mini-l">'+T('Bugün','Today')+'</div></div>'
+    +'<div class="stat-mini-box"><div class="stat-mini-n">'+total+'</div><div class="stat-mini-l">'+T('Toplam Anket','Total Surveys')+'</div></div>'
+    +'<div class="stat-mini-box" style="background:var(--accent-dim);border-color:var(--accent)"><div class="stat-mini-n" style="color:var(--accent)">'+acceptedCount+'</div><div class="stat-mini-l">'+T('Kabul','Accepted')+'</div></div>'
+    +'<div class="stat-mini-box" style="background:var(--red-dim);border-color:rgba(248,113,113,.3)"><div class="stat-mini-n" style="color:var(--red)">'+rejectedCount+'</div><div class="stat-mini-l">'+T('Red','Rejected')+'</div></div>'
     +'</div>'
     +(total>0?'<div class="sec-title" style="margin-bottom:10px">'+T('Son Anketler','Recent Surveys')+'</div>'+recentHtml+moreBtn:'')
     +'<div class="divl"></div>'
     +'<button class="btn btn-g" onclick="openM(\'import\')" style="margin-top:4px">📥 '+T('Eski Uygulamadan Veri Aktar','Import from Old App')+'</button>'
     +'</div>';
+}
+
+function openHomeStartModal(){
+  if(db.projects.length===0){showToast(T('Önce proje oluşturun','Create a project first'));go('projects');return;}
+  var listHtml=db.projects.map(function(p){
+    return '<div onclick="openStartSurveyModal(\''+safeId(p.id)+'\');cm(\'home-start\')" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--s2);border:1px solid var(--border);border-radius:var(--r-sm);margin-bottom:8px;cursor:pointer;min-height:52px">'
+      +'<span style="font-size:22px">'+esc(p.emoji||'📋')+'</span>'
+      +'<div style="flex:1;min-width:0"><div style="font-weight:600;font-size:15px">'+esc(p.name)+'</div>'
+      +(p.desc?'<div style="font-size:12px;color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(p.desc)+'</div>':'')
+      +'</div>'
+      +'<span style="color:var(--accent);font-size:18px">→</span>'
+      +'</div>';
+  }).join('');
+  document.getElementById('m-home-start-list').innerHTML=listHtml;
+  openM('home-start');
 }
 
 function respCardHTML(r){
@@ -948,16 +894,17 @@ function respCardHTML(r){
   var ans=Object.values(r.answers||{}).filter(function(a){return a!==null&&a!==undefined&&String(a).trim()}).length;
   var total=r.qIds?r.qIds.length:(proj.questions?proj.questions.length:0);
   var pct=total?Math.round(ans/total*100):0;
-  var dateStr=new Date(r.date).toLocaleDateString('tr-TR',{day:'numeric',month:'short'});
+  var dateStr=new Date(r.date).toLocaleDateString('tr-TR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
   var init=(r.profile&&r.profile.note?r.profile.note:'?').charAt(0).toUpperCase();
   var note=esc(r.profile&&r.profile.note?r.profile.note:'İsimsiz');
   var nat=esc(r.profile&&r.profile.nationality?r.profile.nationality:'');
+  var groupTag=r.groupId?'<span style="font-size:10px;background:var(--blue-dim);color:var(--blue);border-radius:10px;padding:2px 7px;font-weight:600">👥 Grup</span>':'';
   return '<div class="resp-card" onclick="openRespDetail(\''+safeId(r.id)+'\')">'
     +'<div class="resp-card-top">'
     +'<div class="resp-avatar" style="background:var(--accent)">'+init+'</div>'
     +'<div style="flex:1;min-width:0">'
     +'<div class="resp-name">'+note+(r.profile&&r.profile.age?' · '+esc(r.profile.age)+' yaş':'')+'</div>'
-    +'<div class="resp-meta">'+esc(proj.emoji||'📋')+' '+esc(proj.name)+' · '+dateStr+(nat?' · '+nat:'')+'</div>'
+    +'<div class="resp-meta">'+esc(proj.emoji||'📋')+' '+esc(proj.name)+' · '+dateStr+(nat?' · '+nat:'')+' '+groupTag+'</div>'
     +'</div></div>'
     +'<div class="resp-prog-label"><span>'+ans+'/'+total+' cevap</span><span>'+pct+'%</span></div>'
     +'<div class="prog-track"><div class="prog-fill" style="width:'+pct+'%"></div></div>'
@@ -1046,7 +993,7 @@ function renderProjectDetail(el){
     +'</div>'
     +'<div class="btn-row" style="flex-wrap:wrap;gap:6px">'
     +'<button class="btn btn-p btn-sm" style="min-width:130px" onclick="openStartSurveyModal(\''+pid+'\')">🎙️ Anket Başlat</button>'
-    +'<button class="btn btn-s btn-sm" onclick="openQRModal(\''+pid+'\')">📡 QR / Link</button>'
+    
     +'<button class="btn btn-s btn-sm" onclick="openExportModal(\''+pid+'\',\'proj\')">📤 Export</button>'
     +'</div></div>'
     +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">'
@@ -1255,14 +1202,40 @@ function selectColor(containerId,color,dotEl){
 // ================================================================
 // SURVEY FLOW
 // ================================================================
+var surveyPersonCount=1;
+var surveyPersonLabels=[];
+
+function changePersonCount(delta){
+  surveyPersonCount=Math.max(1,Math.min(8,surveyPersonCount+delta));
+  document.getElementById('person-count-display').textContent=surveyPersonCount;
+  var area=document.getElementById('person-labels-area');
+  if(surveyPersonCount>1){
+    var existing=[];
+    area.querySelectorAll('input').forEach(function(inp){existing.push(inp.value)});
+    area.innerHTML='';
+    for(var i=0;i<surveyPersonCount;i++){
+      var row=document.createElement('div');
+      row.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:7px';
+      row.innerHTML='<div style="font-size:13px;color:var(--text2);flex-shrink:0;min-width:52px">Kişi '+(i+1)+'</div>'
+        +'<input class="inp" id="plabel-'+i+'" placeholder="Etiket (Erkek, Ali...)" value="'+(existing[i]||'')+'" autocomplete="off" style="flex:1">';
+      area.appendChild(row);
+    }
+  } else {
+    area.innerHTML='';
+  }
+}
+
 function openStartSurveyModal(projId){
   var proj=db.projects.find(function(p){return p.id===projId});
   if(!proj){showToast('Proje bulunamadı');return;}
   if(!proj.questions||proj.questions.length===0){showToast('Önce soru ekleyin');return;}
   activeProjId=safeId(projId);
   selMode='fast'; selCustomQs=new Set();
+  surveyPersonCount=1;
+  document.getElementById('person-count-display').textContent='1';
+  document.getElementById('person-labels-area').innerHTML='';
   document.getElementById('m-start-title').textContent=esc(proj.emoji||'📋')+' '+esc(proj.name);
-  document.getElementById('m-start-sub').textContent=proj.questions.length+' soru · Modu seçin';
+  document.getElementById('m-start-sub').textContent=proj.questions.length+' soru · Modu ve kişi sayısını seçin';
   document.getElementById('mode-fast').className='chip on';
   document.getElementById('mode-custom').className='chip';
   document.getElementById('custom-q-selector').style.display='none';
@@ -1307,9 +1280,28 @@ function launchSurvey(){
     qs=qs.filter(function(q){return selCustomQs.has(q.id)});
     if(qs.length===0){showToast('En az bir soru seçin');return;}
   }
+  surveyPersonLabels=[];
+  for(var i=0;i<surveyPersonCount;i++){
+    var inp=document.getElementById('plabel-'+i);
+    surveyPersonLabels.push(inp?inp.value.trim()||('Kişi '+(i+1)):('Kişi '+(i+1)));
+  }
   cm('start');
-  surveyState={id:'r_'+Date.now(),projectId:proj.id,date:new Date().toISOString(),
-    profile:{note:'',age:'',gender:'',nationality:''},answers:{},qIds:qs.map(function(q){return q.id}),step:'profile'};
+  var n=surveyPersonLabels.length;
+  surveyState={
+    id:'r_'+Date.now(),
+    projectId:proj.id,
+    date:new Date().toISOString(),
+    persons:surveyPersonLabels,
+    profiles:surveyPersonLabels.map(function(lbl){return{note:lbl,age:'',gender:'',nationality:''}}),
+    answersPerPerson:surveyPersonLabels.map(function(){return{}}),
+    notesPerPerson:surveyPersonLabels.map(function(){return{}}),
+    qIds:qs.map(function(q){return q.id}),
+    // step encoding:
+    // {phase:'profile', pi:N} → N. kişinin profil girişi
+    // {phase:'question', qi:N, pi:M} → N. soru, M. kişi
+    // 'done'
+    step:{phase:'profile',pi:0}
+  };
   showSurveyScreen();
 }
 
@@ -1326,86 +1318,113 @@ function renderSurveyStep(){
   var el=document.getElementById('sc-survey');
   var proj=db.projects.find(function(p){return p.id===surveyState.projectId});
   var clr='var(--accent)';
-  var totalSteps=surveyState.qIds.length+2;
+  var n=surveyState.persons.length;
+  var isMulti=n>1;
+  var step=surveyState.step;
+  var numQ=surveyState.qIds.length;
 
-  if(surveyState.step==='profile'){
-    var g=surveyState.profile.gender||'';
-    var gChips=['Erkek','Kadın','Diğer'].map(function(gn){
-      var isSel=g===gn;
-      return '<div class="gender-chip'+(isSel?' sel':'')+'" onclick="selectGender(\''+gn+'\',this)">'+gn+'</div>';
-    }).join('');
-    el.innerHTML='<div class="sf-header">'
-      +'<div class="sf-meta"><span>👤 '+T('Kişi Profili','Person Profile')+'</span><span>1/'+totalSteps+'</span></div>'
-      +'<div class="prog-track"><div class="prog-fill" style="width:'+(1/totalSteps*100)+'%"></div></div>'
-      +'</div>'
-      +'<div class="sf-body">'
-      +'<div class="q-card"><div class="q-type-label" style="color:'+clr+'">📝 '+T('Profil','Profile')+'</div>'
-      +'<div class="q-text">'+T('Kişi hakkında bilgi','About this person')+'</div>'
-      +'<div class="q-text-sub">'+T('İsteğe bağlı — atlamak için Devam\'a basın','Optional — press Continue to skip')+'</div></div>'
-      +'<div class="ig"><label class="il">'+T('Not / İsim','Note / Name')+'</label>'
-      +'<input class="inp" id="p-note" placeholder="'+T('Kısa açıklama...','Short description...')+'" autocomplete="off" value="'+esc(surveyState.profile.note)+'"></div>'
-      +'<div style="display:flex;gap:10px">'
-      +'<div class="ig" style="flex:1"><label class="il">'+T('Yaş','Age')+'</label>'
-      +'<input class="inp" id="p-age" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="25" min="1" max="120" value="'+esc(surveyState.profile.age)+'"></div>'
-      +'<div class="ig" style="flex:1"><label class="il">'+T('Uyruk/Şehir','Nationality/City')+'</label>'
-      +'<input class="inp" id="p-nat" placeholder="İstanbul, TR" autocomplete="off" value="'+esc(surveyState.profile.nationality)+'"></div>'
-      +'</div>'
-      +'<div class="ig"><label class="il">'+T('Cinsiyet','Gender')+'</label>'
-      +'<div style="display:flex;gap:8px">'+gChips+'</div></div>'
-      +'</div>'
-      +'<div class="sf-nav">'
-      +'<button class="btn btn-g" onclick="cancelSurvey()">'+T('İptal','Cancel')+'</button>'
-      +'<button class="btn btn-p" onclick="profileNext()">'+T('Devam →','Continue →')+'</button>'
-      +'</div>';
-    return;
+  // Progress bar: n profil adımı + (numQ * n) soru adımı
+  var totalSteps=n+numQ*n;
+  function stepIndex(){
+    if(step==='done') return totalSteps;
+    if(step.phase==='profile') return step.pi;
+    return n + step.qi*n + step.pi;
   }
+  var curStepN=stepIndex()+1;
+  var pct=curStepN/totalSteps*100;
 
-  if(surveyState.step==='done'){
+  // ── DONE ──
+  if(step==='done'){
     el.innerHTML='<div class="sf-body" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;text-align:center;padding:40px 20px">'
       +'<div style="font-size:56px;margin-bottom:18px">✅</div>'
       +'<div class="sec-title" style="font-size:26px;margin-bottom:8px">'+T('Tamamlandı!','Done!')+'</div>'
-      +'<div class="sec-sub" style="margin-bottom:26px">'+T('Cevaplar başarıyla kaydedildi.','Responses saved successfully.')+'</div>'
-      +'<button class="btn btn-p" style="max-width:260px" onclick="openRespDetail(\''+safeId(surveyState.id)+'\')">'+T('Cevabı Görüntüle','View Response')+'</button>'
+      +'<div class="sec-sub" style="margin-bottom:26px">'+(isMulti?n+' '+T('kişi kaydedildi.','people saved.'):T('Cevaplar kaydedildi.','Responses saved.'))+'</div>'
+      +'<button class="btn btn-p" style="max-width:260px" onclick="openRespDetail(\''+safeId(surveyState.savedIds&&surveyState.savedIds[0]||surveyState.id)+'\')">'+T('Cevabı Görüntüle','View Response')+'</button>'
       +'<button class="btn btn-g" style="max-width:260px;margin-top:8px" onclick="launchNewFromDone()">'+T('Yeni Anket','New Survey')+'</button>'
       +'<button class="btn btn-g" style="max-width:260px;margin-top:8px" onclick="go(\'home\')">'+T('Ana Sayfa','Home')+'</button>'
       +'</div>';
     return;
   }
 
-  var stepIdx=surveyState.step;
-  var qId=surveyState.qIds[stepIdx];
+  var pi=step.pi;
+  var personLabel=surveyState.persons[pi]||('Kişi '+(pi+1));
+
+  // ── PROFİL ADIMI ──
+  if(step.phase==='profile'){
+    var prof=surveyState.profiles[pi]||{};
+    var g=prof.gender||'';
+    var gChips=['Erkek','Kadın','Diğer'].map(function(gn){
+      return '<div class="gender-chip'+(g===gn?' sel':'')+'" onclick="selectGender(\''+gn+'\',this)">'+gn+'</div>';
+    }).join('');
+    var badge=isMulti?'<div style="display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);color:var(--accent);border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600;margin-bottom:12px">👤 '+(pi+1)+'/'+n+' · '+esc(personLabel)+'</div><br>':'';
+    el.innerHTML='<div class="sf-header">'
+      +'<div class="sf-meta"><span>👤 '+T('Profil','Profile')+' '+(pi+1)+(isMulti?'/'+n:'')+'</span><span>'+curStepN+'/'+totalSteps+'</span></div>'
+      +'<div class="prog-track"><div class="prog-fill" style="width:'+pct+'%"></div></div>'
+      +'</div>'
+      +'<div class="sf-body">'+badge
+      +'<div class="ig"><label class="il">'+T('Not / İsim','Note / Name')+'</label>'
+      +'<input class="inp" id="p-note" autocomplete="off" value="'+esc(prof.note||personLabel)+'"></div>'
+      +'<div style="display:flex;gap:10px">'
+      +'<div class="ig" style="flex:1"><label class="il">'+T('Yaş','Age')+'</label>'
+      +'<input class="inp" id="p-age" type="number" inputmode="numeric" pattern="[0-9]*" placeholder="25" value="'+esc(prof.age||'')+'"></div>'
+      +'<div class="ig" style="flex:1"><label class="il">'+T('Uyruk/Şehir','Nationality/City')+'</label>'
+      +'<input class="inp" id="p-nat" placeholder="Fethiye, TR" autocomplete="off" value="'+esc(prof.nationality||'')+'"></div>'
+      +'</div>'
+      +'<div class="ig"><label class="il">'+T('Cinsiyet','Gender')+'</label>'
+      +'<div style="display:flex;gap:8px">'+gChips+'</div></div>'
+      +'</div>'
+      +'<div class="sf-nav">'
+      +'<button class="btn btn-g" onclick="surveyPrev()">← '+T('Geri','Back')+'</button>'
+      +'<button class="btn btn-p" onclick="profileNext()">'+T('Devam →','Continue →')+'</button>'
+      +'</div>';
+    return;
+  }
+
+  // ── SORU ADIMI ──
+  var qi=step.qi;
+  var qId=surveyState.qIds[qi];
   var q=proj?proj.questions.find(function(q){return q.id===qId}):null;
-  if(!q){advanceStep();return;}
+  if(!q){stepForward();return;}
   var cat=proj&&proj.categories?proj.categories.find(function(c){return c.id===q.catId}):null;
   var qclr=cat&&cat.color?cat.color:clr;
-  var curStep=stepIdx+2;
-  var pct=curStep/totalSteps*100;
-  var existing=surveyState.answers[qId];
+  var curAnswers=surveyState.answersPerPerson[pi]||{};
+  var curNotes=surveyState.notesPerPerson[pi]||{};
+  var existing=curAnswers[qId];
+  var existingNote=curNotes[qId]||'';
+
+  var personBadge=isMulti?'<div style="margin-bottom:8px"><span style="display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);color:var(--accent);border-radius:20px;padding:3px 10px;font-size:11px;font-weight:600">👤 '+(pi+1)+'/'+n+' · '+esc(personLabel)+'</span></div>':'';
 
   var ansUI='';
   if(q.type==='rating'){
     var val=existing||0;
     ansUI='<div class="star-row" id="star-row">'
       +[1,2,3,4,5].map(function(i){return '<div class="star'+(i<=val?' lit':'')+'" onclick="setRating('+i+')" id="star-'+i+'">★</div>'}).join('')
-      +'</div>';
+      +'</div>'
+      +'<div style="margin-top:10px"><div style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">📝 '+T('Not (isteğe bağlı)','Note (optional)')+'</div>'
+      +'<textarea class="ans-area" id="ans-note" style="min-height:55px" placeholder="'+T('Açık uçlu cevap...','Open-ended answer...')+'">'+esc(existingNote)+'</textarea></div>';
   } else if(q.type==='mcq'){
     ansUI='<div class="mcq-opts">'+(q.options||[]).map(function(opt){
-      return '<div class="mcq-opt'+(existing===opt?' sel':'')+'" onclick="selectMCQ(this,\''+esc(opt)+'\',\''+safeId(qId)+'\')">'+esc(opt)+'</div>';
-    }).join('')+'</div>';
+      return '<div class="mcq-opt'+(existing===opt?' sel':'')+'" onclick="selectMCQ(this,\''+esc(opt)+'\')">'+esc(opt)+'</div>';
+    }).join('')+'</div>'
+      +'<div style="margin-top:10px"><div style="font-size:11px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px">📝 '+T('Not (isteğe bağlı)','Note (optional)')+'</div>'
+      +'<textarea class="ans-area" id="ans-note" style="min-height:55px" placeholder="'+T('Açık uçlu cevap...','Open-ended answer...')+'">'+esc(existingNote)+'</textarea></div>';
   } else {
-    ansUI='<textarea class="ans-area" id="ans-text" placeholder="Cevabı buraya yazın...">'+esc(existing||'')+'</textarea>';
+    ansUI='<textarea class="ans-area" id="ans-text" placeholder="'+T('Cevabı buraya yazın...','Write the answer here...')+'">'+esc(existing||'')+'</textarea>';
   }
 
+  var isLastStep=(qi===numQ-1 && pi===n-1);
+  var nextBtnText=isLastStep?'✓ '+T('Bitir','Finish'):T('İleri →','Next →');
+
   el.innerHTML='<div class="sf-header">'
-    +'<div class="sf-meta"><span style="color:'+qclr+'">'+(cat?esc(cat.name):T('Soru','Question'))+' '+(stepIdx+1)+'/'+surveyState.qIds.length+'</span><span>'+curStep+'/'+totalSteps+'</span></div>'
+    +'<div class="sf-meta">'
+    +'<span style="color:'+qclr+'">'+(cat?esc(cat.name):T('Soru','Question'))+' '+(qi+1)+'/'+numQ+'</span>'
+    +'<span>'+curStepN+'/'+totalSteps+'</span></div>'
     +'<div class="prog-track"><div class="prog-fill" style="width:'+pct+'%"></div></div>'
     +'</div>'
     +'<div class="sf-body">'
+    +personBadge
     +'<div class="q-card">'
-    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">'
-    +'<div class="q-type-label" style="color:'+qclr+';margin-bottom:0">'+(QTL[q.type]||T('Yazılı','Text'))+'</div>'
-    +(ttsSettings.enabled?'<button onclick="speakText(\''+q.text.replace(/'/g,"\\'")+'\')" style="background:var(--accent-dim);border:1px solid var(--accent);border-radius:20px;padding:5px 12px;font-size:12px;font-weight:600;color:var(--accent);cursor:pointer;min-height:32px">🔊 '+TTS_LANGS[ttsSettings.lang].label+'</button>':'')
-    +'</div>'
+    +'<div class="q-type-label" style="color:'+qclr+';margin-bottom:8px">'+(QTL[q.type]||T('Yazılı','Text'))+'</div>'
     +'<div class="q-text">'+esc(q.text)+'</div>'
     +(q.subtext?'<div class="q-text-sub">'+esc(q.subtext)+'</div>':'')
     +ansUI
@@ -1413,13 +1432,16 @@ function renderSurveyStep(){
     +'<div class="sf-nav">'
     +'<button class="btn btn-g" onclick="surveyPrev()">← '+T('Geri','Back')+'</button>'
     +'<button class="btn btn-s" onclick="surveySkip()">'+T('Atla','Skip')+'</button>'
-    +'<button class="btn btn-p" onclick="surveyNext()">'+(stepIdx===surveyState.qIds.length-1?'✓ '+T('Bitir','Finish'):T('İleri →','Next →'))+'</button>'
+    +'<button class="btn btn-p" onclick="surveyNext()">'+nextBtnText+'</button>'
     +'</div>';
 }
 
 function setRating(val){
-  var qId=surveyState.qIds[surveyState.step];
-  surveyState.answers[qId]=val;
+  var step=surveyState.step;
+  if(!step||step==='done'||step.phase==='profile') return;
+  var pi=step.pi;
+  var qId=surveyState.qIds[step.qi];
+  surveyState.answersPerPerson[pi][qId]=val;
   for(var i=1;i<=5;i++){
     var s=document.getElementById('star-'+i);
     if(s) s.className='star'+(i<=val?' lit':'');
@@ -1427,62 +1449,144 @@ function setRating(val){
 }
 
 function selectMCQ(el,val){
-  var qId=surveyState.qIds[surveyState.step];
+  var step=surveyState.step;
+  if(!step||step==='done'||step.phase==='profile') return;
+  var pi=step.pi;
+  var qId=surveyState.qIds[step.qi];
   document.querySelectorAll('.mcq-opt').forEach(function(o){o.classList.remove('sel')});
   el.classList.add('sel');
-  surveyState.answers[qId]=val;
+  surveyState.answersPerPerson[pi][qId]=val;
 }
 
 function selectGender(g,el){
-  surveyState.profile.gender=g;
+  var step=surveyState.step;
+  var pi=(step&&step.phase==='profile')?step.pi:0;
+  if(!surveyState.profiles[pi]) surveyState.profiles[pi]={};
+  surveyState.profiles[pi].gender=g;
   document.querySelectorAll('.gender-chip').forEach(function(e){
-    var match=e.textContent.trim()===g;
-    e.className='gender-chip'+(match?' sel':'');
+    e.className='gender-chip'+(e.textContent.trim()===g?' sel':'');
   });
 }
 
 function profileNext(){
-  surveyState.profile.note=(document.getElementById('p-note')||{}).value||'';
-  surveyState.profile.age=(document.getElementById('p-age')||{}).value||'';
-  surveyState.profile.nationality=(document.getElementById('p-nat')||{}).value||'';
-  surveyState.step=0;
+  var step=surveyState.step;
+  var pi=step.pi;
+  var n=surveyState.persons.length;
+  if(!surveyState.profiles[pi]) surveyState.profiles[pi]={};
+  surveyState.profiles[pi].note=(document.getElementById('p-note')||{}).value||surveyState.persons[pi];
+  surveyState.profiles[pi].age=(document.getElementById('p-age')||{}).value||'';
+  surveyState.profiles[pi].nationality=(document.getElementById('p-nat')||{}).value||'';
+  if(pi<n-1){
+    // Sonraki kişinin profili
+    surveyState.step={phase:'profile',pi:pi+1};
+  } else {
+    // Tüm profiller tamam → ilk soruya geç
+    surveyState.step={phase:'question',qi:0,pi:0};
+  }
   renderSurveyStep();
 }
 
 function surveyNext(){
-  var stepIdx=surveyState.step;
-  var qId=surveyState.qIds[stepIdx];
+  var step=surveyState.step;
+  if(!step||step==='done'||step.phase==='profile') return;
+  var pi=step.pi;
+  var qi=step.qi;
+  var n=surveyState.persons.length;
+  var numQ=surveyState.qIds.length;
+  var qId=surveyState.qIds[qi];
   var proj=db.projects.find(function(p){return p.id===surveyState.projectId});
   var q=proj?proj.questions.find(function(q){return q.id===qId}):null;
+
+  // Cevabı kaydet
   if(q&&q.type==='text'){
     var ta=document.getElementById('ans-text');
     var ans=ta?ta.value.trim():'';
-    if(ans) surveyState.answers[qId]=ans;
+    if(ans) surveyState.answersPerPerson[pi][qId]=ans;
   }
-  advanceStep();
+  if(q&&(q.type==='mcq'||q.type==='rating')){
+    var noteEl=document.getElementById('ans-note');
+    var note=noteEl?noteEl.value.trim():'';
+    if(note) surveyState.notesPerPerson[pi][qId]=note;
+  }
+
+  stepForward();
 }
 
-function advanceStep(){
-  if(surveyState.step>=surveyState.qIds.length-1) finishSurvey();
-  else{surveyState.step++;renderSurveyStep();}
-}
+function stepForward(){
+  var step=surveyState.step;
+  if(step==='done'||step.phase==='profile') return;
+  var qi=step.qi;
+  var pi=step.pi;
+  var n=surveyState.persons.length;
+  var numQ=surveyState.qIds.length;
 
-function surveyPrev(){
-  if(surveyState.step===0) surveyState.step='profile';
-  else if(surveyState.step!=='profile') surveyState.step--;
+  if(pi<n-1){
+    // Aynı soruda sonraki kişi
+    surveyState.step={phase:'question',qi:qi,pi:pi+1};
+  } else if(qi<numQ-1){
+    // Sonraki soru, ilk kişi
+    surveyState.step={phase:'question',qi:qi+1,pi:0};
+  } else {
+    finishSurvey();
+    return;
+  }
   renderSurveyStep();
 }
 
-function surveySkip(){advanceStep();}
+function stepBackward(){
+  var step=surveyState.step;
+  if(step==='done') return;
+  var n=surveyState.persons.length;
+  var numQ=surveyState.qIds.length;
 
+  if(step.phase==='question'){
+    var qi=step.qi;
+    var pi=step.pi;
+    if(pi>0){
+      surveyState.step={phase:'question',qi:qi,pi:pi-1};
+    } else if(qi>0){
+      surveyState.step={phase:'question',qi:qi-1,pi:n-1};
+    } else {
+      // İlk soru ilk kişi → son profil adımına dön
+      surveyState.step={phase:'profile',pi:n-1};
+    }
+  } else if(step.phase==='profile'){
+    var pi=step.pi;
+    if(pi>0) surveyState.step={phase:'profile',pi:pi-1};
+    else return; // Zaten ilk adım
+  }
+  renderSurveyStep();
+}
+
+function surveyPrev(){stepBackward();}
+function surveySkip(){stepForward();}
 function cancelSurvey(){surveyState=null;go('home');}
 
 function finishSurvey(){
-  db.responses.push(Object.assign({},surveyState,{step:'done'}));
+  var n=surveyState.persons.length;
+  var savedIds=[];
+  surveyState.persons.forEach(function(personLabel,pi){
+    var prof=surveyState.profiles[pi]||{note:personLabel,age:'',gender:'',nationality:''};
+    var resp={
+      id:'r_'+Date.now()+'_'+pi,
+      projectId:surveyState.projectId,
+      date:surveyState.date,
+      profile:prof,
+      answers:surveyState.answersPerPerson[pi]||{},
+      notes:surveyState.notesPerPerson[pi]||{},
+      qIds:surveyState.qIds,
+      groupId:n>1?surveyState.id:undefined,
+      groupLabel:n>1?personLabel:undefined,
+      step:'done'
+    };
+    db.responses.push(resp);
+    savedIds.push(resp.id);
+  });
   save();
   surveyState.step='done';
+  surveyState.savedIds=savedIds;
   renderSurveyStep();
-  showToast('✓ Kaydedildi');
+  showToast('✓ '+(n>1?n+' kişi kaydedildi':'Kaydedildi'));
 }
 
 function launchNewFromDone(){
@@ -1490,7 +1594,6 @@ function launchNewFromDone(){
   surveyState=null;
   openStartSurveyModal(pid);
 }
-
 // ================================================================
 // HISTORY
 // ================================================================
@@ -1515,14 +1618,32 @@ function renderHistory(){
     +'<div class="sec-title">Cevaplar</div>'
     +'<div class="sec-sub">'+db.responses.length+' toplam kayıt</div>'
     +'<div class="ig" style="margin-bottom:10px">'
-    +'<input class="inp" id="hist-search" type="search" placeholder="Ara..." value="'+esc(sv)+'" oninput="histSearch=this.value;renderHistory()" autocomplete="off">'
+    +'<input class="inp" id="hist-search" type="search" placeholder="Ara..." value="'+esc(sv)+'" oninput="histSearchUpdate(this.value)" autocomplete="off">'
     +'</div>'
     +'<div class="frow">'+chips.map(function(c){return'<div class="fchip'+(histFilter===c.id?' on':'')+'" onclick="setHistFilter(\''+safeId(c.id)+'\')">'+esc(c.name)+'</div>'}).join('')+'</div>'
-    +(resp.length===0?'<div class="empty"><div class="empty-ico">🔍</div><div class="empty-t">Sonuç yok</div></div>':cards)
+    +'<div id="hist-list">'+(resp.length===0?'<div class="empty"><div class="empty-ico">🔍</div><div class="empty-t">Sonuç yok</div></div>':cards)+'</div>'
     +'</div>';
 }
 
 function setHistFilter(f){histFilter=f;renderHistory();}
+
+function histSearchUpdate(val){
+  histSearch=val;
+  // Sadece liste kısmını güncelle, input'u yeniden render etme
+  var resp=db.responses.slice().reverse();
+  if(histFilter!=='all') resp=resp.filter(function(r){return r.projectId===histFilter});
+  if(histSearch){
+    var s=histSearch.toLowerCase();
+    resp=resp.filter(function(r){
+      var prof=r.profile||{};
+      var ansTxt=Object.values(r.answers||{}).join(' ');
+      return ((prof.note||'')+(prof.nationality||'')+ansTxt).toLowerCase().indexOf(s)>-1;
+    });
+  }
+  var cards=resp.map(function(r){return respCardHTML(r)}).join('');
+  var listEl=document.getElementById('hist-list');
+  if(listEl) listEl.innerHTML=resp.length===0?'<div class="empty"><div class="empty-ico">🔍</div><div class="empty-t">Sonuç yok</div></div>':cards;
+}
 
 // ================================================================
 // RESPONSE DETAIL
@@ -1543,7 +1664,7 @@ function renderRespDetail(id,editing){
   var el=document.getElementById('sc-detail');
   var clr='var(--accent)';
   var prof=resp.profile||{};
-  var dateStr=new Date(resp.date).toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'});
+  var dateStr=new Date(resp.date).toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
   var qIds=resp.qIds||proj.questions.map(function(q){return q.id});
   var ans=Object.values(resp.answers||{}).filter(function(a){return a!==null&&a!==undefined&&String(a).trim()}).length;
 
@@ -1553,6 +1674,7 @@ function renderRespDetail(id,editing){
     var cat=proj.categories?proj.categories.find(function(c){return c.id===q.catId}):null;
     var qclr=cat&&cat.color?cat.color:clr;
     var av=resp.answers?resp.answers[qid]:null;
+    var nv=resp.notes?resp.notes[qid]:null;
     var ansDisplay='';
     if(editing){
       if(q.type==='text'){
@@ -1563,12 +1685,15 @@ function renderRespDetail(id,editing){
         var optsHtml=(q.options||[]).map(function(opt){
           return '<div class="mcq-opt'+(av===opt?' sel':'')+'" style="margin-bottom:6px;font-size:14px" onclick="this.closest(\'[data-qid]\').querySelectorAll(\'.mcq-opt\').forEach(function(o){o.classList.remove(\'sel\')});this.classList.add(\'sel\')" data-opt="'+esc(opt)+'">'+esc(opt)+'</div>';
         }).join('');
-        ansDisplay='<div class="dq-a" data-qid="'+safeId(qid)+'">'+optsHtml+'</div>';
+        ansDisplay='<div class="dq-a" data-qid="'+safeId(qid)+'">'+optsHtml+'</div>'
+          +'<div style="margin-top:8px"><div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px">📝 Açık Uçlu Cevap</div>'
+          +'<textarea class="inp" data-note-qid="'+safeId(qid)+'" style="min-height:60px;font-size:16px;line-height:1.5" placeholder="Açık uçlu cevap...">'+esc(nv||'')+'</textarea></div>';
       }
     } else {
       var displayVal=av;
       if(q.type==='rating'&&av) displayVal='★'.repeat(av)+'☆'.repeat(5-av)+' ('+av+'/5)';
-      ansDisplay='<div class="dq-a'+(displayVal?'':' empty')+'">'+esc(displayVal?String(displayVal):'Cevap verilmedi')+'</div>';
+      var noteDisplay=nv?'<div style="margin-top:6px;font-size:13px;color:var(--text2);background:var(--s2);padding:10px 12px;border-radius:var(--r-sm);border-left:2px solid var(--accent2);line-height:1.5">📝 '+esc(nv)+'</div>':'';
+      ansDisplay='<div class="dq-a'+(displayVal?'':' empty')+'">'+esc(displayVal?String(displayVal):'Cevap verilmedi')+'</div>'+noteDisplay;
     }
     return '<div class="dq">'
       +'<div class="dq-label" style="color:'+qclr+'">'+(cat?esc(cat.name)+' · ':'')+esc(QTL[q.type]||'')+'</div>'
@@ -1631,6 +1756,12 @@ function saveRespEdit(id){
     else if(q.type==='rating'&&el.tagName==='INPUT') db.responses[idx].answers[qid]=parseInt(el.value)||null;
     else if(q.type==='mcq'){var sel=el.querySelector('.mcq-opt.sel');if(sel) db.responses[idx].answers[qid]=sel.getAttribute('data-opt');}
   });
+  // MCQ/rating note alanlarını kaydet
+  if(!db.responses[idx].notes) db.responses[idx].notes={};
+  document.querySelectorAll('[data-note-qid]').forEach(function(el){
+    var qid=el.getAttribute('data-note-qid');
+    db.responses[idx].notes[qid]=el.value.trim()||null;
+  });
   save();renderRespDetail(id,false);showToast('✓ Kaydedildi');
 }
 
@@ -1686,11 +1817,11 @@ function renderStats(){
       (proj.questions||[]).filter(function(q){return q.type==='mcq'}).forEach(function(q){
         var om={};(q.options||[]).forEach(function(o){om[o]=0});
         resps.forEach(function(r){var a=r.answers&&r.answers[q.id];if(a&&om[a]!==undefined)om[a]++;});
-        var mv=Math.max.apply(null,Object.values(om).concat([1]));
+        var totalAns=Object.values(om).reduce(function(a,b){return a+b},0);
         qStatsHtml+='<div class="card" style="margin-bottom:12px">'
           +'<div style="font-weight:700;font-size:13px;margin-bottom:3px;line-height:1.4">'+esc(q.text)+'</div>'
           +'<div style="font-size:11px;color:var(--text3);margin-bottom:10px">Çoktan Seçmeli Dağılım</div>'
-          +Object.entries(om).map(function(e){return'<div class="stat-bar-row"><div class="sbl">'+esc(e[0])+'</div><div class="sbt"><div class="sbf" style="width:'+Math.round(e[1]/mv*100)+'%;background:var(--accent2)"></div></div><div class="sbc">'+e[1]+'</div></div>'}).join('')
+          +Object.entries(om).map(function(e){var pct=totalAns?Math.round(e[1]/totalAns*100):0;return'<div class="stat-bar-row"><div class="sbl">'+esc(e[0])+'</div><div class="sbt"><div class="sbf" style="width:'+pct+'%;background:var(--accent2)"></div></div><div class="sbc" style="width:36px">%'+pct+'</div></div>'}).join('')
           +'</div>';
       });
       // Rating breakdown
@@ -1790,24 +1921,32 @@ async function aiPick(respId){
     var q=proj.questions.find(function(q){return q.id===e[0]});
     return 'S: '+(q?q.text:e[0])+'\nC: '+e[1];
   }).join('\n\n');
-  if(!filled){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Cevap bulunamadı</div>';return;}
+  if(!filled){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Cevaplanmış soru bulunamadı</div>';return;}
   try{
-    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',max_tokens:1000,
-      system:'Saha araştırması verisi analiz et. En çarpıcı cevabı seç. SADECE JSON: {"q":"soru","a":"cevap","caption":"instagram caption (emoji+hashtag dahil)","why":"seçme nedeni (1 cümle)"}',
-      messages:[{role:'user',content:'Proje: '+proj.name+'\nKişi: '+((resp.profile&&resp.profile.note)||'')+' '+((resp.profile&&resp.profile.age)||'')+' '+((resp.profile&&resp.profile.nationality)||'')+'\n\n'+filled}]
-    })});
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
+      headers:{'Content-Type':'application/json','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',max_tokens:800,
+        system:'Saha araştırması verisi analiz et. En çarpıcı, düşündürücü cevabı seç. SADECE JSON döndür: {"q":"soru metni","a":"cevap metni","caption":"instagram caption (emoji+hashtag)","why":"seçme nedeni kısa"}',
+        messages:[{role:'user',content:'Proje: '+proj.name+'\nKişi: '+((resp.profile&&resp.profile.note)||'')+' '+((resp.profile&&resp.profile.age)||'')+' '+((resp.profile&&resp.profile.nationality)||'')+'\n\n'+filled}]
+      })
+    });
+    if(!r.ok) throw new Error('HTTP '+r.status);
     var d=await r.json();
-    var parsed=JSON.parse((d.content&&d.content[0]&&d.content[0].text||'{}').replace(/```json|```/g,'').trim());
-    el.innerHTML='<div class="ai-box"><div style="font-size:11px;color:var(--text3);margin-bottom:6px">🤖 '+esc(parsed.why||'')+'</div>'
-      +'<div style="font-size:12px;color:var(--text2);margin-bottom:4px;font-style:italic">"'+esc(parsed.q)+'"</div>'
-      +'<div style="font-family:\'Syne\',sans-serif;font-size:15px;color:var(--text);margin-bottom:12px;line-height:1.5">"'+esc(parsed.a)+'"</div>'
+    var raw=(d.content&&d.content[0]&&d.content[0].text)||'{}';
+    var parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());
+    el.innerHTML='<div class="ai-box">'
+      +'<div style="font-size:11px;color:var(--text3);margin-bottom:8px">🤖 '+esc(parsed.why||'')+'</div>'
+      +'<div style="font-size:12px;color:var(--text2);margin-bottom:6px;font-style:italic">'+esc(parsed.q)+'</div>'
+      +'<div style="font-weight:700;font-size:15px;color:var(--text);margin-bottom:12px;line-height:1.5">"'+esc(parsed.a)+'"</div>'
       +'<div class="divl"></div>'
-      +'<div style="font-size:12px;color:var(--text2);margin-bottom:6px">Instagram Caption:</div>'
+      +'<div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase">📸 Caption</div>'
       +'<div style="font-size:13px;line-height:1.7;color:var(--text);background:var(--bg);padding:10px;border-radius:8px;white-space:pre-wrap;word-break:break-word" id="ai-cap">'+esc(parsed.caption)+'</div>'
       +'<button class="btn btn-g btn-sm" style="margin-top:8px" onclick="copyEl(\'ai-cap\')">📋 Kopyala</button>'
       +'</div>';
-  }catch(e){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Hata. Tekrar deneyin.</div>';}
+  }catch(e){
+    el.innerHTML='<div style="color:var(--red);font-size:13px;padding:10px;background:var(--red-dim);border-radius:8px">⚠️ '+esc(e.message||'Bilinmeyen hata')+'<br><span style="font-size:11px;color:var(--text2)">İnternet bağlantınızı kontrol edin.</span></div>';
+  }
 }
 
 async function aiSummary(respId){
@@ -1820,22 +1959,30 @@ async function aiSummary(respId){
     var q=proj.questions.find(function(q){return q.id===e[0]});
     return 'S: '+(q?q.text:e[0])+'\nC: '+e[1];
   }).join('\n\n');
-  if(!filled){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Cevap bulunamadı</div>';return;}
+  if(!filled){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Cevaplanmış soru bulunamadı</div>';return;}
   try{
-    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
-      model:'claude-sonnet-4-20250514',max_tokens:1000,
-      system:'Saha araştırması cevaplarını analiz et. SADECE JSON: {"summary":"kişinin görüşlerini özetleyen 3-4 cümle","caption":"instagram post metni (emoji+hashtag dahil)"}',
-      messages:[{role:'user',content:'Proje: '+proj.name+'\nKişi: '+((resp.profile&&resp.profile.note)||'')+'\n\n'+filled}]
-    })});
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',
+      headers:{'Content-Type':'application/json','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',max_tokens:800,
+        system:'Saha araştırması cevaplarını analiz et. SADECE JSON döndür: {"summary":"kişinin görüşleri ve felsefi profili 3-4 cümle","caption":"instagram post metni (emoji+hashtag)"}',
+        messages:[{role:'user',content:'Proje: '+proj.name+'\nKişi: '+((resp.profile&&resp.profile.note)||'')+' '+((resp.profile&&resp.profile.age)||'')+' '+((resp.profile&&resp.profile.nationality)||'')+'\n\n'+filled}]
+      })
+    });
+    if(!r.ok) throw new Error('HTTP '+r.status);
     var d=await r.json();
-    var parsed=JSON.parse((d.content&&d.content[0]&&d.content[0].text||'{}').replace(/```json|```/g,'').trim());
-    el.innerHTML='<div class="ai-box"><div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:12px">'+esc(parsed.summary)+'</div>'
+    var raw=(d.content&&d.content[0]&&d.content[0].text)||'{}';
+    var parsed=JSON.parse(raw.replace(/```json|```/g,'').trim());
+    el.innerHTML='<div class="ai-box">'
+      +'<div style="font-size:13px;line-height:1.7;color:var(--text);margin-bottom:12px">'+esc(parsed.summary)+'</div>'
       +'<div class="divl"></div>'
-      +'<div style="font-size:12px;color:var(--text2);margin-bottom:6px">Instagram Post:</div>'
+      +'<div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:6px;text-transform:uppercase">📸 Instagram Post</div>'
       +'<div style="font-size:13px;line-height:1.7;color:var(--text);background:var(--bg);padding:10px;border-radius:8px;white-space:pre-wrap;word-break:break-word" id="ai-sum-cap">'+esc(parsed.caption)+'</div>'
       +'<button class="btn btn-g btn-sm" style="margin-top:8px" onclick="copyEl(\'ai-sum-cap\')">📋 Kopyala</button>'
       +'</div>';
-  }catch(e){el.innerHTML='<div style="color:var(--red);font-size:13px;padding:8px">Hata.</div>';}
+  }catch(e){
+    el.innerHTML='<div style="color:var(--red);font-size:13px;padding:10px;background:var(--red-dim);border-radius:8px">⚠️ '+esc(e.message||'Bilinmeyen hata')+'<br><span style="font-size:11px;color:var(--text2)">İnternet bağlantınızı kontrol edin.</span></div>';
+  }
 }
 
 function manualQuote(respId){
@@ -1891,22 +2038,6 @@ function dlFile(name,mime,content){
   }catch(e){showToast('İndirme hatası: '+e.message);}
 }
 
-// ================================================================
-// QR
-// ================================================================
-function openQRModal(projId){
-  var link=window.location.href.split('?')[0]+'?proj='+projId;
-  var c=document.getElementById('qr-content');
-  c.innerHTML='<div id="qr-wrap"></div>'
-    +'<div class="ig"><label class="il">Anket Linki</label>'
-    +'<div style="display:flex;gap:8px">'
-    +'<input class="inp" id="qr-link" value="'+esc(link)+'" readonly style="flex:1">'
-    +'<button class="btn btn-s btn-sm" style="width:auto;padding:0 14px" onclick="copyEl(\'qr-link\')">Kopyala</button>'
-    +'</div></div>'
-    +'<div style="font-size:12px;color:var(--text3);line-height:1.6">💡 QR kodu ekran görüntüsü alarak paylaşabilirsiniz.</div>';
-  openM('qr');
-  makeQR(document.getElementById('qr-wrap'),link);
-}
 
 // ================================================================
 // DELETE CONFIRM
@@ -1997,6 +2128,16 @@ function processOldImport(event){
     try{
       var oldSurveys=JSON.parse(e.target.result);
       if(!Array.isArray(oldSurveys)) throw new Error('Geçersiz format');
+
+      var isFresh=document.getElementById('import-mode-fresh')&&document.getElementById('import-mode-fresh').className==='chip on';
+      if(isFresh){
+        // Remove existing Felsefi Anket project and its responses
+        var oldProj=db.projects.find(function(p){return p.name==='Felsefi Anket'||p.id==='p_oldfelsefi'});
+        if(oldProj){
+          db.responses=db.responses.filter(function(r){return r.projectId!==oldProj.id});
+          db.projects=db.projects.filter(function(p){return p.id!==oldProj.id});
+        }
+      }
 
       // Find or create "Felsefi Anket" project
       var proj=db.projects.find(function(p){return p.name==='Felsefi Anket'});
