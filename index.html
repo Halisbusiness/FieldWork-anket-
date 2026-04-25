@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=375, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="mobile-web-app-capable" content="yes">
@@ -242,7 +242,7 @@ select.inp{
 .sf-nav{
   position:fixed;bottom:0;left:50%;
   -webkit-transform:translateX(-50%);transform:translateX(-50%);
-  width:375px;max-width:375px;
+  width:100%;max-width:430px;
   padding:10px 15px calc(var(--sab) + 70px);
   background:var(--bg);border-top:1px solid var(--border);
   display:-webkit-flex;display:flex;gap:8px;z-index:50;
@@ -274,7 +274,7 @@ select.inp{
 .modal-ov.open{opacity:1;pointer-events:all}
 .modal-sh{
   background:var(--s1);border-radius:20px 20px 0 0;
-  width:100%;max-width:375px;
+  width:100%;max-width:430px;
   padding:20px 20px calc(var(--sab) + 24px);
   -webkit-box-sizing:border-box;box-sizing:border-box;
   -webkit-transform:translateY(100%);transform:translateY(100%);
@@ -381,46 +381,60 @@ select.inp{
   font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;width:100%;resize:vertical;min-height:50px;
   -webkit-appearance:none;appearance:none;}
 
-/* ── iPhone SE 2 OVERRIDES (375×667) ────────────────────── */
-html,body{width:375px;overflow-x:hidden}
-#app{max-width:375px;width:375px}
-/* Typography */
-.sec-title{font-size:19px}
-.hero-title{font-size:20px}
-.hero-sub{font-size:12px;margin-bottom:14px}
-.hero{padding:16px 16px;margin-bottom:14px}
-/* Padding — 16px yatay minimum */
-.pad{padding:16px 16px calc(88px + var(--sab))}
-.sf-body{padding:14px 16px calc(170px + var(--sab))}
-/* Nav */
-.nv{min-width:52px;padding:3px 8px}
-.nv .ni{font-size:20px}
-.nv .nl{font-size:9px}
-/* Buttons */
-.btn{font-size:14px;padding:11px 14px;min-height:42px}
-.btn-sm{padding:8px 12px;font-size:12px;min-height:36px}
-/* Inputs */
-.inp{font-size:16px;padding:10px 12px;min-height:42px}
-/* Cards */
-.card{padding:14px 14px}
-.q-card{padding:15px 14px}
-.q-text{font-size:15px}
-/* Modal — SE2'de de kenarlardan boşluk garantisi */
-.modal-sh{
-  max-width:375px;
-  padding-top:20px !important;
-  padding-left:20px !important;
-  padding-right:20px !important;
-  padding-bottom:calc(var(--sab)+24px) !important;
-  -webkit-box-sizing:border-box!important;box-sizing:border-box!important;
+/* ── RESPONSIVE OVERRIDES ────────────────────────────────── */
+/* Tüm ekranlar: html/body tam genişlik */
+html,body{width:100%;overflow-x:hidden}
+#app{max-width:430px;width:100%}
+/* Modal içerik elemanları kenar boşluğu garantisi */
+.modal-sh > *{margin-left:0;margin-right:0}
+.modal-sh{-webkit-box-sizing:border-box!important;box-sizing:border-box!important;}
+
+/* Küçük ekranlar: SE2, iPhone mini, dar Android (≤375px) */
+@media screen and (max-width:375px){
+  .sec-title{font-size:19px}
+  .hero-title{font-size:20px}
+  .hero-sub{font-size:12px;margin-bottom:14px}
+  .hero{padding:16px 16px;margin-bottom:14px}
+  .pad{padding:14px 14px calc(88px + var(--sab))}
+  .sf-body{padding:14px 14px calc(170px + var(--sab))}
+  .nv{min-width:48px;padding:3px 6px}
+  .nv .ni{font-size:19px}
+  .nv .nl{font-size:9px}
+  .btn{font-size:14px;padding:11px 12px;min-height:42px}
+  .btn-sm{padding:8px 10px;font-size:12px;min-height:36px}
+  .inp{font-size:16px;padding:10px 12px;min-height:42px}
+  .card{padding:13px 13px}
+  .q-card{padding:14px 13px}
+  .q-text{font-size:15px}
+  .stat-mini-n{font-size:17px}
+  .modal-sh{
+    padding-top:18px !important;
+    padding-left:16px !important;
+    padding-right:16px !important;
+    padding-bottom:calc(var(--sab)+20px) !important;
+  }
 }
-/* Tüm doğrudan modal içerik elemanları için kenar boşluğu garantisi */
-.modal-sh > *{
-  margin-left:0;
-  margin-right:0;
+
+/* Orta ekranlar: iPhone 12/13/14, standart Android (376px–414px) */
+@media screen and (min-width:376px) and (max-width:414px){
+  .pad{padding:16px 18px calc(90px + var(--sab))}
+  .nv{min-width:52px;padding:3px 10px}
 }
-/* Stats */
-.stat-mini-n{font-size:18px}
+
+/* Büyük ekranlar: iPhone Plus/Pro Max, büyük Android (≥415px) */
+@media screen and (min-width:415px){
+  .pad{padding:18px 20px calc(92px + var(--sab))}
+  .sf-body{padding:16px 20px calc(170px + var(--sab))}
+  .nv{min-width:58px;padding:3px 12px}
+  .nv .ni{font-size:23px}
+  .nv .nl{font-size:11px}
+  .btn{font-size:16px;padding:13px 18px}
+  .inp{padding:12px 14px}
+  .card{padding:16px 18px}
+  .q-text{font-size:17px}
+  .stat-mini-n{font-size:22px}
+  .sec-title{font-size:22px}
+}
 
 
 .screen::-webkit-scrollbar{width:0;display:none}
@@ -2248,6 +2262,202 @@ function processOldImport(event){
 // ================================================================
 // INIT
 // ================================================================
+// Varsayılan projeleri yükle (sadece yoksa ekle)
+var DEFAULT_PROJECTS=[
+  {
+    id:'p_iliski001',name:'Kişilik & İlişki',emoji:'💕',
+    desc:'İlişki tarzını ve duygusal dünyayı deşifre eder',
+    color:'#f472b6',structure:'flat',categories:[],
+    questions:[
+      {id:'il_q01',type:'mcq',text:'Birine ilgi duyduğunu nasıl anlarsın?',subtext:'How do you know you are interested in someone?',options:['Sürekli aklıma gelir','Yanında farklı hissederim','Davranışlarım değişir']},
+      {id:'il_q02',type:'mcq',text:'İlişkide daha çok veren misin, alan mı?',subtext:'In a relationship, are you more of a giver or a taker?',options:['Veren','Alan','Dengeli']},
+      {id:'il_q03',type:'mcq',text:'Kıskançlık ilişkide ne anlama gelir?',subtext:'What does jealousy mean in a relationship?',options:['Sevginin kanıtı','Güvensizliğin işareti','İkisi de olabilir']},
+      {id:'il_q04',type:'mcq',text:'Birine güvenmek için ne kadar süre gerekir?',subtext:'How long does it take to trust someone?',options:['Hemen güvenirim','Zamanla','Asla tam güvenmem']},
+      {id:'il_q05',type:'mcq',text:'Sevdiğin kişiyle tartıştığında ne yaparsın?',subtext:'What do you do when you argue with someone you love?',options:['Susmayı tercih ederim','Konuşmadan duramam','Kaçarım']},
+      {id:'il_q06',type:'mcq',text:'İçindeki bir şeyi paylaşmak istediğinde kimi seçersin?',subtext:'Who do you choose when you want to share something inside?',options:['Kimseyi, içimde tutarım','Çok güvendiğim birini','Uygun hissedersem herkesi']},
+      {id:'il_q07',type:'mcq',text:'Üzüldüğünde ne yaparsın?',subtext:'What do you do when you are sad?',options:['Yalnız kalmak isterim','Birileriyle olmak isterim','Hiçbir şey hissetmez gibi yaparım']},
+      {id:'il_q08',type:'mcq',text:"Biri 'nasılsın?' diye sorduğunda ne yaparsın?",subtext:"What do you do when someone asks 'how are you?'",options:["'İyiyim' derim, geçerim",'Gerçekten nasıl olduğumu söylerim','Kime sorduğuna bakarım']},
+      {id:'il_q09',type:'mcq',text:'Öfkelendiğinde içinden ilk ne çıkar?',subtext:'What comes out of you first when you get angry?',options:['Susarım','Sesim yükselir','Oradan uzaklaşırım']},
+      {id:'il_q10',type:'mcq',text:'Seni en çok hangi his yorar?',subtext:'Which feeling tires you the most?',options:['Beklemek','Hayal kırıklığı','Yalnızlık']},
+      {id:'il_q11',type:'mcq',text:'İlk çekim sende nasıl başlar?',subtext:'How does attraction start for you?',options:['Fiziksel','Zeka & konuşma','Enerji & his']},
+      {id:'il_q12',type:'mcq',text:'Uzun süreli ilişkiyi ayakta tutan nedir?',subtext:'What keeps a long-term relationship going?',options:['Aşk','Saygı','Alışkanlık']},
+      {id:'il_q13',type:'mcq',text:"'Seviyorum' demek zor mu?",subtext:"Is it hard to say 'I love you'?",options:['Hiç zor değil','Çok zor','Söylemek yerine gösteririm']},
+      {id:'il_q14',type:'mcq',text:'İdeal bir akşam nasıl geçer?',subtext:'How does an ideal evening go?',options:['İkimiz baş başa','Arkadaş grubuyla','Yalnız']},
+      {id:'il_q15',type:'mcq',text:'Bitiş acısı mı yoksa belirsizlik acısı mı daha ağır?',subtext:'Is the pain of ending or the pain of uncertainty heavier?',options:['Bitiş','Belirsizlik','İkisi de aynı']},
+      {id:'il_q16',type:'mcq',text:'Birine güvenip yanında tutmaya karar verirken ilk ne bakarsın?',subtext:'What do you look at first when deciding to trust and keep someone close?',options:['Dürüstlüğüne','Sana nasıl davrandığına','İçgüdüme']},
+      {id:'il_q17',type:'mcq',text:'Yalnız olmakla yalnız hissetmek arasındaki fark nedir sence?',subtext:'What is the difference between being alone and feeling alone?',options:['Aynı şey','Tamamen farklı']},
+      {id:'il_q18',type:'mcq',text:'Geçmiş ilişkilerden öğrendin mi?',subtext:'Did you learn from past relationships?',options:['Evet öğrendim','Aynı hataları yaparım','Pek ilişkim olmadı']},
+      {id:'il_q19',type:'mcq',text:'Seni en iyi kim tanır?',subtext:'Who knows you best?',options:['Ailem','En yakın arkadaşım','Ben bile tam bilmiyorum']},
+      {id:'il_q20',type:'mcq',text:'Bir ilişkide asla affetmeyeceğin şey nedir?',subtext:'What is something you would never forgive in a relationship?',options:['İhanet','Yalan','Saygısızlık']}
+    ]
+  },
+  {
+    id:'p_toplum001',name:'Toplum & Güncel',emoji:'🌍',
+    desc:'İnsanın topluma ve sisteme bakışını anlamak',
+    color:'#60a5fa',structure:'flat',categories:[],
+    questions:[
+      {id:'to_q01',type:'mcq',text:'Devlete güveniyor musun?',subtext:'Do you trust the government?',options:['Evet','Hayır','Kısmen']},
+      {id:'to_q02',type:'mcq',text:'Kanunlar adaleti sağlıyor mu?',subtext:'Do laws ensure justice?',options:['Evet','Hayır','Bazen']},
+      {id:'to_q03',type:'mcq',text:'Oy vermek gerçekten bir şeyi değiştirir mi?',subtext:'Does voting really change anything?',options:['Evet','Hayır','Bilmiyorum']},
+      {id:'to_q04',type:'mcq',text:'Para mı, güç mü daha çok şeyi belirler?',subtext:'Does money or power determine more things?',options:['Para','Güç','İkisi iç içe']},
+      {id:'to_q05',type:'mcq',text:'Medyaya güveniyor musun?',subtext:'Do you trust the media?',options:['Evet','Hayır','Seçtiklerime']},
+      {id:'to_q06',type:'mcq',text:'İnsanlar yardım eder mi, yoksa çıkarı olduğu için mi yardım eder?',subtext:'Do people help out of kindness or self-interest?',options:['Gerçekten yardım eder','Çıkarı varsa eder','İkisi de var']},
+      {id:'to_q07',type:'mcq',text:'Sosyal medya insanları birbirine yaklaştırıyor mu, uzaklaştırıyor mu?',subtext:'Does social media bring people closer or push them apart?',options:['Yaklaştırıyor','Uzaklaştırıyor','İkisi de']},
+      {id:'to_q08',type:'mcq',text:'Sosyal medyada gördüklerin seni etkiler mi?',subtext:'Does what you see on social media affect you?',options:['Evet etkiler','Hayır etkilemez','Farkında bile olmadan etkiler']},
+      {id:'to_q09',type:'mcq',text:'Zengin ile fakir arasındaki uçurum kapanabilir mi?',subtext:'Can the gap between rich and poor be closed?',options:['Evet','Hayır','Sistem izin vermez']},
+      {id:'to_q10',type:'mcq',text:'Toplum bireyi mi şekillendirir, birey toplumu mu?',subtext:'Does society shape the individual, or does the individual shape society?',options:['Toplum bireyi','Birey toplumu','Karşılıklı']},
+      {id:'to_q11',type:'mcq',text:'Yabancıya güvenmek ne kadar kolay?',subtext:'How easy is it to trust a stranger?',options:['Kolay','Zor','Duruma göre']},
+      {id:'to_q12',type:'mcq',text:'Kendi kuşağının en büyük zorluğu ne sence?',subtext:'What do you think is the biggest challenge of your generation?',options:['Ekonomik baskı','Kimlik & anlam arayışı','Gelecek belirsizliği','Yalnızlık']},
+      {id:'to_q13',type:'mcq',text:'Teknoloji hayatı kolaylaştırdı mı, karmaşıklaştırdı mı?',subtext:'Has technology made life easier or more complicated?',options:['Kolaylaştırdı','Karmaşıklaştırdı','İkisi de']},
+      {id:'to_q14',type:'mcq',text:'Gençler geleceğe umutla bakıyor mu?',subtext:'Are young people looking to the future with hope?',options:['Evet','Hayır','Karışık']},
+      {id:'to_q15',type:'mcq',text:'Aile kavramı ne ifade ediyor sana?',subtext:'What does the concept of family mean to you?',options:['Güven & sığınak','Zorunluluk & sorumluluk','Sevgi ama bazen yük','Artık eskisi değil']},
+      {id:'to_q16',type:'mcq',text:'20 yıl sonra dünya daha iyi bir yer olacak mı?',subtext:'Will the world be a better place in 20 years?',options:['Evet','Hayır','Bilmiyorum']},
+      {id:'to_q17',type:'mcq',text:'Turizm şehrin kültürünü değiştiriyor mu?',subtext:'Does tourism change the culture of the city?',options:['Evet, iyi yönde','Evet, kötü yönde','Hayır değiştirmiyor']},
+      {id:'to_q18',type:'mcq',text:'Göç etmeyi düşündün mü hiç?',subtext:'Have you ever thought about emigrating?',options:['Evet, düşündüm','Hayır','Zaten geldim']},
+      {id:'to_q19',type:'mcq',text:'Şehrinin en büyük sorunu ne?',subtext:'What is the biggest problem in your city?',options:['İş imkânı','Ulaşım','Pahalılık','Diğer']},
+      {id:'to_q20',type:'mcq',text:'Sosyal medya ve yapay zeka aracılığıyla toplum manipüle edilebilir mi?',subtext:'Can society be manipulated through social media and artificial intelligence?',options:['Evet, zaten ediliyor','Mümkün ama olmadı','Hayır mümkün değil']}
+    ]
+  },
+  {
+    id:'p_eglence001',name:'Eğlence & Pop Kültür',emoji:'😂',
+    desc:'Ortamı ısıtan hafif ve eğlenceli sorular',
+    color:'#fbbf24',structure:'flat',categories:[],
+    questions:[
+      {id:'eg_q01',type:'mcq',text:'Sabah insanı mısın, gece insanı mı?',subtext:'Are you a morning person or a night person?',options:['Sabah','Gece','İkisi de değil']},
+      {id:'eg_q02',type:'mcq',text:'Telefona günde kaç saat bakıyorsun?',subtext:'How many hours a day do you look at your phone?',options:['2 saatten az','2-5 saat','5\'ten fazla','Saymıyorum bile']},
+      {id:'eg_q03',type:'mcq',text:'Yemekte ne önemli — lezzet mi, sunum mu?',subtext:'What matters in food — taste or presentation?',options:['Lezzet','Sunum','İkisi de','Doymasam yeter']},
+      {id:'eg_q04',type:'mcq',text:'Tatilde ne yaparsın?',subtext:'What do you do on vacation?',options:['Dinlenirim','Gezerim','Eğlenirim','Hepsini karıştırırım']},
+      {id:'eg_q05',type:'mcq',text:'Alışveriş yaparken nasıl birisin?',subtext:'What kind of person are you when shopping?',options:['Planlı','Anlık','Vitrine bakarım almam']},
+      {id:'eg_q06',type:'mcq',text:'En çok hangi platformda zaman geçiriyorsun?',subtext:'Which platform do you spend the most time on?',options:['Instagram','TikTok','YouTube','Twitter-X','Hiçbirinde']},
+      {id:'eg_q07',type:'mcq',text:'Paylaşım yaparken ne düşünürsün?',subtext:'What do you think about when posting?',options:['Ne hissedersem paylaşırım','Çok düşünürüm','Neredeyse hiç paylaşmam']},
+      {id:'eg_q08',type:'mcq',text:'Sosyal medyada gördüklerin seni etkiler mi?',subtext:'Does what you see on social media affect you?',options:['Evet etkiler','Hayır etkilemez','Farkında bile olmadan etkiler']},
+      {id:'eg_q09',type:'mcq',text:'Fotoğraf çekmek sana göre mi?',subtext:'Is taking photos your thing?',options:['Her anı çekerim','Sadece özel anlarda','Hiç çekmem, yaşarım']},
+      {id:'eg_q10',type:'mcq',text:"'Offline' bir gün geçirebilir misin?",subtext:'Can you spend a day offline?',options:['Kolayca','Zorlanırım','İmkânsız']},
+      {id:'eg_q11',type:'mcq',text:'Müzik senin için ne ifade eder?',subtext:'What does music mean to you?',options:['Kaçış & sığınak','Enerji & motivasyon','Sadece arka plan','Hayatımın parçası']},
+      {id:'eg_q12',type:'mcq',text:'Film mi, dizi mi?',subtext:'Movies or series?',options:['Film','Dizi','İkisi de','Hiçbiri']},
+      {id:'eg_q13',type:'mcq',text:'Hangi tür müzik dinliyorsun çoğunlukla?',subtext:'What kind of music do you mostly listen to?',options:['Türkçe pop','Yabancı','Hiphop-rap','Rock','Karma']},
+      {id:'eg_q14',type:'mcq',text:'Konser ya da festival deneyimin var mı?',subtext:'Have you been to a concert or festival?',options:['Evet çok','Birkaç kez','Hiç gitmedim','Gitmek isterim']},
+      {id:'eg_q15',type:'mcq',text:'Bir filmin sonu üzücü biterse ne hissedersin?',subtext:'How do you feel when a movie has a sad ending?',options:['Çok etkilenirim','Biraz düşünürüm','Geçer gider']},
+      {id:'eg_q16',type:'mcq',text:'Partide nasıl birisin?',subtext:'What kind of person are you at a party?',options:['Ortamın enerjisi benim','Köşede sessizce gözlemlerim','Erken ayrılırım']},
+      {id:'eg_q17',type:'mcq',text:'Yemek yapmayı seviyor musun?',subtext:'Do you like cooking?',options:['Çok severim','İdare ederim','Hiç sevmem']},
+      {id:'eg_q18',type:'mcq',text:'Spor yapıyor musun?',subtext:'Do you exercise?',options:['Düzenli','Arada','Hiç','Düşünüyorum başlayayım']},
+      {id:'eg_q19',type:'mcq',text:'En son ne zaman kahkaha attın?',subtext:'When was the last time you laughed out loud?',options:['Bugün','Bu hafta','Hatırlamıyorum']},
+      {id:'eg_q20',type:'mcq',text:'Kendini bir film karakterine benzetsen kim olurdun?',subtext:'If you were to compare yourself to a movie character, who would you be?',options:['Kahraman','Yan karakter','Kötü adam','Komik arkadaş']}
+    ]
+  },
+  {
+    id:'p_gelecek001',name:'Gelecek & Hayat Tarzı',emoji:'🔮',
+    desc:'Hayata bakış, öncelikler ve gelecek düşünceleri',
+    color:'#a78bfa',structure:'flat',categories:[],
+    questions:[
+      {id:'gl_q01',type:'mcq',text:'5 yıl sonra nerede olmak istiyorsun?',subtext:'Where do you want to be in 5 years?',options:['Aynı şehirde ama daha iyi','Farklı bir şehirde','Farklı bir ülkede','Bilmiyorum']},
+      {id:'gl_q02',type:'mcq',text:'Hayalindeki iş nedir?',subtext:'What is your dream job?',options:['Zaten yapıyorum','Çok net bir hayalim var','Henüz bilmiyorum','Para kazanmak yeter']},
+      {id:'gl_q03',type:'mcq',text:'Başarı sence ne demek?',subtext:'What does success mean to you?',options:['Para & statü','Mutluluk & huzur','Özgürlük','Etki & iz bırakmak']},
+      {id:'gl_q04',type:'mcq',text:'Risk almaktan korkuyor musun?',subtext:'Are you afraid of taking risks?',options:['Hayır, severim','Evet, korkuyorum','Hesaplı risk alırım']},
+      {id:'gl_q05',type:'mcq',text:'Hayatında en çok neyi değiştirmek isterdin?',subtext:'What would you most want to change in your life?',options:['Kariyerimi','İlişkilerimi','Yaşadığım yeri','Hiçbir şeyi']},
+      {id:'gl_q06',type:'mcq',text:'Para mutluluk getirir mi?',subtext:'Does money bring happiness?',options:['Evet getirir','Hayır getirmez','Yeterince varsa getirir']},
+      {id:'gl_q07',type:'mcq',text:'Çok para kazanmak mı, az ama özgür olmak mı?',subtext:'Earn a lot of money, or less but be free?',options:['Çok para','Az ama özgür','İkisini de isterim']},
+      {id:'gl_q08',type:'mcq',text:'Bir işte ne kadar dayanabilirsin sevmesen de?',subtext:'How long can you stick with a job you do not like?',options:['Hiç','1-2 yıl','Para iyiyse sonuna kadar']},
+      {id:'gl_q09',type:'mcq',text:'Tasarruf mu yaparsın, anı mı yaşarsın?',subtext:'Do you save money or live in the moment?',options:['Tasarruf','Anı yaşa','İkisini dengelemeye çalışırım']},
+      {id:'gl_q10',type:'mcq',text:'Emeklilik sence hâlâ geçerli bir hedef mi?',subtext:'Is retirement still a valid goal in your opinion?',options:['Evet','Hayır, artık mümkün değil','Düşünmedim']},
+      {id:'gl_q11',type:'mcq',text:'Paran olsa nasıl bir hayat sürerdin?',subtext:'If you had money, what kind of life would you live?',options:['Lüks & konforlu','Minimalist & sade','Maceracı & gezgin','Sakin & doğayla iç içe']},
+      {id:'gl_q12',type:'mcq',text:'Yalnız yaşamak ister misin?',subtext:'Would you like to live alone?',options:['Evet, özgürlük','Hayır, yalnızlık bunaltır','Şimdilik evet']},
+      {id:'gl_q13',type:'mcq',text:'Evlilik hâlâ anlamlı bir kurum mu?',subtext:'Is marriage still a meaningful institution?',options:['Evet','Hayır','Değişiyor']},
+      {id:'gl_q14',type:'mcq',text:'Çocuk sahibi olmak istiyor musun?',subtext:'Do you want to have children?',options:['Evet','Hayır','Kararsızım']},
+      {id:'gl_q15',type:'mcq',text:'Dini inançların hayatını ne kadar şekillendiriyor?',subtext:'How much do your religious beliefs shape your life?',options:['Çok','Biraz','Hiç']},
+      {id:'gl_q16',type:'mcq',text:'Ölümden sonra ne olduğunu düşünüyorsun?',subtext:'What do you think happens after death?',options:['Hiçlik','Başka bir hayat','Bilmiyorum','Önemli değil']},
+      {id:'gl_q17',type:'mcq',text:'Hatırlanmak ister misin?',subtext:'Do you want to be remembered?',options:['Evet, çok önemli','Hayır, fark etmez','Sevdiklerim hatırlasın yeter']},
+      {id:'gl_q18',type:'mcq',text:'Hayatının en önemli kararı neydi şimdiye kadar?',subtext:'What has been the most important decision of your life so far?',options:['Eğitim','İlişki','Yer değiştirme','Henüz vermedim']},
+      {id:'gl_q19',type:'mcq',text:'Pişmanlıkla yaşamak mı zor, yoksa riski alıp yanmak mı?',subtext:'Is it harder to live with regret or to take the risk and get burned?',options:['Pişmanlık','Yanmak','İkisi de zor']},
+      {id:'gl_q20',type:'mcq',text:'Seni en çok ne motive eder?',subtext:'What motivates you the most?',options:['Sevdiklerim','Başarma hissi','Özgürlük','Anlam & amaç']}
+    ]
+  },
+  {
+    id:'p_psikoloji001',name:'Psikoloji & İç Dünya',emoji:'🧠',
+    desc:'Kişinin kendisiyle ilişkisini ve iç dünyasını anlamak',
+    color:'#34d399',structure:'flat',categories:[],
+    questions:[
+      {id:'ps_q01',type:'mcq',text:'Kendini iyi tanıyor musun?',subtext:'Do you know yourself well?',options:['Evet, çok iyi','Kısmen','Hayır, hâlâ keşfediyorum']},
+      {id:'ps_q02',type:'mcq',text:'Başkalarının seni tanımlaması ile kendi tanımlamanın örtüşüyor mu?',subtext:'Does how others describe you match how you describe yourself?',options:['Evet, örtüşüyor','Hayır, çok farklı','Kısmen']},
+      {id:'ps_q03',type:'mcq',text:'Yalnız kaldığında aklına ilk ne gelir?',subtext:'What is the first thing that comes to your mind when you are alone?',options:['Yapacaklarım','Geçmiş anlar','Hiç boş kalmam','Sadece dinlenirim']},
+      {id:'ps_q04',type:'mcq',text:'Kendinle barışık mısın?',subtext:'Are you at peace with yourself?',options:['Evet','Hayır','Çalışıyorum üzerine']},
+      {id:'ps_q05',type:'mcq',text:'En çok hangi durumda gerçek sen çıkıyor ortaya?',subtext:'In which situation does the real you come out most?',options:['Stres altında','Mutlu anlarımda','Yalnızken','Sevdiklerimin yanında']},
+      {id:'ps_q06',type:'mcq',text:'Karar verirken ne ağır basar?',subtext:'What weighs most when making a decision?',options:['Mantık','His','İkisini dengelemeye çalışırım']},
+      {id:'ps_q07',type:'mcq',text:'Geçmişe mi takılırsın, geleceğe mi endişelenirsin, anda mı kalırsın?',subtext:'Do you dwell on the past, worry about the future, or stay in the present?',options:['Geçmiş','Gelecek','An']},
+      {id:'ps_q08',type:'mcq',text:'Bir sorunla karşılaştığında ilk tepkin ne?',subtext:'What is your first reaction when you face a problem?',options:['Hemen çözüme odaklanırım','Önce duyguyu yaşarım','Kaçarım']},
+      {id:'ps_q09',type:'mcq',text:'Eleştiriye nasıl tepki verirsin?',subtext:'How do you react to criticism?',options:['Savunmaya geçerim','Dinler, değerlendiririm','Çok etkilerim']},
+      {id:'ps_q10',type:'mcq',text:'Kafanda sürekli dönen bir soru var mı?',subtext:'Is there a question that keeps going around in your head?',options:['Evet, hep bir şeyler döner','Hayır, oldukça sakinim','Farkında bile değilim']},
+      {id:'ps_q11',type:'mcq',text:'En çok ne seni durdurur hayatta?',subtext:'What stops you the most in life?',options:['Başarısızlık korkusu','Yargılanma korkusu','Kayıp korkusu','Hiçbir şey']},
+      {id:'ps_q12',type:'mcq',text:'Kendine güvenin nereden geliyor?',subtext:'Where does your self-confidence come from?',options:['Başardıklarımdan','Sevdiklerimin desteğinden','İçimden','Henüz tam gelmiyor']},
+      {id:'ps_q13',type:'mcq',text:'Hayatında en çok kime güvenirsin?',subtext:'Who do you trust the most in your life?',options:['Kendime','Aileme','Arkadaşıma','Kimseye tam güvenmem']},
+      {id:'ps_q14',type:'mcq',text:'Bir şeyden çok korktuğunda ne yaparsın?',subtext:'What do you do when you are very afraid of something?',options:['Üzerine giderim','Kaçarım','Görmezden gelirim']},
+      {id:'ps_q15',type:'mcq',text:'Geçmişte seni en çok ne değiştirdi?',subtext:'What changed you the most in the past?',options:['Bir kayıp','Bir başarı','Bir insan','Bir hata']},
+      {id:'ps_q16',type:'mcq',text:'İç sesin sana genellikle ne söyler?',subtext:'What does your inner voice usually tell you?',options:['Yapabilirsin','Dikkatli ol','Sen kimsin ki','Hadi dene']},
+      {id:'ps_q17',type:'mcq',text:'Stresle nasıl başa çıkarsın?',subtext:'How do you cope with stress?',options:['Spor & hareket','Müzik & sanat','Uyku','Konuşmak','İçime atarım']},
+      {id:'ps_q18',type:'mcq',text:'Mutluluğun kaynağı daha çok nerede?',subtext:'Where does your happiness mostly come from?',options:['İlişkiler','Başarı & üretmek','Özgürlük & keşif','Huzur & sadelik']},
+      {id:'ps_q19',type:'mcq',text:'Kendine karşı adil misin?',subtext:'Are you fair to yourself?',options:['Evet','Hayır, çok sert davranırım','Hayır, çok müsamahalıyım']},
+      {id:'ps_q20',type:'mcq',text:'Seni en iyi anlatan bir kelime ne olurdu?',subtext:'What one word would best describe you?',options:['Güçlü','Hassas','Meraklı','Karmaşık','Özgür']}
+    ]
+  }
+];
+var FELSEFE_PROJECT={
+  id:'p_oldfelsefi',name:'Felsefi Anket',emoji:'🧠',
+  desc:'İnsan doğası, etik, toplum, varoluş üzerine derin sorular',
+  color:'#6ee7b7',structure:'cats',
+  categories:[
+    {id:'c_human',name:'İnsan Doğası',color:'#6ee7b7'},
+    {id:'c_ethics',name:'Etik & Değerler',color:'#fbbf24'},
+    {id:'c_society',name:'Toplum & Adalet',color:'#60a5fa'},
+    {id:'c_god',name:'Tanrı & Varoluş',color:'#a78bfa'},
+    {id:'c_knowledge',name:'Bilgi & Gerçek',color:'#f472b6'},
+    {id:'c_freedom',name:'Özgürlük & Güç',color:'#fb923c'},
+    {id:'c_bonus',name:'Bonus',color:'#34d399'}
+  ],
+  questions:[
+    {id:'oq_0', type:'mcq',text:'İnsanlar özünde iyi mi, yoksa kötü mü?',subtext:'Are people essentially good or bad?',options:['İyi','Kötü','Nötr'],catId:'c_human'},
+    {id:'oq_1', type:'mcq',text:'Özgür irade gerçek midir, yoksa her şey önceden belirlenmiş midir?',subtext:'Is free will real, or is everything predetermined?',options:['Özgür irade var','Herşey önceden belirlendi','İkiside var'],catId:'c_human'},
+    {id:'oq_2', type:'mcq',text:'İnsanı insan yapan şey aklımıdır yoksa duygularımı?',subtext:'What makes a person human is my mind or my feelings?',options:['Akıl','Duygu'],catId:'c_human'},
+    {id:'oq_3', type:'mcq',text:'İnsan doğası değişebilir mi, yoksa sabit midir?',subtext:'Can human nature change, or is it constant?',options:['Değişebilir','Sabittir'],catId:'c_human'},
+    {id:'oq_4', type:'mcq',text:'Doğru ve yanlışı kim belirler — İrade mi, Tanrı mı?',subtext:'Who determines right and wrong — Will or God?',options:['İrade','Tanrı'],catId:'c_ethics'},
+    {id:'oq_5', type:'mcq',text:'Mutlu olmak için ahlâklı olmak şart mıdır?',subtext:'Is it necessary to be moral to be happy?',options:['Evet / Şartır','Hayır / Şart değilir'],catId:'c_ethics'},
+    {id:'oq_6', type:'mcq',text:'Kötü bir amaç için iyi bir şey yapılabilir mi?',subtext:'Can something good be done for a bad purpose?',options:['Evet / Yapılabilir','Hayır / Yapılamaz'],catId:'c_ethics'},
+    {id:'oq_7', type:'mcq',text:'Vicdanınız mı, yoksa toplumun kuralları mı daha bağlayıcıdır?',subtext:'Is your conscience or the rules of society more binding?',options:['Vicdanım','Toplumun kuralları'],catId:'c_ethics'},
+    {id:'oq_8', type:'mcq',text:'Çoğunluğun istediği her zaman doğru mudur?',subtext:'Is it always true what the majority wants?',options:['Evet / Doğrudur','Hayır / Doğru değildir'],catId:'c_society'},
+    {id:'oq_9', type:'mcq',text:'Adaletsiz bir yasaya uymak zorunda mıyız?',subtext:'Do we have to comply with an unfair law?',options:['Evet','Hayır'],catId:'c_society'},
+    {id:'oq_10',type:'mcq',text:'Eşitlik mi, özgürlük mü daha önemlidir?',subtext:'Is equality or freedom more important?',options:['Eşitlik','Özgürlük'],catId:'c_society'},
+    {id:'oq_11',type:'mcq',text:'Devlet bireyin iyiliği için onun özgürlüğünü kısıtlayabilir mi?',subtext:'Can the state restrict the freedom of the individual for the good of the individual?',options:['Evet / Kısıtlayabilir','Hayır / Kısıtlayamaz'],catId:'c_society'},
+    {id:'oq_12',type:'mcq',text:'Bir insanın başarısı kendi çabasının mı, yoksa şansın mı ürünüdür?',subtext:'Seçenekler: Çaba / Şans',options:['Çaba','Şans'],catId:'c_society'},
+    {id:'oq_13',type:'mcq',text:'Toplumu bir arada tutan şey korku mu, sevgi mi?',subtext:'Seçenekler: Korku / Sevgi',options:['Korku','Sevgi'],catId:'c_society'},
+    {id:'oq_14',type:'mcq',text:'Tanrı yoksa, ahlâkın temeli ne olabilir?',subtext:'Without God, what could be the basis of morality?',options:['Akıl','Vicdan','Öz','Tanrı Vardır'],catId:'c_god'},
+    {id:'oq_15',type:'mcq',text:'İnsan hayatının anlamı var mıdır, yoksa biz mi anlam yükleriz?',subtext:'Does human life have a meaning, or do we have meaning?',options:['Hayatın bir anlamı var','Biz bir anlam yüklüyoruz'],catId:'c_god'},
+    {id:'oq_16',type:'mcq',text:'Bütün evren tek bir amaca göre mi yaratıldı?',subtext:'Was the whole universe created for a single purpose?',options:['Evet','Hayır'],catId:'c_god'},
+    {id:'oq_17',type:'mcq',text:'Gerçek herkes için aynı mıdır?',subtext:'Is the truth the same for everyone?',options:['Evet / Aynıdır','Hayır / Aynı değildir'],catId:'c_knowledge'},
+    {id:'oq_18',type:'mcq',text:'Hiçbir şeyi kesin olarak bilebilir miyiz?',subtext:'Can we know nothing for sure?',options:['Evet / Bilebiliriz','Hayır / Bilemeyiz'],catId:'c_knowledge'},
+    {id:'oq_19',type:'mcq',text:'Acı veren bir gerçek mi, yoksa rahatlatıcı bir yalanımı tercih ederdin?',subtext:'Would you prefer a painful truth or a comforting lie of mine?',options:['Acı veren, Gerçek','Rahatlatıcak, Yalan'],catId:'c_knowledge'},
+    {id:'oq_20',type:'mcq',text:'Tam özgürlük mümkün müdür, yoksa her zaman bir sınır var mıdır?',subtext:'Is complete freedom possible, or is there always a limit?',options:['Evet / Tam özgürlük, Mümkün','Hayır / Her zaman, Sınır var'],catId:'c_freedom'},
+    {id:'oq_21',type:'mcq',text:'Güç insanı bozar mı, yoksa sadece içinde yatanları ortayamı çıkarır?',subtext:'Does power corrupt people, or does it only reveal what is in it?',options:['Bozar','Ortaya çıkarır'],catId:'c_freedom'},
+    {id:'oq_22',type:'mcq',text:'Boyun eğmek mi, yoksa özgürce yanılmak mı daha insancadır?',subtext:'Is it more humane to submit or to be freely wrong?',options:['Boyun eğmek','Özgürce yanılmak'],catId:'c_freedom'},
+    {id:'oq_23',type:'mcq',text:'Hayatında en çok neyin peşindesin?',subtext:'What are you most after in your life?',type:'text',catId:'c_bonus'},
+    {id:'oq_24',type:'mcq',text:'Hayatında en çok neyin peşindesin — Anlam, Başarı, Mutluluk?',subtext:'What are you after the most in your life? — Meaning, Success, Happiness?',options:['Anlam','Başarı','Mutluluk'],catId:'c_bonus'},
+    {id:'oq_25',type:'mcq',text:'Sence insanlar temelde yalnız mı, yoksa bağlantı içinde mi yaşıyor?',subtext:'Do you think people basically live alone or connected?',options:['Yalnız','Bağlantı içinde'],catId:'c_bonus'},
+    {id:'oq_26',type:'mcq',text:'Kitap okurmusun? Seni en çok hangi kitap etkiledi?',subtext:'Do you read a book? Which book impressed you the most?',options:['Evet, etkileyeni var','Evet, ama beni etkileyen kitap olmadı','Pek kitap okumam'],catId:'c_bonus'},
+    {id:'oq_27',type:'mcq',text:'Hiç tamamen yanlış olduğunu sonradan anladığın güçlü bir fikrin oldu mu?',subtext:'Have you ever had a strong idea that you later realized that it was completely wrong?',options:['Evet oldu','Hayır olmadı'],catId:'c_bonus'},
+    {id:'oq_28',type:'text',text:'Bir insan için en değerli şeyin ne olduğunu düşünüyorsun?',subtext:'What do you think is the most valuable thing for a person?',catId:'c_bonus'},
+    {id:'oq_29',type:'mcq',text:'Bir insan için en değerli şeyin ne olduğunu düşünüyorsun — Zeka mı, Empati mi?',subtext:'What do you think is the most valuable thing for a person — intelligence or empathy?',options:['Zeka','Empati'],catId:'c_bonus'},
+    {id:'oq_30',type:'mcq',text:'Seninle aynı fikirde olmayan biriyle nasıl başa çıkıyorsun?',subtext:'How do you deal with someone who disagrees with you?',options:['Manipüle ederim','Tartışırım','Anlamaya çalışırım','Geçip giderim'],catId:'c_bonus'},
+    {id:'oq_31',type:'mcq',text:'Hayatta en çok kimi ya da neyi kaybetmekten korkuyorsun?',subtext:'Who or what are you most afraid of losing in life?',options:['Yakınlarımı','Kendimi','Özgürlüğümü'],catId:'c_bonus'},
+    {id:'oq_32',type:'mcq',text:'10 yıl sonra nerede olmak istiyorsun?',subtext:'Where do you want to be in 10 years?',options:['Hedefim var','Hanüz bilmiyorum'],catId:'c_bonus'}
+  ]
+};
+
+var ALL_DEFAULT=[FELSEFE_PROJECT].concat(DEFAULT_PROJECTS);
+ALL_DEFAULT.forEach(function(dp){
+  if(!db.projects.find(function(p){return p.id===dp.id})){
+    db.projects.push(dp);
+  }
+});
+save();
+
 // Init nav labels from saved lang
 setLang(appLang);
 go('home');
